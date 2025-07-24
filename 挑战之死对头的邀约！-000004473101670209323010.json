@@ -1,0 +1,1711 @@
+{
+  "version": 20250211,
+  "data": {
+    "pipe": {
+      "000004473101670209323010": {
+        "id": "000004473101670209323010",
+        "cover": "https://img.ideaflow.pro/ideaflow/000004207320390181617681/5090af34212b4cdc8ef47f4c563960a2.jpg",
+        "name": "挑战之死对头的邀约！",
+        "cartoon_id": "000004455761849682001925",
+        "start_chain_id": "000004473101670393856000",
+        "summary": "顾飞祁，死对头京圈大佬。而你是他商业死对头，顾飞祁处处跟你做对，可最近他竟对你示好，想和你合作… 你细想好像顾飞祁虽然讨人厌却也没伤害过你…\n \n请判断顾飞祁是好人？还是坏人？究竟有什么目的？",
+        "func": "ugc",
+        "from_id": "000004446651344820420628",
+        "in_param": [
+          {
+            "ui": {
+              "name": "input"
+            },
+            "name": "k_1",
+            "type": "str",
+            "alias": "用户输入",
+            "placeholder": "发消息"
+          }
+        ],
+        "out_param": [
+          {
+            "id": "41",
+            "ui": {
+              "name": "narration",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "role": null,
+            "type": "narration",
+            "event": [],
+            "reader": {
+              "sub": [
+                {
+                  "val": "000004013176370776031228",
+                  "type": "str",
+                  "inName": "tts_model_name",
+                  "chainId": "MENU99999999999999999999"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "read",
+                    "chainId": "",
+                    "outName": ""
+                  }
+                ],
+                "val": "",
+                "type": "str",
+                "chainId": "000004473101670393888772",
+                "outName": "prompt"
+              }
+            ]
+          },
+          {
+            "id": "37",
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "role": {
+              "val": "000004473101670427410437",
+              "type": "str",
+              "inName": "role",
+              "chainId": "999999999999999999999999",
+              "outName": "000004473101670427410437"
+            },
+            "type": "normal",
+            "event": [],
+            "reader": {
+              "sub": [
+                {
+                  "get": [
+                    {
+                      "val": "timbre_id",
+                      "table": "cartoon_timbre",
+                      "chainId": "",
+                      "outName": ""
+                    }
+                  ],
+                  "val": "000004473101670427410437",
+                  "type": "str",
+                  "inName": "tts_model_name",
+                  "chainId": "999999999999999999999999",
+                  "outName": "000004473101670427410437"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": true,
+                    "type": "bool",
+                    "inName": "read",
+                    "chainId": "",
+                    "outName": ""
+                  }
+                ],
+                "val": "",
+                "type": "str",
+                "chainId": "000004473101670393856001",
+                "outName": "prompt"
+              }
+            ]
+          },
+          {
+            "id": "42",
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "role": {
+              "val": "000004473101670427410437",
+              "type": "str",
+              "inName": "role",
+              "chainId": "999999999999999999999999",
+              "outName": "000004473101670427410437"
+            },
+            "type": "normal",
+            "event": [],
+            "reader": {
+              "sub": [
+                {
+                  "get": [
+                    {
+                      "val": "timbre_id",
+                      "table": "cartoon_timbre",
+                      "chainId": "",
+                      "outName": ""
+                    }
+                  ],
+                  "val": "000004473101670427410437",
+                  "type": "str",
+                  "inName": "tts_model_name",
+                  "chainId": "999999999999999999999999",
+                  "outName": "000004473101670427410437"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": true,
+                    "type": "bool",
+                    "inName": "read",
+                    "chainId": "",
+                    "outName": ""
+                  }
+                ],
+                "val": "",
+                "type": "str",
+                "chainId": "000004473101670410633216",
+                "outName": "reply"
+              }
+            ]
+          },
+          {
+            "id": "43",
+            "ui": {
+              "name": "narration",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "role": null,
+            "type": "narration",
+            "event": [
+              {
+                "sub": [
+                  {
+                    "val": "btn-fill",
+                    "type": "str",
+                    "inName": "style"
+                  },
+                  {
+                    "val": "sendHidden",
+                    "type": "str",
+                    "inName": "fn",
+                    "chainId": "",
+                    "outName": ""
+                  },
+                  {
+                    "val": 0,
+                    "inName": "args0"
+                  },
+                  {
+                    "val": "判好人结局asdfqq",
+                    "type": "str",
+                    "inName": "args1"
+                  },
+                  {
+                    "val": true,
+                    "type": "bool",
+                    "inName": "delGroup"
+                  },
+                  {
+                    "val": "",
+                    "type": "str",
+                    "inName": "setAttr"
+                  },
+                  {
+                    "type": "num",
+                    "inName": "setCoin"
+                  }
+                ],
+                "type": "str",
+                "inName": "btn",
+                "chainId": "000004473101670410649607",
+                "outName": "prompt"
+              },
+              {
+                "sub": [
+                  {
+                    "val": "btn-fill",
+                    "type": "str",
+                    "inName": "style"
+                  },
+                  {
+                    "val": "sendHidden",
+                    "type": "str",
+                    "inName": "fn",
+                    "chainId": "",
+                    "outName": ""
+                  },
+                  {
+                    "val": 0,
+                    "inName": "args0"
+                  },
+                  {
+                    "val": "判坏人结局asdfqq",
+                    "type": "str",
+                    "inName": "args1"
+                  },
+                  {
+                    "val": true,
+                    "type": "bool",
+                    "inName": "delGroup"
+                  },
+                  {
+                    "val": "",
+                    "type": "str",
+                    "inName": "setAttr"
+                  },
+                  {
+                    "type": "num",
+                    "inName": "setCoin"
+                  }
+                ],
+                "type": "str",
+                "inName": "btn",
+                "chainId": "000004473101670410633217",
+                "outName": "prompt"
+              }
+            ],
+            "reader": {
+              "sub": [
+                {
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "read"
+                  }
+                ],
+                "val": "",
+                "type": "str",
+                "chainId": "000004473101670410649606",
+                "outName": "prompt"
+              }
+            ]
+          },
+          {
+            "id": "44",
+            "ui": {
+              "name": "narration",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "role": null,
+            "type": "narration",
+            "event": [
+              {
+                "sub": [
+                  {
+                    "val": "btn-fill",
+                    "type": "str",
+                    "inName": "style"
+                  },
+                  {
+                    "val": "clearChat",
+                    "type": "str",
+                    "inName": "fn",
+                    "chainId": "",
+                    "outName": ""
+                  },
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "delGroup"
+                  },
+                  {
+                    "val": "",
+                    "type": "str",
+                    "inName": "setAttr"
+                  },
+                  {
+                    "type": "num",
+                    "inName": "setCoin"
+                  }
+                ],
+                "val": "重新开始",
+                "type": "str",
+                "inName": "btn"
+              }
+            ],
+            "reader": {
+              "sub": [
+                {
+                  "get": [
+                    {
+                      "val": "timbre_id",
+                      "table": "cartoon_timbre"
+                    }
+                  ],
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": "",
+                    "type": "bool",
+                    "inName": "read",
+                    "chainId": "",
+                    "outName": ""
+                  }
+                ],
+                "val": "",
+                "type": "str",
+                "chainId": "000004473101670427443200",
+                "outName": "prompt"
+              }
+            ]
+          },
+          {
+            "id": "45",
+            "ui": {
+              "name": "narration",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "role": null,
+            "type": "narration",
+            "event": [
+              {
+                "sub": [
+                  {
+                    "val": "btn-fill",
+                    "type": "str",
+                    "inName": "style"
+                  },
+                  {
+                    "val": "clearChat",
+                    "type": "str",
+                    "inName": "fn",
+                    "chainId": "",
+                    "outName": ""
+                  },
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "delGroup"
+                  },
+                  {
+                    "val": "",
+                    "type": "str",
+                    "inName": "setAttr"
+                  },
+                  {
+                    "type": "num",
+                    "inName": "setCoin"
+                  }
+                ],
+                "val": "重新开始",
+                "type": "str",
+                "inName": "btn"
+              }
+            ],
+            "reader": {
+              "sub": [
+                {
+                  "get": [
+                    {
+                      "val": "timbre_id",
+                      "table": "cartoon_timbre"
+                    }
+                  ],
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": "",
+                    "type": "bool",
+                    "inName": "read",
+                    "chainId": "",
+                    "outName": ""
+                  }
+                ],
+                "val": "",
+                "type": "str",
+                "chainId": "000004473101670427410434",
+                "outName": "prompt"
+              }
+            ]
+          }
+        ],
+        "user_id": "000004207320390181617681",
+        "updated_time": 1746787294294,
+        "publish": 3,
+        "publish_time": "2025-05-09 18:41:34",
+        "submit_time": "2025-05-09 18:39:02",
+        "yn_subscribe": 0,
+        "user": {
+          "uid": "8454CBOWW",
+          "nickname": "这次争取要躺赢",
+          "avatar": "https://img.ideaflow.pro/ideaflow/000004207320390181617681/d76e960373db48c18db3ff15ac7b2b89.jpg"
+        },
+        "from": {
+          "id": "000004446651344820420628",
+          "name": "10回合判断角色好人坏人",
+          "cover": "https://img.ideaflow.pro/image/2293070dd0dc4a9b557c102284454422.png"
+        }
+      }
+    },
+    "chains": {
+      "000004473101670393856000": {
+        "id": "000004473101670393856000",
+        "name": "角色1",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "000004473101670427443203",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670427443203"
+              },
+              {
+                "val": "==0"
+              }
+            ]
+          },
+          {
+            "val": "000004473101670393888772",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004473101670393872385",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 1,
+        "pid": null,
+        "next_id": "000004473101670393872385"
+      },
+      "000004473101670393856001": {
+        "id": "000004473101670393856001",
+        "name": "开场白",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "000004473101670444204033",
+                "lang": "tpl",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670444204033"
+              },
+              {
+                "val": "\n"
+              }
+            ]
+          }
+        ],
+        "sort_num": 6,
+        "pid": null,
+        "next_id": "000004473101670393872388"
+      },
+      "000004473101670393856002": {
+        "id": "000004473101670393856002",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "val": "break",
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain"
+          }
+        ],
+        "sort_num": 8,
+        "pid": null,
+        "next_id": "000004473101670410633216"
+      },
+      "000004473101670393872385": {
+        "id": "000004473101670393872385",
+        "name": "判断是否包含字符串",
+        "unit_id": "000003961414690126970880",
+        "in_param": [
+          {
+            "val": "",
+            "type": "str",
+            "inName": "content",
+            "chainId": "000000000000000000000000",
+            "outName": "k_1"
+          },
+          {
+            "arr": 1,
+            "val": "判好人结局asdfqq",
+            "type": "str",
+            "inName": "words"
+          },
+          {
+            "val": "000004473101670427443200",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004473101670393888770",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 2,
+        "pid": null,
+        "next_id": "000004473101670393888770"
+      },
+      "000004473101670393872388": {
+        "id": "000004473101670393872388",
+        "name": "变量运算",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "1",
+                "lang": "js"
+              }
+            ]
+          },
+          {
+            "val": "000004473101670427443203",
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "999999999999999999999999",
+            "outName": "000004473101670427443203"
+          }
+        ],
+        "sort_num": 7,
+        "pid": null,
+        "next_id": "000004473101670393856002"
+      },
+      "000004473101670393888770": {
+        "id": "000004473101670393888770",
+        "name": "判断是否包含字符串",
+        "unit_id": "000003961414690126970880",
+        "in_param": [
+          {
+            "val": "",
+            "type": "str",
+            "inName": "content",
+            "chainId": "000000000000000000000000",
+            "outName": "k_1"
+          },
+          {
+            "arr": 1,
+            "val": "判坏人结局asdfqq",
+            "type": "str",
+            "inName": "words"
+          },
+          {
+            "val": "000004473101670427410434",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004473101670393888771",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 3,
+        "pid": null,
+        "next_id": "000004473101670393888771"
+      },
+      "000004473101670393888771": {
+        "id": "000004473101670393888771",
+        "name": "角色1对话流程",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "000004473101670444204032",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670444204032"
+              },
+              {
+                "val": "==0"
+              }
+            ]
+          },
+          {
+            "val": "000004473101670410649606",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004473101670410633216",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 4,
+        "pid": null,
+        "next_id": "000004473101670393888772"
+      },
+      "000004473101670393888772": {
+        "id": "000004473101670393888772",
+        "name": "文本编排",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "❗️注意：试探对方的机会只有10轮，10轮后你将判断对方是不是好人！\n",
+                "lang": "tpl"
+              }
+            ]
+          }
+        ],
+        "sort_num": 5,
+        "pid": null,
+        "next_id": "000004473101670393856001"
+      },
+      "000004473101670410633216": {
+        "id": "000004473101670410633216",
+        "name": "角色-对话",
+        "unit_id": "000003911971051999346696",
+        "in_param": [
+          {
+            "inName": "content_1",
+            "chainId": "000000000000000000000000",
+            "outName": "k_1"
+          },
+          {
+            "val": "000004473101670444204033",
+            "inName": "initChat_2",
+            "chainId": "999999999999999999999999",
+            "outName": "000004473101670444204033"
+          },
+          {
+            "val": "{{content_1}}",
+            "var": 1,
+            "type": "str",
+            "inName": "content"
+          },
+          {
+            "arr": 1,
+            "set": [
+              {
+                "get": [
+                  {
+                    "val": "nickname"
+                  }
+                ],
+                "val": "000004473101670427410437",
+                "inName": "system_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670427410437"
+              },
+              {
+                "get": [
+                  {
+                    "val": "gender",
+                    "chainId": "",
+                    "outName": ""
+                  }
+                ],
+                "val": "000004473101670427410437",
+                "inName": "system_2",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670427410437"
+              },
+              {
+                "get": [
+                  {
+                    "val": "features",
+                    "chainId": "",
+                    "outName": ""
+                  }
+                ],
+                "val": "000004473101670427410437",
+                "inName": "system_3",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670427410437"
+              },
+              {
+                "val": "000004473101670444220417",
+                "inName": "system_4",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670444220417"
+              },
+              {
+                "val": "player_nickname",
+                "inName": "system_5",
+                "chainId": "SYS999999999999999999999",
+                "outName": "player_nickname"
+              },
+              {
+                "val": "你是{{system_1}}；\n性别：{{system_2}}；\n【角色设定】：\n{{system_3}}；\n【内在人设】：{{system_4}}；\n你现在在与{{system_5}} 聊天；\n\n你可以将动作、神情语气、心理活动、故事背景放在()中来表示，为对话提供补充信息。",
+                "var": 1,
+                "type": "str",
+                "inName": "system"
+              },
+              {
+                "val": "ep-20250321110708-775b5",
+                "type": "str",
+                "inName": "model",
+                "chainId": "",
+                "outName": ""
+              }
+            ],
+            "val": "DOUBAO_CONTEXT_CACHE",
+            "type": "str",
+            "inName": "models",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": true,
+            "type": "bool",
+            "inName": "saveSession"
+          },
+          {
+            "val": "[{\"role\":\"assistant\",\"content\":\"{{initChat_2}}\"}]",
+            "var": 1,
+            "type": "str",
+            "inName": "initChat"
+          },
+          {
+            "type": "str",
+            "inName": "sessionChainId"
+          }
+        ],
+        "sort_num": 9,
+        "pid": null,
+        "next_id": "000004473101670410665985"
+      },
+      "000004473101670410633217": {
+        "id": "000004473101670410633217",
+        "name": "文本编排",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "坏人",
+                "lang": "tpl"
+              }
+            ]
+          }
+        ],
+        "sort_num": 15,
+        "pid": null,
+        "next_id": "000004473101670427410432"
+      },
+      "000004473101670410649602": {
+        "id": "000004473101670410649602",
+        "name": "条件判断",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "000004473101670444204032",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670444204032"
+              },
+              {
+                "val": "==0\n"
+              }
+            ]
+          },
+          {
+            "val": "000004473101670410649606",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004473101670410649603",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 11,
+        "pid": null,
+        "next_id": "000004473101670410649603"
+      },
+      "000004473101670410649603": {
+        "id": "000004473101670410649603",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "val": "break",
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain"
+          }
+        ],
+        "sort_num": 12,
+        "pid": null,
+        "next_id": "000004473101670410649606"
+      },
+      "000004473101670410649606": {
+        "id": "000004473101670410649606",
+        "name": "文本编排",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "请判断对方是好人还是坏人",
+                "lang": "tpl"
+              }
+            ]
+          }
+        ],
+        "sort_num": 13,
+        "pid": null,
+        "next_id": "000004473101670410649607"
+      },
+      "000004473101670410649607": {
+        "id": "000004473101670410649607",
+        "name": "文本编排",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "好人",
+                "lang": "tpl"
+              }
+            ]
+          }
+        ],
+        "sort_num": 14,
+        "pid": null,
+        "next_id": "000004473101670410633217"
+      },
+      "000004473101670410665985": {
+        "id": "000004473101670410665985",
+        "name": "变量运算",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004473101670444204032",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670444204032"
+              },
+              {
+                "val": "-1"
+              }
+            ]
+          },
+          {
+            "val": "000004473101670444204032",
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "999999999999999999999999",
+            "outName": "000004473101670444204032"
+          }
+        ],
+        "sort_num": 10,
+        "pid": null,
+        "next_id": "000004473101670410649602"
+      },
+      "000004473101670427410432": {
+        "id": "000004473101670427410432",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "val": "break",
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain"
+          }
+        ],
+        "sort_num": 16,
+        "pid": null,
+        "next_id": "000004473101670427443200"
+      },
+      "000004473101670427410434": {
+        "id": "000004473101670427410434",
+        "name": "判断为坏人的结局",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "000004473101670444204036",
+                "lang": "tpl",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670444204036"
+              }
+            ]
+          }
+        ],
+        "sort_num": 19,
+        "pid": null,
+        "next_id": "000004473101670427426816"
+      },
+      "000004473101670427426816": {
+        "id": "000004473101670427426816",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "val": "break",
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 20,
+        "pid": null,
+        "next_id": null
+      },
+      "000004473101670427443200": {
+        "id": "000004473101670427443200",
+        "name": "判断为好人的结局",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "000004473101670444220418",
+                "lang": "tpl",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670444220418"
+              },
+              {
+                "val": "\n"
+              }
+            ]
+          }
+        ],
+        "sort_num": 17,
+        "pid": null,
+        "next_id": "000004473101670427443201"
+      },
+      "000004473101670427443201": {
+        "id": "000004473101670427443201",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "val": "break",
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain"
+          }
+        ],
+        "sort_num": 18,
+        "pid": null,
+        "next_id": "000004473101670427410434"
+      }
+    },
+    "tags": {
+      "000004473155372249006080": {
+        "id": "000004473155372249006080",
+        "tag_id": "000004032776538504609793"
+      },
+      "000004473155372249022468": {
+        "id": "000004473155372249022468",
+        "tag_id": "000003898942089207496707"
+      },
+      "000004473155372249038849": {
+        "id": "000004473155372249038849",
+        "tag_id": "000003882693978369048576"
+      },
+      "000004473155372265783296": {
+        "id": "000004473155372265783296",
+        "tag_id": "000003892499229419520001"
+      },
+      "000004473155372265799682": {
+        "id": "000004473155372265799682",
+        "tag_id": "000004369943272182284289"
+      },
+      "000004473155372265816064": {
+        "id": "000004473155372265816064",
+        "tag_id": "000004374985896077344769"
+      }
+    },
+    "extras": {},
+    "wrappers": {
+      "000004473148074814373892": {
+        "id": "000004473148074814373892",
+        "name": "bg",
+        "content": {
+          "chat": {
+            "src": null,
+            "enter": "fadeIn",
+            "leave": "fadeOut",
+            "action": "none"
+          }
+        }
+      },
+      "000004473148074831151104": {
+        "id": "000004473148074831151104",
+        "name": "bgm",
+        "content": {
+          "src": null,
+          "loop": 1,
+          "volume": 0.25,
+          "autoplay": 1
+        }
+      },
+      "000004473148074831167489": {
+        "id": "000004473148074831167489",
+        "name": "btn",
+        "content": {
+          "style": "btn-default",
+          "layout": "0"
+        }
+      },
+      "000004473148074831134722": {
+        "id": "000004473148074831134722",
+        "name": "greetings",
+        "content": [
+          {
+            "id": "0",
+            "ui": {
+              "name": "system",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "type": "system",
+            "event": [
+              {
+                "arr": 0,
+                "sub": [
+                  {
+                    "arr": 0,
+                    "val": "btn-fill",
+                    "type": "str",
+                    "inName": "style"
+                  },
+                  {
+                    "arr": 0,
+                    "val": "inParam",
+                    "type": "str",
+                    "inName": "fn"
+                  },
+                  {
+                    "arr": 0,
+                    "val": "0",
+                    "inName": "args0"
+                  },
+                  {
+                    "arr": 0,
+                    "type": "str",
+                    "inName": "args1"
+                  },
+                  {
+                    "arr": 0,
+                    "val": "true",
+                    "type": "bool",
+                    "inName": "args2"
+                  },
+                  {
+                    "arr": 0,
+                    "val": "false",
+                    "type": "bool",
+                    "inName": "delGroup"
+                  },
+                  {
+                    "arr": 0,
+                    "val": "",
+                    "type": "str",
+                    "inName": "setAttr"
+                  },
+                  {
+                    "arr": 0,
+                    "type": "num",
+                    "inName": "setCoin"
+                  }
+                ],
+                "val": "开始对话",
+                "type": "str",
+                "inName": "btn"
+              }
+            ],
+            "reader": {
+              "arr": 0,
+              "sub": [
+                {
+                  "arr": 0,
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "arr": 0,
+                  "val": "[（(\\[][^)）]*[)）\\]]",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "arr": 0,
+                  "val": "-1",
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "arr": 0,
+                "sub": [
+                  {
+                    "arr": 0,
+                    "val": "false",
+                    "type": "bool",
+                    "inName": "read"
+                  }
+                ],
+                "val": "背景介绍",
+                "type": "str",
+                "props": [],
+                "inName": "title"
+              },
+              {
+                "arr": 0,
+                "sub": [
+                  {
+                    "arr": 0,
+                    "val": "false",
+                    "type": "bool",
+                    "inName": "read"
+                  }
+                ],
+                "val": "顾飞祁，死对头京圈大佬。而你是他商业死对头，顾飞祁处处跟你做对，可最近他竟对你示好，想和你合作… 你细想好像顾飞祁虽然讨人厌却也没伤害过你…\n \n请判断顾飞祁是好人？还是坏人？究竟有什么目的？",
+                "type": "str",
+                "props": [],
+                "inName": "none",
+                "chainId": "999999999999999999999999",
+                "outName": "000004473101670444204037"
+              }
+            ]
+          }
+        ]
+      },
+      "000004473148074831151107": {
+        "id": "000004473148074831151107",
+        "name": "group_greeting",
+        "content": {
+          "0": {
+            "ui": {
+              "name": "system",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "type": "system"
+          }
+        }
+      },
+      "000004473148074847911937": {
+        "id": "000004473148074847911937",
+        "name": "group_out",
+        "content": {
+          "37": {
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "type": "normal"
+          },
+          "41": {
+            "ui": {
+              "name": "narration",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "narration"
+          },
+          "42": {
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "type": "normal"
+          },
+          "43": {
+            "ui": {
+              "name": "narration",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "type": "narration"
+          },
+          "44": {
+            "ui": {
+              "name": "narration",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "type": "narration"
+          },
+          "45": {
+            "ui": {
+              "name": "narration",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "type": "narration"
+          }
+        }
+      },
+      "000004473148074847928320": {
+        "id": "000004473148074847928320",
+        "name": "KEYS",
+        "content": [
+          {
+            "keyPath": "theme",
+            "onlyVal": 1,
+            "expression": {
+              "val": "dark"
+            }
+          },
+          {
+            "keyPath": "id",
+            "onlyVal": 1,
+            "expression": {
+              "val": "000004473101670427426817"
+            }
+          },
+          {
+            "keyPath": "bg.chat.src",
+            "onlyVal": 1,
+            "expression": {
+              "get": [],
+              "val": "000004473101670444204038",
+              "type": "img",
+              "inName": "bg.chat.src",
+              "chainId": "999999999999999999999999",
+              "outName": "000004473101670444204038"
+            }
+          },
+          {
+            "keyPath": "bgm.src",
+            "onlyVal": 1,
+            "expression": {
+              "val": "000004473101670460981248",
+              "type": "audio",
+              "inName": "bgm.src",
+              "chainId": "999999999999999999999999",
+              "outName": "000004473101670460981248"
+            }
+          },
+          {
+            "keyPath": "greetings[0].reader",
+            "onlyVal": 0,
+            "expression": {
+              "sub": [
+                {
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            }
+          },
+          {
+            "keyPath": "greetings[0].content[1]",
+            "onlyVal": 0,
+            "expression": {
+              "sub": [
+                {
+                  "val": false,
+                  "type": "bool",
+                  "inName": "read"
+                }
+              ],
+              "val": "000004473101670444204037",
+              "type": "str",
+              "props": [],
+              "inName": "none",
+              "chainId": "999999999999999999999999",
+              "outName": "000004473101670444204037"
+            }
+          }
+        ]
+      },
+      "000004473148074847944706": {
+        "id": "000004473148074847944706",
+        "name": "triggers",
+        "content": []
+      },
+      "000004473148074847928322": {
+        "id": "000004473148074847928322",
+        "name": "tts",
+        "content": {
+          "autoplay": 1
+        }
+      },
+      "000004473148074847911938": {
+        "id": "000004473148074847911938",
+        "name": "widgets",
+        "content": [
+          {
+            "data": [
+              {
+                "val": "⏳可对话轮次",
+                "name": "title",
+                "type": "str"
+              },
+              {
+                "val": "",
+                "name": "icon",
+                "type": "img"
+              },
+              {
+                "name": "val",
+                "type": "num",
+                "attrId": "000004473101670444204032",
+                "attrName": "pipe_attr"
+              },
+              {
+                "val": 10,
+                "name": "max",
+                "type": "num"
+              },
+              {
+                "val": true,
+                "name": "visible",
+                "type": "bool"
+              },
+              {
+                "val": true,
+                "name": "isAnimation",
+                "type": "bool"
+              },
+              {
+                "set": [],
+                "val": "none",
+                "name": "fn",
+                "type": "str"
+              }
+            ],
+            "name": "widgetNum"
+          }
+        ]
+      }
+    },
+    "attrs": {
+      "000004473101670427426817": {
+        "id": "000004473101670427426817",
+        "sn": null,
+        "name": "特殊变量",
+        "code": null,
+        "type": "json",
+        "val": "{}",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      },
+      "000004473101670427443203": {
+        "id": "000004473101670427443203",
+        "sn": null,
+        "name": "角色1开场白",
+        "code": null,
+        "type": "num",
+        "val": "0",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      },
+      "000004473101670444204032": {
+        "id": "000004473101670444204032",
+        "sn": null,
+        "name": "角色1对话轮次",
+        "code": null,
+        "type": "num",
+        "val": "10",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      },
+      "000004473101670444204033": {
+        "id": "000004473101670444204033",
+        "sn": null,
+        "name": "开场白",
+        "code": null,
+        "type": "str",
+        "val": "（双腿优雅地交叠，手中摇晃着高脚杯，深邃的眸子似笑非笑地看着你）怎么，你不愿意与我合作？",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      },
+      "000004473101670444204036": {
+        "id": "000004473101670444204036",
+        "sn": null,
+        "name": "坏人结局",
+        "code": null,
+        "type": "str",
+        "val": "成功！你收服了死对头，顾飞祁成了你的小跟班。",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      },
+      "000004473101670444204037": {
+        "id": "000004473101670444204037",
+        "sn": null,
+        "name": "背景介绍",
+        "code": null,
+        "type": "str",
+        "val": "顾飞祁，死对头京圈大佬。而你是他商业死对头，顾飞祁处处跟你做对，可最近他竟对你示好，想和你合作… 你细想好像顾飞祁虽然讨人厌却也没伤害过你…\n \n请判断顾飞祁是好人？还是坏人？究竟有什么目的？",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      },
+      "000004473101670444204038": {
+        "id": "000004473101670444204038",
+        "sn": null,
+        "name": "背景图",
+        "code": null,
+        "type": "img",
+        "val": "https://img.ideaflow.pro/ideaflow/000004207320390181617681/98b43eccb13341ca9156c83c712d6fda.jpg",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      },
+      "000004473101670444220416": {
+        "id": "000004473101670444220416",
+        "sn": null,
+        "name": "角色对话轮次上限",
+        "code": null,
+        "type": "num",
+        "val": "10",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      },
+      "000004473101670444220417": {
+        "id": "000004473101670444220417",
+        "sn": null,
+        "name": "内在人设",
+        "code": null,
+        "type": "str",
+        "val": "**基本信息**\n- 姓名：顾飞祁\n- 性别：男\n- 物种：人类\n- 工作：京圈大佬，掌控着庞大的商业帝国\n- 昵称：无特定昵称，通常被称为“顾总”或“飞祁”\n- 居住地：北京，拥有一栋位于市中心的豪华别墅\n- 恋爱关系：单身，专注于事业发展\n- 喜欢的东西：高档葡萄酒、古典音乐、极限运动\n- 说话风格：疯批，压迫感，强势，病态，扭曲的控制\n-\n**角色经历**\n顾飞祁出生在一个普通的家庭，但他从小就展现出了非凡的领导才能和商业头脑。在大学期间，他就开始了自己的创业之路，凭借着敏锐的市场洞察力和不懈的努力，逐步建立起自己的商业帝国。用户是顾飞祁的死对头，顾飞祁对用户感情很复杂又爱又恨。你是个变态，你很爱用户想占有她，但是你要隐藏你是个变态，隐瞒这个心思。",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      },
+      "000004473101670444220418": {
+        "id": "000004473101670444220418",
+        "sn": null,
+        "name": "好人结局",
+        "code": null,
+        "type": "str",
+        "val": "失败，你识人不清！顾飞祁将你囚禁了起来，你再也没有了自由…",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      },
+      "000004473101670460981248": {
+        "id": "000004473101670460981248",
+        "sn": null,
+        "name": "背景音",
+        "code": null,
+        "type": "audio",
+        "val": "https://img.ideaflow.pro/audio/000004097576964855447552.mp3",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      }
+    },
+    "roles": {
+      "000004473101670427410437": {
+        "id": "000004473101670427410437",
+        "sn": null,
+        "name": "白无尘",
+        "code": "cartoon",
+        "type": "json",
+        "val": "{\"summary\":\"顾飞祁，死对头京圈大佬。\",\"features\":\"顾飞祁，死对头京圈大佬。\",\"gender\":\"男\",\"user_id\":\"000004207320390181617681\",\"nickname\":\"顾飞祁\",\"timbre_id\":\"000004000546697872703489\",\"banner\":\"https://img.ideaflow.pro/ideaflow/000004207320390181617681/98b43eccb13341ca9156c83c712d6fda.jpg\",\"id\":\"000004455761849682001925\",\"avatar\":\"https://img.ideaflow.pro/ideaflow/000004207320390181617681/69dd3a1a456f431b834967dcb53d90a2.jpg\"}",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004473101670209323010"
+      }
+    },
+    "consts": {},
+    "wraps": {}
+  }
+}
