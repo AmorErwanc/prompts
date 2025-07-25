@@ -3,7 +3,12 @@
     "allow": [
       "mcp__n8n-mcp__n8n_get_workflow",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "mcp__n8n-mcp__tools_documentation",
+      "mcp__n8n-mcp__search_nodes",
+      "mcp__n8n-mcp__get_node_essentials",
+      "Bash(cat:*)",
+      "Bash(git push:*)"
     ],
     "deny": []
   }
