@@ -2,7 +2,7 @@ import csv
 import json
 
 def parse_csv_to_markdown():
-    """将CSV数据解析并转换为markdown格式"""
+    """将CSV数据解析并转换为markdown格式，提取完整的模板变量内容"""
     
     # 读取CSV文件
     with open('/Users/edy/Desktop/project/挑战玩法/好人坏人挑战数据.csv', 'r', encoding='utf-8') as f:
@@ -11,7 +11,7 @@ def parse_csv_to_markdown():
     
     # 解析每条数据
     cases = []
-    for row in data:  # 处理所有数据
+    for row in data:
         pipe_id = row['pipe_id']
         try:
             content = json.loads(row['content'])
@@ -19,93 +19,90 @@ def parse_csv_to_markdown():
         except:
             continue
         
-        # 提取背景介绍
-        background = ""
-        title = ""
+        case_info = {
+            'pipe_id': pipe_id,
+            'attrs': {}  # 存储所有属性
+        }
+        
+        # 解析content部分获取背景介绍
         for item in content:
             if 'content' in item:
                 for c in item['content']:
                     if c.get('val') == '背景介绍':
-                        title = "背景介绍"
                         continue
                     if 'val' in c and c['val'] and c['val'] not in ['无', '应该', '先虐后虐', '三哥喜欢我', '我喜欢爸爸。', '在床上。']:
-                        background = c['val']
-                        break
+                        case_info['背景介绍'] = c['val']
+                        if 'outName' in c:
+                            case_info['attrs']['背景介绍_id'] = c['outName']
         
-        # 提取更多信息
-        case_info = {
-            'pipe_id': pipe_id,
-            'background': background,
-            'title': title
-        }
+        # 解析in_param部分
+        role_id = None
+        inner_personality_id = None
+        opening_id = None
         
-        # 解析in_param中的模板信息
         for param in in_param:
-            if 'val' in param and isinstance(param['val'], str):
-                # 查找包含中文文本的system prompt
-                if '你是{{system_1}}' in param['val']:
-                    case_info['system_prompt'] = param['val']
-                # 查找模型信息
+            # 查找角色相关的ID
+            if 'outName' in param and 'val' in param:
+                out_name = param['outName']
+                val = param['val']
+                
+                # 根据命名模式识别不同的ID
+                if param.get('inName', '').startswith('system_1'):
+                    role_id = val
+                elif param.get('inName', '').startswith('system_4'):
+                    inner_personality_id = val
+                elif param.get('inName', '').startswith('initChat_2'):
+                    opening_id = val
                 elif param.get('inName') == 'model':
-                    case_info['model'] = param['val']
+                    case_info['模型'] = val
         
-        if background:  # 只保留有背景介绍的案例
+        # 保存ID信息
+        if role_id:
+            case_info['attrs']['角色ID'] = role_id
+        if inner_personality_id:
+            case_info['attrs']['内在人设ID'] = inner_personality_id
+        if opening_id:
+            case_info['attrs']['开场白ID'] = opening_id
+        
+        # 只保留有背景介绍的案例
+        if '背景介绍' in case_info:
             cases.append(case_info)
     
     # 生成markdown
     with open('/Users/edy/Desktop/project/挑战玩法/好人坏人挑战优秀案例.md', 'w', encoding='utf-8') as f:
         f.write("# 10回合判断好坏人挑战优秀案例\n\n")
-        f.write("本文档收录了判断类挑战的优秀案例，供参考学习。\n\n")
+        f.write("本文档收录了判断类挑战模板的完整变量内容。\n\n")
         
-        valid_case_num = 1
-        for case in cases:
-            f.write(f"## 案例{valid_case_num}\n\n")
+        for i, case in enumerate(cases, 1):
+            f.write(f"## 案例{i}\n\n")
             f.write(f"**管道ID**: `{case['pipe_id']}`\n\n")
             
-            if case.get('background'):
-                # 格式化背景介绍
-                bg = case['background'].replace('\\n', '\n')
-                f.write(f"### 背景介绍\n\n{bg}\n\n")
+            # 输出背景介绍
+            if '背景介绍' in case:
+                bg = case['背景介绍'].replace('\\n', '\n')
+                f.write(f"### 背景介绍\n```\n{bg}\n```\n\n")
             
-            if case.get('model'):
-                f.write(f"**使用模型**: {case['model']}\n\n")
+            # 输出属性ID信息（这些ID对应实际的内容）
+            if case['attrs']:
+                f.write("### 相关变量ID\n")
+                for key, value in case['attrs'].items():
+                    f.write(f"- **{key}**: `{value}`\n")
+                f.write("\n")
             
-            # 分析设计特点
-            f.write("### 设计特点\n\n")
-            bg = case.get('background', '')
+            # 输出模型信息
+            if '模型' in case:
+                f.write(f"### 使用模型\n`{case['模型']}`\n\n")
             
-            # 判断要求
-            if '请判断' in bg:
-                f.write("- **明确判断要求**：直接提出判断任务\n")
-            if '好人？还是坏人？' in bg:
-                f.write("- **标准二选一**：使用经典的好坏人判断格式\n")
-                
-            # 角色关系设置
-            if '死对头' in bg:
-                f.write("- **敌对关系**：设置商业死对头的对立关系\n")
-            if '怪盗' in bg:
-                f.write("- **神秘角色**：怪盗身份增加判断难度\n")
-            if '黑猫' in bg and '说话' in bg:
-                f.write("- **超自然元素**：会说话的黑猫增加神秘感\n")
-                
-            # 情境设计
-            if '月圆之夜' in bg or '深夜' in bg:
-                f.write("- **氛围营造**：夜晚场景增加紧张感\n")
-            if '悬崖' in bg or '受伤' in bg:
-                f.write("- **危机情境**：危险处境考验判断\n")
-                
-            # 心理设计
-            if '却也没伤害过你' in bg:
-                f.write("- **矛盾线索**：'死对头却没伤害过'制造迷惑\n")
-            if '好奇心' in bg:
-                f.write("- **心理驱动**：利用玩家好奇心推进剧情\n")
-            if '对你示好' in bg or '想和你合作' in bg:
-                f.write("- **行为反常**：突然的态度转变引发疑问\n")
-            if '两个结局都是判断成功' in bg:
-                f.write("- **特殊设计**：打破常规的双成功结局\n")
+            # 注意事项
+            f.write("### 模板变量说明\n")
+            f.write("由于数据结构限制，以下变量内容需要通过对应ID在系统中查询：\n")
+            f.write("- **内在人设**: 通过`内在人设ID`查询\n")
+            f.write("- **开场白**: 通过`开场白ID`查询\n")
+            f.write("- **好人结局**: 需要在完整模板中查看\n")
+            f.write("- **坏人结局**: 需要在完整模板中查看\n")
+            f.write("- **角色基本信息**: 通过`角色ID`查询（包含姓名、性别、设定）\n")
             
             f.write("\n---\n\n")
-            valid_case_num += 1
 
 if __name__ == "__main__":
     parse_csv_to_markdown()
