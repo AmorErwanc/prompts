@@ -8,7 +8,8 @@
       "mcp__n8n-mcp__search_nodes",
       "mcp__n8n-mcp__get_node_essentials",
       "Bash(cat:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(python:*)"
     ],
     "deny": []
   }
