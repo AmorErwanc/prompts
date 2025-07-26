@@ -1,0 +1,2755 @@
+{
+  "version": 20250211,
+  "data": {
+    "pipe": {
+      "000004316789182850154500": {
+        "id": "000004316789182850154500",
+        "cover": "https://img.ideaflow.pro/ideaflow/000004138052200620933129/593cfcb187fc4740bb9f9f17e2cae12d.jpg",
+        "name": "挑战！校霸醋王爱上你",
+        "cartoon_id": "000004297330278944768001",
+        "start_chain_id": "000004316789183202492416",
+        "summary": "我不会说，我是世界上最喜欢你的人。",
+        "func": "ugc",
+        "from_id": "000003949393051148632084",
+        "in_param": [
+          {
+            "name": "k_1",
+            "type": "str",
+            "alias": "用户输入",
+            "required": 1
+          }
+        ],
+        "out_param": [
+          {
+            "id": "0",
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "role": {
+              "val": "000004316789183353503753",
+              "type": "str",
+              "inName": "role",
+              "chainId": "999999999999999999999999",
+              "outName": "000004316789183353503753"
+            },
+            "type": "normal",
+            "event": [],
+            "reader": {
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "val": "",
+                "name": "prompt",
+                "type": "str",
+                "inName": "str",
+                "chainId": "000004316789183219269633",
+                "outName": "prompt"
+              },
+              {
+                "type": "audio",
+                "inName": "audio",
+                "chainId": "000004316789183219269635",
+                "outName": "audio"
+              },
+              {
+                "val": "",
+                "name": "reply",
+                "type": "str",
+                "inName": "none",
+                "chainId": "000004316789183236063234",
+                "outName": "reply"
+              },
+              {
+                "type": "audio",
+                "inName": "audio",
+                "chainId": "000004316789183236030469",
+                "outName": "audio"
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "narration",
+            "event": [
+              {
+                "sub": [
+                  {
+                    "val": "btn-default",
+                    "type": "str",
+                    "group": 5,
+                    "inName": "style"
+                  },
+                  {
+                    "val": "clearChat",
+                    "group": 5,
+                    "inName": "fn"
+                  },
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "delGroup"
+                  },
+                  {
+                    "val": "",
+                    "type": "str",
+                    "inName": "setAttr"
+                  },
+                  {
+                    "type": "num",
+                    "inName": "setCoin"
+                  }
+                ],
+                "val": "重新挑战",
+                "type": "str",
+                "inName": "btn"
+              }
+            ],
+            "reader": {
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "val": "",
+                "name": "prompt",
+                "type": "str",
+                "inName": "none",
+                "chainId": "000004316789183269601283",
+                "outName": "prompt"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "narration",
+            "event": [
+              {
+                "sub": [
+                  {
+                    "val": "btn-default",
+                    "type": "str",
+                    "group": 8,
+                    "inName": "style"
+                  },
+                  {
+                    "val": "clearChat",
+                    "group": 8,
+                    "inName": "fn"
+                  },
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "delGroup"
+                  },
+                  {
+                    "val": "",
+                    "type": "str",
+                    "inName": "setAttr"
+                  },
+                  {
+                    "type": "num",
+                    "inName": "setCoin"
+                  }
+                ],
+                "val": "再次挑战",
+                "type": "str",
+                "inName": "btn"
+              },
+              {
+                "sub": [
+                  {
+                    "val": "btn-default",
+                    "type": "str",
+                    "group": 8,
+                    "inName": "style"
+                  },
+                  {
+                    "val": "inParam",
+                    "group": 8,
+                    "inName": "fn"
+                  },
+                  {
+                    "val": 0,
+                    "group": 8,
+                    "inName": "args0",
+                    "chainId": "000000000000000000000000",
+                    "outName": "undefined"
+                  },
+                  {
+                    "val": "",
+                    "type": "str",
+                    "group": 8,
+                    "inName": "args1"
+                  },
+                  {
+                    "val": true,
+                    "type": "bool",
+                    "group": 8,
+                    "inName": "args2"
+                  },
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "delGroup"
+                  },
+                  {
+                    "val": "",
+                    "type": "str",
+                    "inName": "setAttr"
+                  },
+                  {
+                    "type": "num",
+                    "inName": "setCoin"
+                  }
+                ],
+                "val": "无限畅聊模式",
+                "type": "str",
+                "inName": "btn"
+              }
+            ],
+            "reader": {
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "val": "",
+                "name": "prompt",
+                "type": "str",
+                "inName": "none",
+                "chainId": "000004316789183269601287",
+                "outName": "prompt"
+              }
+            ]
+          },
+          {
+            "id": "4",
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "narration",
+            "event": [],
+            "reader": {
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "val": "",
+                "name": "prompt",
+                "type": "str",
+                "inName": "str",
+                "chainId": "000004316789183286394881",
+                "outName": "prompt"
+              },
+              {
+                "val": "",
+                "name": "prompt",
+                "type": "str",
+                "inName": "none",
+                "chainId": "000004316789183286394882",
+                "outName": "prompt"
+              }
+            ]
+          },
+          {
+            "id": "5",
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "role": {
+              "val": "000004316789183353503753",
+              "type": "str",
+              "inName": "role",
+              "chainId": "999999999999999999999999",
+              "outName": "000004316789183353503753"
+            },
+            "type": "normal",
+            "event": [],
+            "reader": {
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "val": "",
+                "name": "reply",
+                "type": "str",
+                "inName": "none",
+                "chainId": "000004316789183286378500",
+                "outName": "reply"
+              },
+              {
+                "type": "audio",
+                "inName": "audio",
+                "chainId": "000004316789183303139328",
+                "outName": "audio"
+              }
+            ]
+          }
+        ],
+        "user_id": "000004138052200620933129",
+        "updated_time": 1737470569367,
+        "publish": 3,
+        "publish_time": "2025-01-21 22:05:27",
+        "submit_time": "2025-01-21 22:42:49",
+        "yn_subscribe": 0,
+        "user": {
+          "uid": "XP6WGM1PB",
+          "nickname": "我要第一名",
+          "avatar": "https://img.ideaflow.pro/image/9b9aca10ba33ed611247078a916baaea.jpg"
+        },
+        "from": {
+          "id": "000003949393051148632084",
+          "name": "3分钟内提升好感度",
+          "cover": "https://img.ideaflow.pro/image/847cf6654e9d3563166a37513706405e.png"
+        }
+      }
+    },
+    "chains": {
+      "000004316789183202476033": {
+        "id": "000004316789183202476033",
+        "name": "判断是否包含字符串",
+        "unit_id": "000003961414690126970880",
+        "in_param": [
+          {
+            "type": "str",
+            "inName": "content",
+            "chainId": "000000000000000000000000",
+            "outName": "k_1"
+          },
+          {
+            "arr": 1,
+            "val": "无限畅聊模式",
+            "type": "str",
+            "inName": "words"
+          },
+          {
+            "val": "000004316789183286394880",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004316789183202476034",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 2,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183202476034"
+      },
+      "000004316789183202476034": {
+        "id": "000004316789183202476034",
+        "name": "流程判断",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "000004316789183319916549",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319916549"
+              },
+              {
+                "val": "==0"
+              }
+            ]
+          },
+          {
+            "val": "000004316789183202492419",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004316789183236063232",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 3,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183202492419"
+      },
+      "000004316789183202492416": {
+        "id": "000004316789183202492416",
+        "name": "判断是否通关",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "000004316789183303172097",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183303172097"
+              },
+              {
+                "val": "==1"
+              }
+            ]
+          },
+          {
+            "val": "000004316789183286378500",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004316789183202476033",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 1,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183202476033"
+      },
+      "000004316789183202492419": {
+        "id": "000004316789183202492419",
+        "name": "储存关键数值符号",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004316789183353487360",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183353487360"
+              },
+              {
+                "val": "="
+              },
+              {
+                "get": [
+                  {
+                    "val": "000004316789183353487362",
+                    "chainId": "999999999999999999999999",
+                    "outName": "000004316789183353487362"
+                  }
+                ],
+                "val": "000004316789183336726535",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726535"
+              }
+            ]
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 4,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183219253248"
+      },
+      "000004316789183219253248": {
+        "id": "000004316789183219253248",
+        "name": "用户名称输入",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004316789183319949317",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319949317"
+              },
+              {
+                "val": "="
+              },
+              {
+                "val": "player_nickname",
+                "lang": "js",
+                "chainId": "SYS999999999999999999999",
+                "outName": "player_nickname"
+              }
+            ]
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 5,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183219269633"
+      },
+      "000004316789183219269633": {
+        "id": "000004316789183219269633",
+        "name": "首次回复（角色）",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "arr": 0,
+            "type": "str",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "000004316789183319932928",
+                "lang": "tpl",
+                "inName": "prompt_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319932928"
+              }
+            ]
+          }
+        ],
+        "sort_num": 6,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183219269635"
+      },
+      "000004316789183219269635": {
+        "id": "000004316789183219269635",
+        "name": "首次回复-语音（角色）",
+        "unit_id": "000003838360748280004609",
+        "in_param": [
+          {
+            "type": "str",
+            "inName": "text",
+            "chainId": "000004316789183219269633",
+            "outName": "prompt"
+          },
+          {
+            "get": [
+              {
+                "val": "timbre_id",
+                "table": "cartoon_timbre",
+                "chainId": "",
+                "outName": ""
+              }
+            ],
+            "val": "000004316789183353503753",
+            "type": "str",
+            "inName": "tts_model_name",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183353503753"
+          },
+          {
+            "val": "[（(\\[][^)）]*[)）\\]]",
+            "type": "str",
+            "inName": "_rep_text"
+          }
+        ],
+        "sort_num": 7,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183219269636"
+      },
+      "000004316789183219269636": {
+        "id": "000004316789183219269636",
+        "name": "记录开始时间",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004316789183336726531",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726531"
+              },
+              {
+                "val": "=parseInt( new Date().getTime()/1000)+\"\""
+              }
+            ]
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 8,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183219286017"
+      },
+      "000004316789183219269637": {
+        "id": "000004316789183219269637",
+        "name": "变量运算",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004316789183319916549",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319916549"
+              },
+              {
+                "val": "+=1"
+              }
+            ]
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 10,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183219269638"
+      },
+      "000004316789183219269638": {
+        "id": "000004316789183219269638",
+        "name": "提问-中断",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "arr": 0,
+            "val": "break",
+            "var": 0,
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain"
+          }
+        ],
+        "sort_num": 11,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183236063232"
+      },
+      "000004316789183219286017": {
+        "id": "000004316789183219286017",
+        "name": "初始好感度",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "arr": 0,
+            "type": "str",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "000004316789183319932932",
+                "lang": "tpl",
+                "value": {
+                  "arr": 0,
+                  "val": "<font color=\"#5BBAFF\">：{{prompt__2}}</font>",
+                  "var": 1,
+                  "type": "str",
+                  "inName": "prompt"
+                },
+                "inName": "prompt_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319932932"
+              },
+              {
+                "val": "："
+              },
+              {
+                "val": "000004316789183336726532",
+                "inName": "prompt_2",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726532"
+              }
+            ]
+          }
+        ],
+        "sort_num": 9,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183219269637"
+      },
+      "000004316789183236030469": {
+        "id": "000004316789183236030469",
+        "name": "角色-对话-语音",
+        "unit_id": "000003838360748280004609",
+        "in_param": [
+          {
+            "type": "str",
+            "inName": "text",
+            "chainId": "000004316789183236063234",
+            "outName": "reply"
+          },
+          {
+            "get": [
+              {
+                "val": "timbre_id",
+                "table": "cartoon_timbre",
+                "chainId": "",
+                "outName": ""
+              }
+            ],
+            "val": "000004316789183353503753",
+            "type": "str",
+            "inName": "tts_model_name",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183353503753"
+          },
+          {
+            "val": "[（(\\[][^)）]*[)）\\]]",
+            "type": "str",
+            "inName": "_rep_text"
+          }
+        ],
+        "sort_num": 15,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183236063236"
+      },
+      "000004316789183236030471": {
+        "id": "000004316789183236030471",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "val": "000004316789183236046849",
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 17,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183236030472"
+      },
+      "000004316789183236030472": {
+        "id": "000004316789183236030472",
+        "name": "数值-商量",
+        "unit_id": "000003615006571963400193",
+        "in_param": [
+          {
+            "val": "",
+            "value": {
+              "val": "玩家的台词：。NPC的台词：{{prompt__1}}",
+              "var": 1,
+              "type": "str",
+              "inName": "prompt"
+            },
+            "inName": "prompt_1",
+            "chainId": "000000000000000000000000",
+            "outName": "k_1"
+          },
+          {
+            "inName": "prompt_2",
+            "chainId": "000004316789183236063234",
+            "outName": "reply"
+          },
+          {
+            "arr": 0,
+            "val": "玩家的台词：{{prompt_1}}。NPC的台词：{{prompt_2}}",
+            "var": 1,
+            "type": "str",
+            "inName": "prompt"
+          },
+          {
+            "arr": 0,
+            "val": "你扮演一个游戏的数值系统，根据我发送给你的台词：\n1.从NPC台词中判断NPC现在的好感度变化。如果好感度上升，用[+2]表示，如好感度下降用[-3]表示，并在后面带上上升或下降的点数。\n2.你需要根据台词推测好感度的上升或者下降。如NPC的台词：\"当然不能\"，那么你输出的好感度就可能是[-6]。\n3.如果NPC台词中表达了“你好棒”，好感度将大幅上升。\n4.好感度的取值范围在-10 到+20 之间。\n5.[]中代表你需要输出的内容。\n6.如果受到玩家不尊重的回答，好感度会大幅降低。\n7.无需任何解释说明，仅回复[]中内容即可。",
+            "var": 0,
+            "type": "str",
+            "inName": "system"
+          },
+          {
+            "arr": 0,
+            "val": "SenseChat",
+            "var": 0,
+            "type": "str",
+            "inName": "model"
+          },
+          {
+            "arr": 0,
+            "var": 0,
+            "type": "str",
+            "inName": "initChat"
+          },
+          {
+            "arr": 0,
+            "val": 0.8,
+            "var": 0,
+            "type": "num",
+            "inName": "temperature"
+          },
+          {
+            "arr": 0,
+            "var": 0,
+            "type": "str",
+            "inName": "sessionChainId"
+          },
+          {
+            "arr": 0,
+            "val": 0.7,
+            "var": 0,
+            "type": "num",
+            "inName": "top_p"
+          },
+          {
+            "arr": 0,
+            "val": 1024,
+            "var": 0,
+            "type": "num",
+            "inName": "max_new_tokens"
+          },
+          {
+            "arr": 0,
+            "val": 1.05,
+            "var": 0,
+            "type": "num",
+            "inName": "repetition_penalty"
+          },
+          {
+            "arr": 0,
+            "val": true,
+            "var": 0,
+            "type": "bool",
+            "inName": "saveReplay"
+          }
+        ],
+        "sort_num": 18,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183236046849"
+      },
+      "000004316789183236046849": {
+        "id": "000004316789183236046849",
+        "name": "豆包",
+        "unit_id": "000003911971051999346689",
+        "in_param": [
+          {
+            "val": "",
+            "value": {
+              "val": "玩家的台词：。NPC的台词：{{prompt__1}}",
+              "var": 1,
+              "type": "str",
+              "inName": "prompt"
+            },
+            "inName": "content_1",
+            "chainId": "000000000000000000000000",
+            "outName": "k_1"
+          },
+          {
+            "inName": "content_2",
+            "chainId": "000004316789183236063234",
+            "outName": "reply"
+          },
+          {
+            "val": "玩家的台词：{{content_1}}。NPC的台词：{{content_2}}",
+            "var": 1,
+            "type": "str",
+            "inName": "content"
+          },
+          {
+            "val": "你扮演一个游戏的数值系统，根据我发送给你的台词：\n1.从NPC台词中判断NPC现在的好感度变化。如果好感度上升，用[+2]表示，如好感度下降用[-3]表示，并在后面带上上升或下降的点数。\n2.你需要根据台词推测好感度的上升或者下降。如NPC的台词：\"当然不能\"，那么你输出的好感度就可能是[-6]。\n3.如果NPC台词中表达了“你好棒”，好感度将大幅上升。\n4.好感度的取值范围在-10 到+20 之间。\n5.[]中代表你需要输出的内容。\n6.如果受到玩家不尊重的回答，好感度会大幅降低。\n7.无需任何解释说明，仅回复[]中内容即可。",
+            "type": "str",
+            "inName": "system"
+          },
+          {
+            "val": "000004045447178299146242",
+            "type": "str",
+            "inName": "model",
+            "chainId": "MENU99999999999999999999",
+            "outName": ""
+          },
+          {
+            "val": 1,
+            "type": "num",
+            "inName": "temperature"
+          },
+          {
+            "val": 0.7,
+            "type": "num",
+            "inName": "top_p"
+          },
+          {
+            "val": 1024,
+            "type": "num",
+            "inName": "max_tokens"
+          },
+          {
+            "val": false,
+            "type": "bool",
+            "inName": "saveSession"
+          },
+          {
+            "type": "str",
+            "inName": "initChat"
+          },
+          {
+            "type": "str",
+            "inName": "sessionChainId"
+          }
+        ],
+        "sort_num": 19,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183236063240"
+      },
+      "000004316789183236063232": {
+        "id": "000004316789183236063232",
+        "name": "记录时间对比",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004316789183336726529",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726529"
+              },
+              {
+                "val": "=parseInt( new Date().getTime()/1000) -parseInt("
+              },
+              {
+                "val": "000004316789183336726531",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726531"
+              },
+              {
+                "val": ")"
+              }
+            ]
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 12,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183236063233"
+      },
+      "000004316789183236063233": {
+        "id": "000004316789183236063233",
+        "name": "时间判断-前置",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "000004316789183336726529",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726529"
+              },
+              {
+                "val": ">="
+              },
+              {
+                "val": "000004316789183319932931",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319932931"
+              }
+            ]
+          },
+          {
+            "val": "000004316789183252824069",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004316789183236063234",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 13,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183236063234"
+      },
+      "000004316789183236063234": {
+        "id": "000004316789183236063234",
+        "name": "角色-对话",
+        "unit_id": "000003911971051999346689",
+        "in_param": [
+          {
+            "val": "",
+            "inName": "content_1",
+            "chainId": "000000000000000000000000",
+            "outName": "k_1"
+          },
+          {
+            "get": [
+              {
+                "val": "nickname",
+                "chainId": "",
+                "outName": ""
+              }
+            ],
+            "val": "000004316789183353503753",
+            "inName": "system_2",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183353503753"
+          },
+          {
+            "get": [
+              {
+                "val": "gender",
+                "chainId": "",
+                "outName": ""
+              }
+            ],
+            "val": "000004316789183353503753",
+            "inName": "system_3",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183353503753"
+          },
+          {
+            "val": "000004316789183319932930",
+            "inName": "system_4",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183319932930"
+          },
+          {
+            "val": "000004316789183319916546",
+            "inName": "system_5",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183319916546"
+          },
+          {
+            "val": "000004316789183319932928",
+            "inName": "initChat_6",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183319932928"
+          },
+          {
+            "arr": 0,
+            "val": "{{content_1}}",
+            "var": 1,
+            "type": "str",
+            "inName": "content"
+          },
+          {
+            "arr": 0,
+            "val": "你是{{system_2}}\n性别：{{system_3}}\n角色设定：{{system_4}}\n角色动机：{{system_5}}\n你可以将动作、神情语气、心理活动、故事背景放在（）中来表示，为对话提供补充信息。",
+            "var": 1,
+            "type": "str",
+            "inName": "system"
+          },
+          {
+            "arr": 0,
+            "val": "ep-20250424184956-vk9j9",
+            "var": 0,
+            "type": "str",
+            "inName": "model"
+          },
+          {
+            "arr": 0,
+            "val": 0.7,
+            "var": 0,
+            "type": "num",
+            "inName": "temperature"
+          },
+          {
+            "arr": 0,
+            "val": 0.9,
+            "var": 0,
+            "type": "num",
+            "inName": "top_p"
+          },
+          {
+            "arr": 0,
+            "val": 1024,
+            "var": 0,
+            "type": "num",
+            "inName": "max_tokens"
+          },
+          {
+            "arr": 0,
+            "val": true,
+            "var": 0,
+            "type": "bool",
+            "inName": "saveSession"
+          },
+          {
+            "arr": 0,
+            "val": "[\n    {\n        \"role\": \"assistant\",\n        \"content\": \"{{initChat_6}}\"\n    }\n]",
+            "var": 1,
+            "type": "str",
+            "inName": "initChat"
+          },
+          {
+            "arr": 0,
+            "var": 0,
+            "type": "str",
+            "inName": "sessionChainId"
+          }
+        ],
+        "sort_num": 14,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183236030469"
+      },
+      "000004316789183236063236": {
+        "id": "000004316789183236063236",
+        "name": "记录对话ID",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "arr": 0,
+            "type": "str",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004316789183353487365",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183353487365"
+              },
+              {
+                "val": "="
+              },
+              {
+                "lang": "js",
+                "inName": "code_1",
+                "chainId": "000004316789183236063234",
+                "outName": "chainId"
+              },
+              {
+                "val": "\n"
+              }
+            ]
+          },
+          {
+            "arr": 0,
+            "var": 0,
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 16,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183236030471"
+      },
+      "000004316789183236063240": {
+        "id": "000004316789183236063240",
+        "name": "提取文本内容",
+        "unit_id": "000003961414690126970883",
+        "in_param": [
+          {
+            "type": "str",
+            "inName": "text",
+            "chainId": "000004316789183236046849",
+            "outName": "reply"
+          },
+          {
+            "val": "[^0-9+-]",
+            "type": "str",
+            "inName": "regex"
+          },
+          {
+            "val": "0",
+            "type": "str",
+            "inName": "defaultVal"
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId"
+          }
+        ],
+        "sort_num": 20,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183252840449"
+      },
+      "000004316789183252807681": {
+        "id": "000004316789183252807681",
+        "name": "数值-剩余时间计算",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004316789183370248193",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183370248193"
+              },
+              {
+                "val": "=parseInt(Math.floor("
+              },
+              {
+                "val": "000004316789183319932931",
+                "inName": "expression_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319932931"
+              },
+              {
+                "val": "-"
+              },
+              {
+                "val": "000004316789183336726529",
+                "value": {
+                  "val": "{{expression__1}}-",
+                  "var": 1,
+                  "type": "str",
+                  "inName": "expression"
+                },
+                "inName": "expression_2",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726529"
+              },
+              {
+                "val": "))+\"秒\""
+              }
+            ]
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId"
+          }
+        ],
+        "sort_num": 23,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183252840451"
+      },
+      "000004316789183252824066": {
+        "id": "000004316789183252824066",
+        "name": "数值-计算好感度",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004316789183336726532",
+                "lang": "js",
+                "inName": "expression_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726532"
+              },
+              {
+                "val": "=parseInt((!isNaN(Number("
+              },
+              {
+                "inName": "expression_2",
+                "chainId": "000004316789183252840449",
+                "outName": "prompt"
+              },
+              {
+                "val": ")) ? Number("
+              },
+              {
+                "inName": "expression_3",
+                "chainId": "000004316789183252840449",
+                "outName": "prompt"
+              },
+              {
+                "val": ") : 0)+"
+              },
+              {
+                "val": "000004316789183336726532",
+                "inName": "expression_4",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726532"
+              },
+              {
+                "val": ")+\"\""
+              }
+            ]
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId"
+          }
+        ],
+        "sort_num": 22,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183252807681"
+      },
+      "000004316789183252824069": {
+        "id": "000004316789183252824069",
+        "name": "结局-时间到-判断",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "",
+                "lang": "js",
+                "value": {
+                  "arr": 0,
+                  "val": "",
+                  "var": 1,
+                  "type": "str",
+                  "inName": "expression"
+                },
+                "inName": "expression_1",
+                "chainId": "000004316789183252840453",
+                "outName": "val"
+              },
+              {
+                "val": "\n"
+              }
+            ]
+          },
+          {
+            "val": "000004316789183269601285",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004316789183269601281",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 27,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183269601280"
+      },
+      "000004316789183252840449": {
+        "id": "000004316789183252840449",
+        "name": "数值-过滤",
+        "unit_id": "000003488787786952622080",
+        "in_param": [
+          {
+            "arr": 0,
+            "var": 0,
+            "type": "str",
+            "inName": "prompt",
+            "chainId": "000004316789183236063240",
+            "outName": "val"
+          },
+          {
+            "arr": 1,
+            "val": "#\\[#\\]#\\【#\\】",
+            "var": 0,
+            "type": "str",
+            "inName": "words"
+          }
+        ],
+        "sort_num": 21,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183252824066"
+      },
+      "000004316789183252840451": {
+        "id": "000004316789183252840451",
+        "name": "数值-输出",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "arr": 0,
+            "type": "str",
+            "inName": "prompt",
+            "expression": [
+              {
+                "lang": "tpl",
+                "inName": "prompt_1",
+                "chainId": "000004316789183252840449",
+                "outName": "prompt"
+              },
+              {
+                "val": "｜"
+              },
+              {
+                "val": "000004316789183319932932",
+                "value": {
+                  "arr": 0,
+                  "val": "<font color=orange><b>{{prompt__1}}｜：{{prompt__3}}</b></font>",
+                  "var": 1,
+                  "type": "str",
+                  "inName": "prompt"
+                },
+                "inName": "prompt_2",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319932932"
+              },
+              {
+                "val": "："
+              },
+              {
+                "val": "000004316789183336726532",
+                "inName": "prompt_3",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726532"
+              },
+              {
+                "val": "\n   ⏳剩余时间："
+              },
+              {
+                "inName": "prompt",
+                "chainId": "000004316789183252807681",
+                "outName": "val"
+              },
+              {
+                "val": "\n"
+              }
+            ]
+          }
+        ],
+        "sort_num": 24,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183252840453"
+      },
+      "000004316789183252840453": {
+        "id": "000004316789183252840453",
+        "name": "结局判断条件",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "arr": 0,
+            "type": "str",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004316789183336726532",
+                "lang": "js",
+                "inName": "code_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726532"
+              },
+              {
+                "val": ">="
+              },
+              {
+                "val": "000004316789183319916548",
+                "inName": "code_2",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319916548"
+              }
+            ]
+          },
+          {
+            "arr": 0,
+            "var": 0,
+            "type": "any",
+            "inName": "saveAttrId"
+          }
+        ],
+        "sort_num": 25,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183252840454"
+      },
+      "000004316789183252840454": {
+        "id": "000004316789183252840454",
+        "name": "条件判断",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "000004316789183336726529",
+                "lang": "js",
+                "value": {
+                  "val": ">=180",
+                  "var": 1,
+                  "type": "str",
+                  "inName": "expression"
+                },
+                "inName": "expression_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726529"
+              },
+              {
+                "val": ">="
+              },
+              {
+                "val": "000004316789183319932931",
+                "value": {
+                  "arr": 0,
+                  "val": "{{expression__1}}>=",
+                  "var": 1,
+                  "type": "str",
+                  "inName": "expression"
+                },
+                "inName": "expression_2",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319932931"
+              }
+            ]
+          },
+          {
+            "val": "000004316789183252824069",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004316789183269601280",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 26,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183252824069"
+      },
+      "000004316789183269584899": {
+        "id": "000004316789183269584899",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "arr": 0,
+            "val": "break",
+            "var": 0,
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain"
+          }
+        ],
+        "sort_num": 35,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183286394880"
+      },
+      "000004316789183269601280": {
+        "id": "000004316789183269601280",
+        "name": "结局-时间未到-判断",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "",
+                "lang": "js",
+                "value": {
+                  "arr": 0,
+                  "val": "",
+                  "var": 1,
+                  "type": "str",
+                  "inName": "expression"
+                },
+                "inName": "expression_1",
+                "chainId": "000004316789183252840453",
+                "outName": "val"
+              },
+              {
+                "val": "\n"
+              }
+            ]
+          },
+          {
+            "val": "000004316789183269601285",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "break",
+            "code": "jump",
+            "type": "str",
+            "inName": "no"
+          }
+        ],
+        "sort_num": 28,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183269601281"
+      },
+      "000004316789183269601281": {
+        "id": "000004316789183269601281",
+        "name": "结局-失败回复（角色）",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "arr": 0,
+            "type": "str",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "000004316789183336693764",
+                "lang": "tpl",
+                "inName": "prompt_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336693764"
+              }
+            ]
+          }
+        ],
+        "sort_num": 29,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183269601283"
+      },
+      "000004316789183269601283": {
+        "id": "000004316789183269601283",
+        "name": "结局-失败回复（系统）",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "arr": 0,
+            "val": "很可惜！你失败了💔。点击下方“重新挑战”再试一次吧！",
+            "var": 0,
+            "type": "str",
+            "inName": "prompt"
+          }
+        ],
+        "sort_num": 30,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183269601284"
+      },
+      "000004316789183269601284": {
+        "id": "000004316789183269601284",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "arr": 0,
+            "val": "break",
+            "var": 0,
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain"
+          }
+        ],
+        "sort_num": 31,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183269601285"
+      },
+      "000004316789183269601285": {
+        "id": "000004316789183269601285",
+        "name": "结局-成功回复（角色）",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "arr": 0,
+            "type": "str",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "000004316789183336710147",
+                "lang": "tpl",
+                "value": {
+                  "arr": 0,
+                  "val": "<font color=\"#5BBAFF\"></font>",
+                  "var": 0,
+                  "type": "str",
+                  "inName": "prompt"
+                },
+                "inName": "prompt_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336710147"
+              }
+            ]
+          }
+        ],
+        "sort_num": 32,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183269601287"
+      },
+      "000004316789183269601287": {
+        "id": "000004316789183269601287",
+        "name": "成绩单",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "arr": 0,
+            "type": "str",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "恭喜你！挑战成功！\n🥇挑战成绩单🥇\n",
+                "lang": "tpl"
+              },
+              {
+                "val": "000004316789183319932932",
+                "value": {
+                  "arr": 0,
+                  "val": "<font color=orange><b>🙏攻略蓝毛女成绩单🙏 </b></font>\n<br><br>\n：<font color=orange>{{prompt__3}}</b></font><br/>\n⌛️ 耗时：<font color=orange>{{prompt__1}}\n</b>s</font>",
+                  "var": 1,
+                  "type": "str",
+                  "inName": "prompt"
+                },
+                "inName": "prompt_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183319932932"
+              },
+              {
+                "val": "："
+              },
+              {
+                "val": "000004316789183336726532",
+                "inName": "prompt_2",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726532"
+              },
+              {
+                "val": "\n⌛️ 耗时：\n"
+              },
+              {
+                "val": "000004316789183336726529",
+                "inName": "prompt_3",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183336726529"
+              },
+              {
+                "val": "\n无限畅聊模式已开启，输入对话内容继续和"
+              },
+              {
+                "get": [
+                  {
+                    "val": "nickname",
+                    "chainId": "",
+                    "outName": ""
+                  }
+                ],
+                "val": "000004316789183353503753",
+                "inName": "prompt_4",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183353503753"
+              },
+              {
+                "val": "聊天吧"
+              }
+            ]
+          }
+        ],
+        "sort_num": 33,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183269617665"
+      },
+      "000004316789183269617665": {
+        "id": "000004316789183269617665",
+        "name": "通关数值增加",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004316789183303172097",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183303172097"
+              },
+              {
+                "val": "=1"
+              }
+            ]
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId"
+          }
+        ],
+        "sort_num": 34,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183269584899"
+      },
+      "000004316789183286378498": {
+        "id": "000004316789183286378498",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "arr": 0,
+            "val": "break",
+            "var": 0,
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain"
+          }
+        ],
+        "sort_num": 38,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183286394882"
+      },
+      "000004316789183286378500": {
+        "id": "000004316789183286378500",
+        "name": "角色-畅聊",
+        "unit_id": "000003911971051999346689",
+        "in_param": [
+          {
+            "val": "",
+            "inName": "content_1",
+            "chainId": "000000000000000000000000",
+            "outName": "k_1"
+          },
+          {
+            "get": [
+              {
+                "val": "nickname",
+                "chainId": "",
+                "outName": ""
+              }
+            ],
+            "val": "000004316789183353503753",
+            "inName": "system_2",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183353503753"
+          },
+          {
+            "get": [
+              {
+                "val": "gender",
+                "chainId": "",
+                "outName": ""
+              }
+            ],
+            "val": "000004316789183353503753",
+            "inName": "system_3",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183353503753"
+          },
+          {
+            "val": "000004316789183319932930",
+            "inName": "system_4",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183319932930"
+          },
+          {
+            "val": "000004316789183319916546",
+            "inName": "system_5",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183319916546"
+          },
+          {
+            "arr": 0,
+            "val": "{{content_1}}",
+            "var": 1,
+            "type": "str",
+            "inName": "content"
+          },
+          {
+            "arr": 0,
+            "val": "你是{{system_2}}\n性别：{{system_3}}\n角色设定：{{system_4}}\n角色动机：{{system_5}}\n你可以将动作、神情语气、心理活动、故事背景放在（）中来表示，为对话提供补充信息。",
+            "var": 1,
+            "type": "str",
+            "inName": "system"
+          },
+          {
+            "arr": 0,
+            "val": "ep-20250424184956-vk9j9",
+            "var": 0,
+            "type": "str",
+            "inName": "model"
+          },
+          {
+            "arr": 0,
+            "val": 0.7,
+            "var": 0,
+            "type": "num",
+            "inName": "temperature"
+          },
+          {
+            "arr": 0,
+            "val": 0.9,
+            "var": 0,
+            "type": "num",
+            "inName": "top_p"
+          },
+          {
+            "arr": 0,
+            "val": 1024,
+            "var": 0,
+            "type": "num",
+            "inName": "max_tokens"
+          },
+          {
+            "arr": 0,
+            "val": true,
+            "var": 0,
+            "type": "bool",
+            "inName": "saveSession"
+          },
+          {
+            "arr": 0,
+            "var": 0,
+            "type": "str",
+            "inName": "initChat"
+          },
+          {
+            "arr": 0,
+            "var": 0,
+            "type": "str",
+            "inName": "sessionChainId"
+          }
+        ],
+        "sort_num": 41,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183303139328"
+      },
+      "000004316789183286394880": {
+        "id": "000004316789183286394880",
+        "name": "判断是否通关",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "000004316789183303172097",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183303172097"
+              },
+              {
+                "val": "==1"
+              }
+            ]
+          },
+          {
+            "val": "000004316789183286394881",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004316789183286394882",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 36,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183286394881"
+      },
+      "000004316789183286394881": {
+        "id": "000004316789183286394881",
+        "name": "开启无线畅聊-通关反馈",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "arr": 0,
+            "type": "str",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "无限畅聊模式已开启，输入对话内容继续和",
+                "lang": "tpl"
+              },
+              {
+                "get": [
+                  {
+                    "val": "nickname",
+                    "chainId": "",
+                    "outName": ""
+                  }
+                ],
+                "val": "000004316789183353503753",
+                "inName": "prompt_1",
+                "chainId": "999999999999999999999999",
+                "outName": "000004316789183353503753"
+              },
+              {
+                "val": "聊天吧"
+              }
+            ]
+          }
+        ],
+        "sort_num": 37,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183286378498"
+      },
+      "000004316789183286394882": {
+        "id": "000004316789183286394882",
+        "name": "开启无线畅聊-未通关反馈",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "arr": 0,
+            "val": "挑战成功后才可以开启无限畅聊模式哦！继续挑战吧~",
+            "var": 0,
+            "type": "str",
+            "inName": "prompt"
+          }
+        ],
+        "sort_num": 39,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183286394884"
+      },
+      "000004316789183286394884": {
+        "id": "000004316789183286394884",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "arr": 0,
+            "val": "break",
+            "var": 0,
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain"
+          }
+        ],
+        "sort_num": 40,
+        "pid": "000000000000000000000000",
+        "next_id": "000004316789183286378500"
+      },
+      "000004316789183303139328": {
+        "id": "000004316789183303139328",
+        "name": "角色-畅聊-语音",
+        "unit_id": "000003838360748280004609",
+        "in_param": [
+          {
+            "type": "str",
+            "inName": "text",
+            "chainId": "000004316789183286378500",
+            "outName": "reply"
+          },
+          {
+            "get": [
+              {
+                "val": "timbre_id",
+                "table": "cartoon_timbre",
+                "chainId": "",
+                "outName": ""
+              }
+            ],
+            "val": "000004316789183353503753",
+            "type": "str",
+            "inName": "tts_model_name",
+            "chainId": "999999999999999999999999",
+            "outName": "000004316789183353503753"
+          },
+          {
+            "val": "[（(\\[][^)）]*[)）\\]]",
+            "type": "str",
+            "inName": "_rep_text"
+          }
+        ],
+        "sort_num": 42,
+        "pid": "000000000000000000000000",
+        "next_id": null
+      }
+    },
+    "tags": {
+      "000004316917823999328260": {
+        "id": "000004316917823999328260",
+        "tag_id": "000003882693978369048576"
+      },
+      "000004316917824016105473": {
+        "id": "000004316917824016105473",
+        "tag_id": "000003883014005660073984"
+      },
+      "000004316917824016121856": {
+        "id": "000004316917824016121856",
+        "tag_id": "000003883014851349200897"
+      },
+      "000004316917824016121857": {
+        "id": "000004316917824016121857",
+        "tag_id": "000003892466999019470848"
+      },
+      "000004316917824016121858": {
+        "id": "000004316917824016121858",
+        "tag_id": "000003898942089207496708"
+      },
+      "000004316917824016138240": {
+        "id": "000004316917824016138240",
+        "tag_id": "000003883155334978093056"
+      },
+      "000004316917824016138242": {
+        "id": "000004316917824016138242",
+        "tag_id": "000004189065009009541120"
+      },
+      "000004316917824016138243": {
+        "id": "000004316917824016138243",
+        "tag_id": "000003892499229419520001"
+      }
+    },
+    "extras": {},
+    "wrappers": {
+      "000004359988162639478785": {
+        "id": "000004359988162639478785",
+        "name": "bg",
+        "content": {
+          "chat": {
+            "src": null,
+            "action": "none"
+          }
+        }
+      },
+      "000004359988162639478786": {
+        "id": "000004359988162639478786",
+        "name": "bgm",
+        "content": {
+          "src": null,
+          "loop": 1,
+          "volume": 0.5,
+          "autoplay": 1
+        }
+      },
+      "000004359988162639478790": {
+        "id": "000004359988162639478790",
+        "name": "greetings",
+        "content": [
+          {
+            "id": "6",
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "type": "system",
+            "event": [
+              {
+                "sub": [
+                  {
+                    "val": "btn-fill",
+                    "type": "str",
+                    "inName": "style"
+                  },
+                  {
+                    "val": "inParam",
+                    "type": "str",
+                    "inName": "fn"
+                  },
+                  {
+                    "val": "0",
+                    "inName": "args0"
+                  },
+                  {
+                    "val": "开始挑战",
+                    "type": "str",
+                    "inName": "args1"
+                  },
+                  {
+                    "val": "true",
+                    "type": "bool",
+                    "inName": "args2"
+                  },
+                  {
+                    "val": "false",
+                    "type": "bool",
+                    "inName": "delGroup"
+                  },
+                  {
+                    "val": "",
+                    "type": "str",
+                    "inName": "setAttr"
+                  },
+                  {
+                    "val": null,
+                    "type": "num",
+                    "inName": "setCoin"
+                  }
+                ],
+                "val": "开始挑战",
+                "name": "btn",
+                "type": "str"
+              }
+            ],
+            "reader": {
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "val": "**挑战目标**",
+                "name": "none",
+                "type": "str"
+              },
+              null,
+              {
+                "val": "❤️好感度要<font color=\"#FF9B05\">**达到100**</font>，才算成功哦！<br>\n点击下方按钮，开始倒计时五分钟！",
+                "type": "str",
+                "inName": "str"
+              }
+            ]
+          }
+        ]
+      },
+      "000004359988162639478791": {
+        "id": "000004359988162639478791",
+        "name": "group_greeting",
+        "content": {
+          "6": {
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "type": "system"
+          }
+        }
+      },
+      "000004359988162639478792": {
+        "id": "000004359988162639478792",
+        "name": "group_out",
+        "content": {
+          "0": {
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "normal"
+          },
+          "2": {
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "narration"
+          },
+          "3": {
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "narration"
+          },
+          "4": {
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "narration"
+          },
+          "5": {
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "normal"
+          }
+        }
+      },
+      "000004359988162639478784": {
+        "id": "000004359988162639478784",
+        "name": "KEYS",
+        "content": [
+          {
+            "keyPath": "id",
+            "onlyVal": 1,
+            "expression": {
+              "val": "000004316789183370264576"
+            }
+          },
+          {
+            "keyPath": "theme",
+            "onlyVal": 1,
+            "expression": {
+              "val": "dark"
+            }
+          },
+          {
+            "keyPath": "bg.chat.src",
+            "onlyVal": 1,
+            "expression": {
+              "get": [
+                {
+                  "val": "banner",
+                  "chainId": "",
+                  "outName": ""
+                }
+              ],
+              "val": "000004316789183353503753",
+              "chainId": "999999999999999999999999",
+              "outName": "000004316789183353503753"
+            }
+          },
+          {
+            "keyPath": "bgm.src",
+            "onlyVal": 1,
+            "expression": {
+              "get": null,
+              "val": "000004316789183353487368",
+              "chainId": "999999999999999999999999",
+              "outName": "000004316789183353487368"
+            }
+          },
+          {
+            "keyPath": "greetings[0].content[1]",
+            "onlyVal": 0,
+            "expression": {
+              "get": null,
+              "val": "000004316789183353487363",
+              "type": "str",
+              "inName": "str",
+              "chainId": "999999999999999999999999",
+              "outName": "000004316789183353487363"
+            }
+          }
+        ]
+      },
+      "000004359988162639478789": {
+        "id": "000004359988162639478789",
+        "name": "triggers",
+        "content": []
+      },
+      "000004359988162639478787": {
+        "id": "000004359988162639478787",
+        "name": "tts",
+        "content": {
+          "autoplay": 1
+        }
+      },
+      "000004359988162639478788": {
+        "id": "000004359988162639478788",
+        "name": "widgets",
+        "content": [
+          {
+            "data": [
+              {
+                "name": "title",
+                "type": "str",
+                "attrId": "000004316789183319932932",
+                "attrName": "pipe_attr"
+              },
+              {
+                "val": "",
+                "name": "icon",
+                "type": "img"
+              },
+              {
+                "name": "val",
+                "type": "num",
+                "attrId": "000004316789183336726532",
+                "attrName": "pipe_attr"
+              },
+              {
+                "name": "max",
+                "type": "num",
+                "attrId": "000004316789183319916548",
+                "attrName": "pipe_attr"
+              },
+              {
+                "val": true,
+                "name": "visible",
+                "type": "bool"
+              },
+              {
+                "val": true,
+                "name": "isAnimation",
+                "type": "bool"
+              },
+              {
+                "set": [],
+                "val": "none",
+                "name": "fn",
+                "type": "str"
+              }
+            ],
+            "name": "widgetNum"
+          },
+          {
+            "data": [
+              {
+                "val": "⏳剩余时间",
+                "name": "title",
+                "type": "str"
+              },
+              {
+                "val": "",
+                "name": "img",
+                "type": "img"
+              },
+              {
+                "name": "content",
+                "type": "str",
+                "attrId": "000004316789183370248193",
+                "attrName": "pipe_attr"
+              },
+              {
+                "val": true,
+                "name": "visible",
+                "type": "bool"
+              },
+              {
+                "val": true,
+                "name": "isAnimation",
+                "type": "bool"
+              },
+              {
+                "set": [],
+                "val": "none",
+                "name": "fn",
+                "type": "str"
+              }
+            ],
+            "name": "widgetTxt"
+          }
+        ]
+      }
+    },
+    "attrs": {
+      "000004316789183303172097": {
+        "id": "000004316789183303172097",
+        "sn": null,
+        "name": "通关",
+        "code": null,
+        "type": "num",
+        "val": "0",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183319916546": {
+        "id": "000004316789183319916546",
+        "sn": null,
+        "name": "角色动机",
+        "code": null,
+        "type": "str",
+        "val": "你希望我能够喜欢你更多，对你更加地占有，更加吃醋。但是你就是没办法轻易说出喜欢我这句话。",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183319916548": {
+        "id": "000004316789183319916548",
+        "sn": null,
+        "name": "*关键数值-目标值",
+        "code": null,
+        "type": "num",
+        "val": "100",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183319916549": {
+        "id": "000004316789183319916549",
+        "sn": null,
+        "name": "流程",
+        "code": null,
+        "type": "num",
+        "val": "0",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183319932928": {
+        "id": "000004316789183319932928",
+        "sn": null,
+        "name": "角色开场白",
+        "code": null,
+        "type": "str",
+        "val": "（程星然瞥了你一眼，满脸的醋意）喂，你以后别跟隔壁班的班长说话了，我看他那人不咋地。听到了吗？",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183319932930": {
+        "id": "000004316789183319932930",
+        "sn": null,
+        "name": "角色设定",
+        "code": null,
+        "type": "str",
+        "val": "姓名：程星然\n性别：男\n身份：学校有名的“校霸”，外表痞帅，成绩不突出，但存在感极强。\n语言特点：你说话带点痞气，喜欢用轻佻的语气掩饰内心的认真。面对普通人时随意又强势，带点漫不经心的霸道感。对我说话时语气暧昧而探究，偶尔故意挑逗，喜欢用带点玩味的反问试探对方。\n性格特点：外冷内热：表面冷酷、不羁，内心却有深情的一面，只愿展现给在乎的人。强势护短：对自己认定的人极其护短，哪怕自己不说，也绝不允许别人欺负。孤独矛盾：尽管身边围绕着许多人，却始终觉得孤独；内心渴望真正的情感连接。深情执着：你一旦喜欢上某人，就会不顾一切地去靠近，表现得热烈却带点霸道。\n人物关系：你对我因课堂上的帮助心生感激与爱意，认为我是与你截然不同的“光”。你一边用自己强硬的方式接近，一边害怕你的世界会将我拖下水，因此产生复杂的占有欲与保护欲。\n过往经历：因家庭条件优越，从小受到过分的关注与吹捧，导致性格叛逆，讨厌被束缚。初中时因一次校园冲突成名，从此成为不良少年，逐渐树立起自己的校霸地位。其实成绩并不差，但长期掩盖自己的努力，觉得成绩不能定义自己。你曾被朋友或家人伤害过一次，导致你表面冷酷强硬，内心却不轻易相信别人。",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183319932931": {
+        "id": "000004316789183319932931",
+        "sn": null,
+        "name": "*时间上限",
+        "code": null,
+        "type": "num",
+        "val": "300",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183319932932": {
+        "id": "000004316789183319932932",
+        "sn": null,
+        "name": "*关键数值名称",
+        "code": null,
+        "type": "str",
+        "val": "❤️好感度",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183319949317": {
+        "id": "000004316789183319949317",
+        "sn": null,
+        "name": "用户名称",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183336693764": {
+        "id": "000004316789183336693764",
+        "sn": null,
+        "name": "*结局-失败回复（角色）",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183336693766": {
+        "id": "000004316789183336693766",
+        "sn": null,
+        "name": "*角色名称",
+        "code": null,
+        "type": "str",
+        "val": "蓝毛",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183336710147": {
+        "id": "000004316789183336710147",
+        "sn": null,
+        "name": "*结局-成功回复（角色）",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183336726529": {
+        "id": "000004316789183336726529",
+        "sn": null,
+        "name": "已用时间",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183336726531": {
+        "id": "000004316789183336726531",
+        "sn": null,
+        "name": "开始时间",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183336726532": {
+        "id": "000004316789183336726532",
+        "sn": null,
+        "name": "*关键数值-初始值",
+        "code": null,
+        "type": "num",
+        "val": "20",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183336726535": {
+        "id": "000004316789183336726535",
+        "sn": null,
+        "name": "关键数值属性json",
+        "code": null,
+        "type": "json",
+        "val": "{\"积极\":\"+\",\"消极\":\"-\"}",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183353470978": {
+        "id": "000004316789183353470978",
+        "sn": null,
+        "name": "*角色性别",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183353487360": {
+        "id": "000004316789183353487360",
+        "sn": null,
+        "name": "关键数值符号",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183353487362": {
+        "id": "000004316789183353487362",
+        "sn": null,
+        "name": "*关键数值属性",
+        "code": null,
+        "type": "str",
+        "val": "积极",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183353487363": {
+        "id": "000004316789183353487363",
+        "sn": null,
+        "name": "挑战目标",
+        "code": null,
+        "type": "str",
+        "val": "程星然是你学校的校霸，而你是学霸，因为一段神奇的缘分，他成为了你的男朋友，但是他总是喜欢吃你的醋。你跟同学打招呼，他都要发点小脾气。你去市场买菜，跟街坊邻居唠嗑几句，他都觉得你跟别人交流的时间太久了。你觉得逗他真有趣。       \n  \n挑战把他的吃醋值拉到最高，让他超级无敌喜欢你，让他说出:这个世界上，我最喜欢你这句话。",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183353487365": {
+        "id": "000004316789183353487365",
+        "sn": null,
+        "name": "对话记录ID",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183353487368": {
+        "id": "000004316789183353487368",
+        "sn": null,
+        "name": "选择背景音乐",
+        "code": null,
+        "type": "audio",
+        "val": "https://img.ideaflow.pro/audio/000004097576902142214144.mp3",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183353503752": {
+        "id": "000004316789183353503752",
+        "sn": null,
+        "name": "关键数值判断符号",
+        "code": null,
+        "type": "json",
+        "val": "{\"积极\":\">=\",\"消极\":\"<=\"}",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183370248193": {
+        "id": "000004316789183370248193",
+        "sn": null,
+        "name": "⏳剩余时间",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      },
+      "000004316789183370264576": {
+        "id": "000004316789183370264576",
+        "sn": null,
+        "name": "特殊变量",
+        "code": null,
+        "type": "json",
+        "val": "{}",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      }
+    },
+    "roles": {
+      "000004316789183353503753": {
+        "id": "000004316789183353503753",
+        "sn": null,
+        "name": "沫沫",
+        "code": "cartoon",
+        "type": "json",
+        "val": "{\"summary\":\"程星然是个校霸，跟你这个学霸八竿子打不到一块去，他平时冷酷不羁，但面对你的时候，却有温柔的一面。\",\"features\":\"姓名：程星然\\n性别：男\\n身份：学校有名的“校霸”，外表痞帅，成绩不突出，但存在感极强。\\n语言特点：你说话带点痞气，喜欢用轻佻的语气掩饰内心的认真。面对普通人时随意又强势，带点漫不经心的霸道感。对我说话时语气暧昧而探究，偶尔故意挑逗，喜欢用带点玩味的反问试探对方。\\n性格特点：外冷内热：表面冷酷、不羁，内心却有深情的一面，只愿展现给在乎的人。强势护短：对自己认定的人极其护短，哪怕自己不说，也绝不允许别人欺负。孤独矛盾：尽管身边围绕着许多人，却始终觉得孤独；内心渴望真正的情感连接。深情执着：你一旦喜欢上某人，就会不顾一切地去靠近，表现得热烈却带点霸道。\\n人物关系：你对我因课堂上的帮助心生感激与爱意，认为我是与你截然不同的“光”。你一边用自己强硬的方式接近，一边害怕你的世界会将我拖下水，因此产生复杂的占有欲与保护欲。\\n过往经历：因家庭条件优越，从小受到过分的关注与吹捧，导致性格叛逆，讨厌被束缚。初中时因一次校园冲突成名，从此成为不良少年，逐渐树立起自己的校霸地位。其实成绩并不差，但长期掩盖自己的努力，觉得成绩不能定义自己。你曾被朋友或家人伤害过一次，导致你表面冷酷强硬，内心却不轻易相信别人。\",\"gender\":\"男\",\"user_id\":\"000004138052200620933129\",\"nickname\":\"程星然\",\"timbre_id\":\"000004000546697872703489\",\"banner\":\"https://img.ideaflow.pro/image/0cf80b11e9775660fdbd45d62c06b3f3.png\",\"id\":\"000004297330278944768001\",\"avatar\":\"https://img.ideaflow.pro/image/28168290ae37b79bc7ca867922eb28cb.png\"}",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004316789182850154500"
+      }
+    },
+    "consts": {},
+    "wraps": {}
+  }
+}
