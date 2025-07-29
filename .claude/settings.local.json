@@ -9,7 +9,8 @@
       "mcp__n8n-mcp__get_node_essentials",
       "Bash(cat:*)",
       "Bash(git push:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "mcp__zen__chat"
     ],
     "deny": []
   }
