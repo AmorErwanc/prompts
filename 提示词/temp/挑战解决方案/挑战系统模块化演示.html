@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>挑战系统模块化组装演示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(245,247,250,0.95) 100%);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .main-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr 400px;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* 左侧模块选择区 */
+        .modules-panel {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid #e8ecf1;
+        }
+        
+        .module-category {
+            margin-bottom: 20px;
+        }
+        
+        .module-category h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .module-item {
+            background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 100%);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: move;
+            transition: all 0.3s;
+            border: 1px solid #e8ecf1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .module-item::before {
+            content: '⋮⋮';
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #cbd5e0;
+            font-size: 10px;
+            letter-spacing: -2px;
+        }
+        
+        .module-item:hover {
+            background: linear-gradient(135deg, #eef2f7 0%, #f0f7ff 100%);
+            border-color: #4a90e2;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.15);
+        }
+        
+        .module-item.dragging {
+            opacity: 0.5;
+        }
+        
+        .module-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            font-size: 10px;
+            margin-left: 8px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
+        }
+        
+        /* 中间组装区 */
+        .assembly-area {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid #e8ecf1;
+        }
+        
+        .assembly-title {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .clear-btn {
+            background: white;
+            color: #ef4444;
+            border: 2px solid #fee2e2;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .clear-btn:hover {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            border-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+        }
+        
+        /* 固定框架 */
+        .fixed-framework {
+            background: linear-gradient(135deg, #f0f4ff 0%, #f8f9fb 100%);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .fixed-framework::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            z-index: -1;
+        }
+        
+        .framework-label {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 13px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .slot {
+            background: white;
+            border: 2px dashed #b8d4f1;
+            border-radius: 6px;
+            min-height: 60px;
+            padding: 10px;
+            margin-bottom: 15px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .slot.drag-over {
+            background: #f0f7ff;
+            border-color: #4a90e2;
+        }
+        
+        /* 拖动时高亮匹配的插槽 */
+        .slot.highlight-guide {
+            background: linear-gradient(45deg, #e8f4fd 25%, #f0f7ff 25%, #f0f7ff 50%, #e8f4fd 50%, #e8f4fd 75%, #f0f7ff 75%, #f0f7ff);
+            background-size: 20px 20px;
+            animation: guideMove 1s linear infinite;
+            border-color: #4a90e2;
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+        }
+        
+        @keyframes guideMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 20px 20px;
+            }
+        }
+        
+        .slot-label {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background: white;
+            padding: 0 5px;
+            color: #4a90e2;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .slot-placeholder {
+            color: #999;
+            text-align: center;
+            line-height: 40px;
+            font-style: italic;
+        }
+        
+        .inserted-module {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            margin: 5px 0;
+            position: relative;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .remove-module {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: rgba(255,255,255,0.3);
+            border: none;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s;
+        }
+        
+        .remove-module:hover {
+            background: rgba(255,0,0,0.5);
+        }
+        
+        /* 右侧配置展示 */
+        .config-panel {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid #e8ecf1;
+        }
+        
+        .config-title {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .config-content {
+            background: #f8f9fb;
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e8ecf1;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 12px;
+            max-height: 500px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+        /* 运行按钮 */
+        .run-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 20px;
+            width: 100%;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .run-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .run-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .run-btn:hover::before {
+            left: 100%;
+        }
+        
+        .run-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* 示例预设 */
+        .presets {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .preset-btn {
+            background: white;
+            border: 2px solid transparent;
+            background-image: linear-gradient(white, white), linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: #667eea;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .preset-btn:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+        }
+        
+        /* 提示信息 */
+        .hint {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            color: #4a5568;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .hint::before {
+            content: '💡';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 挑战系统模块化组装演示</h1>
+        
+        <div class="presets">
+            <button class="preset-btn" onclick="loadPreset('love')">💕 恋爱挑战示例</button>
+            <button class="preset-btn" onclick="loadPreset('academic')">📚 学术辩论示例</button>
+            <button class="preset-btn" onclick="loadPreset('workplace')">💼 职场谈判示例</button>
+            <button class="preset-btn" onclick="loadPreset('minimal')">🎯 最简配置示例</button>
+            <button class="preset-btn" onclick="clearAll()">🔄 清空重置</button>
+        </div>
+        
+        <div class="main-layout">
+            <!-- 左侧：可选模块 -->
+            <div class="modules-panel">
+                <h2 style="margin-bottom: 15px; color: #333;">可选模块</h2>
+                <div class="hint">
+                    拖拽模块到中间的插槽中<br>
+                    <span style="color: #999;">所有插槽都是可选的，固定框架为必填项</span>
+                </div>
+                
+                <div class="module-category">
+                    <h3>⏱ 限制条件类型</h3>
+                    <div class="module-item" draggable="true" data-type="limit" data-value='{"type":"time"}'>
+                        时间限制 <span class="module-tag">计时</span>
+                    </div>
+                    <div class="module-item" draggable="true" data-type="limit" data-value='{"type":"round"}'>
+                        轮次限制 <span class="module-tag">计轮</span>
+                    </div>
+                </div>
+                
+                <div class="module-category">
+                    <h3>🎯 挑战目标类型</h3>
+                    <div class="module-item" draggable="true" data-type="goal" data-value='{"type":"说出话语"}'>
+                        说出指定话语 <span class="module-tag">话语</span>
+                    </div>
+                    <div class="module-item" draggable="true" data-type="goal" data-value='{"type":"改变立场"}'>
+                        改变数值立场 <span class="module-tag">数值</span>
+                    </div>
+                    <div class="module-item" draggable="true" data-type="goal" data-value='{"type":"做出行为"}'>
+                        做出特定行为 <span class="module-tag">行为</span>
+                    </div>
+                    <div class="module-item" draggable="true" data-type="goal" data-value='{"type":"做出判断"}'>
+                        判断真实意图 <span class="module-tag">判断</span>
+                    </div>
+                </div>
+                
+                <div class="module-category">
+                    <h3>🏆 奖励机制类型</h3>
+                    <div class="module-item" draggable="true" data-type="reward" data-value='{"type":"解锁人设"}'>
+                        解锁隐藏人设 <span class="module-tag">人设</span>
+                    </div>
+                    <div class="module-item" draggable="true" data-type="reward" data-value='{"type":"故事结局"}'>
+                        特殊故事结局 <span class="module-tag">剧情</span>
+                    </div>
+                    <div class="module-item" draggable="true" data-type="reward" data-value='{"type":"数值达成"}'>
+                        数值成就 <span class="module-tag">成就</span>
+                    </div>
+                </div>
+                
+                <div class="module-category">
+                    <h3>⚔️ 回避策略</h3>
+                    <div class="module-item" draggable="true" data-type="difficulty" data-value='{"strategy":""}'>
+                        设置回避策略 <span class="module-tag">策略</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 中间：组装区域 -->
+            <div class="assembly-area">
+                <div class="assembly-title">
+                    <h2>组装区域</h2>
+                    <button class="clear-btn" onclick="clearAll()">清空全部</button>
+                </div>
+                
+                <div class="fixed-framework">
+                    <div class="framework-label">📝 固定框架（所有挑战都有）</div>
+                    <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <label style="display: block; color: #4a5568; font-size: 13px; margin-bottom: 6px; font-weight: 500;">🎭 角色名称</label>
+                        <input type="text" id="charName" value="" placeholder="输入角色名称" 
+                               style="width: 100%; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 14px; transition: all 0.3s;"
+                               onfocus="this.style.borderColor='#667eea'; this.style.boxShadow='0 0 0 3px rgba(102, 126, 234, 0.1)'"
+                               onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none'">
+                    </div>
+                    <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <label style="display: block; color: #4a5568; font-size: 13px; margin-bottom: 6px; font-weight: 500;">🎯 角色立场</label>
+                        <input type="text" id="charStance" value="" placeholder="描述角色的立场和态度" 
+                               style="width: 100%; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 14px; transition: all 0.3s;"
+                               onfocus="this.style.borderColor='#667eea'; this.style.boxShadow='0 0 0 3px rgba(102, 126, 234, 0.1)'"
+                               onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none'">
+                    </div>
+                    <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <label style="display: block; color: #4a5568; font-size: 13px; margin-bottom: 6px; font-weight: 500;">💬 开场白</label>
+                        <input type="text" id="openingLine" value="" placeholder="角色的开场台词" 
+                               style="width: 100%; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 14px; transition: all 0.3s;"
+                               onfocus="this.style.borderColor='#667eea'; this.style.boxShadow='0 0 0 3px rgba(102, 126, 234, 0.1)'"
+                               onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none'">
+                    </div>
+                    <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <label style="display: block; color: #4a5568; font-size: 13px; margin-bottom: 6px; font-weight: 500;">📝 挑战标题</label>
+                        <input type="text" id="challengeTitle" value="" placeholder="5-15个字的标题"
+                               style="width: 100%; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 14px; transition: all 0.3s;"
+                               onfocus="this.style.borderColor='#667eea'; this.style.boxShadow='0 0 0 3px rgba(102, 126, 234, 0.1)'"
+                               onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none'">
+                    </div>
+                    <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <label style="display: block; color: #4a5568; font-size: 13px; margin-bottom: 6px; font-weight: 500;">📖 背景介绍</label>
+                        <textarea id="backgroundIntro" placeholder="60-80字说明挑战背景"
+                                  style="width: 100%; padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 14px; min-height: 80px; resize: vertical; transition: all 0.3s;"
+                                  onfocus="this.style.borderColor='#667eea'; this.style.boxShadow='0 0 0 3px rgba(102, 126, 234, 0.1)'"
+                                  onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none'"></textarea>
+                    </div>
+                </div>
+                
+                <div class="framework-label">🔧 可变组件（拖入下方插槽）</div>
+                
+                <div class="slot" data-slot="limit">
+                    <span class="slot-label">限制条件插槽 <span style="color: #999;">(可选)</span></span>
+                    <div class="slot-placeholder">拖入限制类型（可为空）</div>
+                </div>
+                
+                <div class="slot" data-slot="goal">
+                    <span class="slot-label">挑战目标插槽 <span style="color: #999;">(可选)</span></span>
+                    <div class="slot-placeholder">拖入目标类型（可为空）</div>
+                </div>
+                
+                <div class="slot" data-slot="reward">
+                    <span class="slot-label">奖励机制插槽 <span style="color: #999;">(可选)</span></span>
+                    <div class="slot-placeholder">拖入奖励类型（可为空）</div>
+                </div>
+                
+                <div class="slot" data-slot="difficulty">
+                    <span class="slot-label">回避策略插槽 <span style="color: #999;">(可选)</span></span>
+                    <div class="slot-placeholder">拖入回避策略设置（可为空）</div>
+                </div>
+                
+                <button class="run-btn" onclick="generateConfig()">🚀 生成配置</button>
+            </div>
+            
+            <!-- 右侧：配置输出 -->
+            <div class="config-panel">
+                <h2 class="config-title">📋 生成的配置</h2>
+                <div class="config-content" id="configOutput">
+// 配置将在这里显示
+// 拖入模块后点击"生成配置"
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 拖放功能
+        let draggedElement = null;
+        
+        // 为所有可拖动模块添加事件
+        document.querySelectorAll('.module-item').forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                draggedElement = e.target;
+                e.target.classList.add('dragging');
+                
+                // 高亮对应的插槽
+                const moduleType = e.target.dataset.type;
+                const matchingSlot = document.querySelector(`[data-slot="${moduleType}"]`);
+                if (matchingSlot) {
+                    matchingSlot.classList.add('highlight-guide');
+                }
+            });
+            
+            item.addEventListener('dragend', (e) => {
+                e.target.classList.remove('dragging');
+                
+                // 移除所有插槽的高亮
+                document.querySelectorAll('.slot').forEach(slot => {
+                    slot.classList.remove('highlight-guide');
+                });
+            });
+        });
+        
+        // 为所有插槽添加事件
+        document.querySelectorAll('.slot').forEach(slot => {
+            slot.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                slot.classList.add('drag-over');
+            });
+            
+            slot.addEventListener('dragleave', (e) => {
+                slot.classList.remove('drag-over');
+            });
+            
+            slot.addEventListener('drop', (e) => {
+                e.preventDefault();
+                slot.classList.remove('drag-over');
+                
+                if (draggedElement) {
+                    const slotType = slot.dataset.slot;
+                    const moduleType = draggedElement.dataset.type;
+                    
+                    // 检查类型是否匹配
+                    if (slotType === moduleType) {
+                        const moduleData = JSON.parse(draggedElement.dataset.value);
+                        insertModule(slot, draggedElement.textContent, moduleData);
+                    } else {
+                        alert('模块类型不匹配！请拖入正确的模块。');
+                    }
+                }
+            });
+        });
+        
+        // 插入模块到插槽
+        function insertModule(slot, text, data) {
+            // 清除占位符
+            const placeholder = slot.querySelector('.slot-placeholder');
+            if (placeholder) {
+                placeholder.style.display = 'none';
+            }
+            
+            // 特殊处理限制条件插槽 - 添加数值输入框
+            if (slot.dataset.slot === 'limit') {
+                const module = document.createElement('div');
+                module.className = 'inserted-module';
+                
+                let inputHtml = '';
+                if (data.type === 'time') {
+                    inputHtml = `
+                        <div style="margin-top: 10px;">
+                            <label style="font-size: 12px;">秒数：</label>
+                            <input type="number" id="limitValue" min="1" max="3600" value="${data.value || 180}" 
+                                   style="width: 80px; padding: 4px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.3); 
+                                          background: rgba(255,255,255,0.2); color: white;"
+                                   onchange="updateLimitValue(this)">
+                            <span style="font-size: 12px; margin-left: 5px;">秒</span>
+                        </div>
+                    `;
+                } else if (data.type === 'round') {
+                    inputHtml = `
+                        <div style="margin-top: 10px;">
+                            <label style="font-size: 12px;">轮数：</label>
+                            <input type="number" id="limitValue" min="1" max="100" value="${data.value || 10}" 
+                                   style="width: 80px; padding: 4px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.3); 
+                                          background: rgba(255,255,255,0.2); color: white;"
+                                   onchange="updateLimitValue(this)">
+                            <span style="font-size: 12px; margin-left: 5px;">轮</span>
+                        </div>
+                    `;
+                }
+                
+                module.dataset.value = JSON.stringify(data);
+                module.innerHTML = `
+                    ${text}
+                    <button class="remove-module" onclick="removeModule(this)">×</button>
+                    ${inputHtml}
+                `;
+                
+                // 清除已有模块
+                const existing = slot.querySelector('.inserted-module');
+                if (existing) {
+                    existing.remove();
+                }
+                
+                slot.appendChild(module);
+            } else if (slot.dataset.slot === 'goal') {
+                // 挑战目标插槽 - 根据类型添加不同输入
+                const module = document.createElement('div');
+                module.className = 'inserted-module';
+                
+                let inputHtml = '';
+                if (data.type === '说出话语' || data.type === '做出行为') {
+                    inputHtml = `
+                        <div style="margin-top: 10px;">
+                            <label style="font-size: 12px;">目标内容：</label>
+                            <input type="text" id="goalContent" value="${data.content || '我爱你'}" 
+                                   style="width: 90%; padding: 4px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.3); 
+                                          background: rgba(255,255,255,0.2); color: white; margin-top: 5px;"
+                                   placeholder="输入角色要说的话或做的事"
+                                   onchange="updateGoalContent(this)">
+                        </div>
+                    `;
+                } else if (data.type === '改变立场') {
+                    inputHtml = `
+                        <div style="margin-top: 10px;">
+                            <label style="font-size: 12px;">目标数值：</label>
+                            <input type="number" id="goalThreshold" min="1" max="100" value="${data.threshold || 100}" 
+                                   style="width: 80px; padding: 4px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.3); 
+                                          background: rgba(255,255,255,0.2); color: white;"
+                                   onchange="updateGoalThreshold(this)">
+                            <span style="font-size: 12px; margin-left: 5px;">点</span>
+                        </div>
+                    `;
+                } else if (data.type === '做出判断') {
+                    inputHtml = `
+                        <div style="margin-top: 10px;">
+                            <label style="font-size: 12px;">判断选项：</label>
+                            <input type="text" id="goalOptions" value="${data.content || '好人|坏人'}" 
+                                   style="width: 90%; padding: 4px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.3); 
+                                          background: rgba(255,255,255,0.2); color: white; margin-top: 5px;"
+                                   placeholder="选项1|选项2"
+                                   onchange="updateGoalContent(this)">
+                        </div>
+                    `;
+                }
+                
+                module.dataset.value = JSON.stringify(data);
+                module.innerHTML = `
+                    ${text}
+                    <button class="remove-module" onclick="removeModule(this)">×</button>
+                    ${inputHtml}
+                `;
+                
+                // 清除已有模块
+                const existing = slot.querySelector('.inserted-module');
+                if (existing) {
+                    existing.remove();
+                }
+                
+                slot.appendChild(module);
+                
+            } else if (slot.dataset.slot === 'reward') {
+                // 奖励机制插槽
+                const module = document.createElement('div');
+                module.className = 'inserted-module';
+                
+                let placeholderText = '';
+                if (data.type === '解锁人设') {
+                    placeholderText = '例如：从高冷变成撒娇奶狗';
+                } else if (data.type === '故事结局') {
+                    placeholderText = '例如：获得完美结局，两人幸福在一起';
+                } else if (data.type === '数值达成') {
+                    placeholderText = '例如：创造新纪录，成为传奇';
+                }
+                
+                const inputHtml = `
+                    <div style="margin-top: 10px;">
+                        <label style="font-size: 12px;">奖励描述：</label>
+                        <textarea id="rewardContent" 
+                                  style="width: 90%; padding: 4px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.3); 
+                                         background: rgba(255,255,255,0.2); color: white; margin-top: 5px; min-height: 40px; resize: vertical;"
+                                  placeholder="${placeholderText}"
+                                  onchange="updateRewardContent(this)">${data.content || ''}</textarea>
+                    </div>
+                `;
+                
+                module.dataset.value = JSON.stringify(data);
+                module.innerHTML = `
+                    ${text}
+                    <button class="remove-module" onclick="removeModule(this)">×</button>
+                    ${inputHtml}
+                `;
+                
+                // 清除已有模块
+                const existing = slot.querySelector('.inserted-module');
+                if (existing) {
+                    existing.remove();
+                }
+                
+                slot.appendChild(module);
+                
+            } else if (slot.dataset.slot === 'difficulty') {
+                // 回避策略插槽
+                const module = document.createElement('div');
+                module.className = 'inserted-module';
+                
+                const inputHtml = `
+                    <div style="margin-top: 10px;">
+                        <label style="font-size: 12px;">角色的回避策略：</label>
+                        <textarea id="difficultyStrategy" 
+                                  style="width: 90%; padding: 4px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.3); 
+                                         background: rgba(255,255,255,0.2); color: white; margin-top: 5px; min-height: 60px; resize: vertical;"
+                                  placeholder="描述角色会如何回避和抵抗&#10;例如：转移话题、装作没听见、用工作忙推脱、情感冷漠、逻辑反驳、质疑动机"
+                                  onchange="updateDifficultyStrategy(this)">${data.strategy || ''}</textarea>
+                    </div>
+                `;
+                
+                module.dataset.value = JSON.stringify(data);
+                module.innerHTML = `
+                    ${text}
+                    <button class="remove-module" onclick="removeModule(this)">×</button>
+                    ${inputHtml}
+                `;
+                
+                // 清除已有模块
+                const existing = slot.querySelector('.inserted-module');
+                if (existing) {
+                    existing.remove();
+                }
+                
+                slot.appendChild(module);
+            }
+        }
+        
+        // 更新限制条件的数值
+        function updateLimitValue(input) {
+            const module = input.closest('.inserted-module');
+            const data = JSON.parse(module.dataset.value);
+            data.value = parseInt(input.value);
+            module.dataset.value = JSON.stringify(data);
+        }
+        
+        // 更新挑战目标内容
+        function updateGoalContent(input) {
+            const module = input.closest('.inserted-module');
+            const data = JSON.parse(module.dataset.value);
+            data.content = input.value;
+            module.dataset.value = JSON.stringify(data);
+        }
+        
+        // 更新挑战目标数值
+        function updateGoalThreshold(input) {
+            const module = input.closest('.inserted-module');
+            const data = JSON.parse(module.dataset.value);
+            data.threshold = parseInt(input.value);
+            module.dataset.value = JSON.stringify(data);
+        }
+        
+        // 更新奖励内容
+        function updateRewardContent(input) {
+            const module = input.closest('.inserted-module');
+            const data = JSON.parse(module.dataset.value);
+            data.content = input.value;
+            module.dataset.value = JSON.stringify(data);
+        }
+        
+        // 更新难度策略
+        function updateDifficultyStrategy(input) {
+            const module = input.closest('.inserted-module');
+            const data = JSON.parse(module.dataset.value);
+            data.strategy = input.value;
+            module.dataset.value = JSON.stringify(data);
+        }
+        
+        // 移除模块
+        function removeModule(btn) {
+            const module = btn.parentElement;
+            const slot = module.parentElement;
+            module.remove();
+            
+            // 显示占位符
+            const placeholder = slot.querySelector('.slot-placeholder');
+            if (placeholder) {
+                placeholder.style.display = 'block';
+            }
+        }
+        
+        // 清空所有
+        function clearAll() {
+            // 清空所有插槽中的模块
+            document.querySelectorAll('.inserted-module').forEach(m => m.remove());
+            document.querySelectorAll('.slot-placeholder').forEach(p => {
+                p.style.display = 'block';
+            });
+            
+            // 重置固定框架的输入框为默认值
+            document.getElementById('charName').value = '';
+            document.getElementById('charStance').value = '';
+            document.getElementById('openingLine').value = '';
+            document.getElementById('challengeTitle').value = '';
+            document.getElementById('backgroundIntro').value = '';
+            
+            // 清空配置输出
+            document.getElementById('configOutput').textContent = '// 配置将在这里显示\n// 拖入模块后点击"生成配置"';
+        }
+        
+        // 生成配置
+        function generateConfig() {
+            const config = {
+                "角色名称": document.getElementById('charName').value,
+                "角色立场": document.getElementById('charStance').value,
+                "开场白": document.getElementById('openingLine').value,
+                "挑战标题": document.getElementById('challengeTitle').value,
+                "背景介绍": document.getElementById('backgroundIntro').value
+            };
+            
+            // 获取各个插槽的模块
+            const slots = ['limit', 'goal', 'reward', 'difficulty'];
+            const slotNames = {
+                'limit': '限制条件',
+                'goal': '挑战目标',
+                'reward': '奖励机制',
+                'difficulty': '回避策略'
+            };
+            
+            // 所有插槽都是可选的
+            const optionalSlots = ['limit', 'goal', 'reward', 'difficulty'];
+            
+            // 检查必填的固定框架
+            let missingRequired = [];
+            if (!config["角色名称"] || config["角色名称"].trim() === '') {
+                missingRequired.push('角色名称');
+            }
+            if (!config["角色立场"] || config["角色立场"].trim() === '') {
+                missingRequired.push('角色立场');
+            }
+            if (!config["开场白"] || config["开场白"].trim() === '') {
+                missingRequired.push('开场白');
+            }
+            if (!config["挑战标题"] || config["挑战标题"].trim() === '') {
+                missingRequired.push('挑战标题');
+            }
+            if (!config["背景介绍"] || config["背景介绍"].trim() === '') {
+                missingRequired.push('背景介绍');
+            }
+            
+            // 处理所有可选插槽
+            optionalSlots.forEach(slotType => {
+                const slot = document.querySelector(`[data-slot="${slotType}"]`);
+                const module = slot.querySelector('.inserted-module');
+                if (module) {
+                    const data = JSON.parse(module.dataset.value);
+                    // 处理不同类型的插槽
+                    if (slotType === 'limit') {
+                        // 限制条件 - 需要有具体数值
+                        if (data.value) {
+                            config[slotNames[slotType]] = data;
+                        }
+                    } else if (slotType === 'goal') {
+                        // 挑战目标 - 需要有具体内容或数值
+                        if ((data.type === '说出话语' || data.type === '做出行为') && data.content && data.content.trim() !== '') {
+                            config[slotNames[slotType]] = data;
+                        } else if (data.type === '改变立场' && data.threshold) {
+                            config[slotNames[slotType]] = data;
+                        } else if (data.type === '做出判断') {
+                            config[slotNames[slotType]] = data;
+                        }
+                    } else if (slotType === 'reward' && data.content && data.content.trim() !== '') {
+                        config[slotNames[slotType]] = data;
+                    } else if (slotType === 'difficulty' && data.strategy && data.strategy.trim() !== '') {
+                        config[slotNames[slotType]] = data.strategy; // 回避策略直接存储字符串
+                    }
+                }
+            });
+            
+            // 显示配置
+            document.getElementById('configOutput').textContent = JSON.stringify(config, null, 2);
+            
+            // 提示信息
+            if (missingRequired.length > 0) {
+                alert('⚠️ 必填项缺失：' + missingRequired.join('、') + '\n\n固定框架中的所有字段都是必填的！');
+            } else {
+                // 成功提示
+                const hasSlots = config['限制条件'] || config['挑战目标'] || config['奖励机制'] || config['回避策略'];
+                if (!hasSlots) {
+                    document.getElementById('configOutput').textContent += '\n\n// 提示：所有插槽都是可选的\n// 当前仅包含基础配置，可根据需要添加插槽内容';
+                }
+            }
+        }
+        
+        // 加载预设
+        function loadPreset(type) {
+            clearAll();
+            
+            const presets = {
+                love: {
+                    charName: '傲娇总裁',
+                    charStance: '绝不承认喜欢你，维持高冷形象',
+                    openingLine: '（冷漠地看了你一眼）三分钟，有事快说',
+                    limit: { text: '时间限制', data: {type:'time', value:180} },
+                    goal: { text: '让角色说"我爱你"', data: {type:'说出话语', content:'我爱你'} },
+                    reward: { text: '解锁隐藏人设', data: {type:'解锁人设', content:'从高冷变成撒娇'} },
+                    difficulty: { text: '设置回避策略', data: {strategy:'口是心非、转移话题、假装生气'} }
+                },
+                academic: {
+                    charName: '鲁迅',
+                    charStance: '传统文学至上，网络文学都是垃圾',
+                    openingLine: '又来和我讨论那些网络小说？',
+                    limit: { text: '轮次限制', data: {type:'round', value:10} },
+                    goal: { text: '让角色承认你对', data: {type:'说出话语', content:'你说得对'} },
+                    reward: { text: '特殊故事结局', data: {type:'故事结局', content:'获得完美结局'} },
+                    difficulty: { text: '设置回避策略', data: {strategy:'引经据典、逻辑反驳、质疑现代文学价值'} }
+                },
+                workplace: {
+                    charName: '严格老板',
+                    charStance: '公司利益至上，不轻易涨薪',
+                    openingLine: '涨工资？你知道今年的业绩吗？',
+                    limit: { text: '时间限制', data: {type:'time', value:300} },
+                    goal: { text: '让角色同意合作', data: {type:'做出行为', content:'同意合作'} },
+                    reward: { text: '数值成就', data: {type:'数值达成', content:'创造新纪录'} },
+                    difficulty: { text: '设置回避策略', data: {strategy:'引经据典、逻辑反驳、质疑现代文学价值'} }
+                },
+                minimal: {
+                    charName: '神秘角色',
+                    charStance: '保持神秘，不轻易表态',
+                    openingLine: '你想要什么？',
+                    challengeTitle: '最简挑战',
+                    backgroundIntro: '这是一个最简配置示例，只包含必填的固定框架，没有任何可选插槽。'
+                    // 注意：没有任何插槽，展示最简配置
+                }
+            };
+            
+            const preset = presets[type];
+            if (preset) {
+                // 设置固定字段
+                document.getElementById('charName').value = preset.charName;
+                document.getElementById('charStance').value = preset.charStance;
+                document.getElementById('openingLine').value = preset.openingLine;
+                document.getElementById('challengeTitle').value = preset.challengeTitle || '自定义挑战';
+                document.getElementById('backgroundIntro').value = preset.backgroundIntro || '这是一个挑战背景介绍';
+                
+                // 设置可变模块
+                const slots = ['limit', 'goal', 'reward', 'difficulty'];
+                slots.forEach(slotType => {
+                    if (preset[slotType]) {
+                        const slot = document.querySelector(`[data-slot="${slotType}"]`);
+                        insertModule(slot, preset[slotType].text, preset[slotType].data);
+                    }
+                });
+                
+                // 自动生成配置
+                setTimeout(generateConfig, 100);
+            }
+        }
+        
+        // 页面加载时不加载任何预设，让用户从空白开始
+        window.onload = () => {
+            // 不自动加载预设，让用户手动选择
+        };
+    </script>
+</body>
+</html>
