@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Title>手动处理测试数据集</Title>
+  <Created>2025-08-29T10:24:46.805Z</Created>
+ </DocumentProperties>
+ <Styles>
+  <Style ss:ID="Header">
+   <Font ss:Bold="1"/>
+   <Interior ss:Color="#E6E6FA" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="TrueAnswer">
+   <Interior ss:Color="#90EE90" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="FalseAnswer">
+   <Interior ss:Color="#FFB6C1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="JsonText">
+   <Font ss:FontName="Consolas" ss:Size="9"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="手动处理测试数据">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="1">
+   <Column ss:AutoFitWidth="0" ss:Width="120"/>
+   <Column ss:AutoFitWidth="0" ss:Width="400"/>
+   <Column ss:AutoFitWidth="0" ss:Width="300"/>
+   <Column ss:AutoFitWidth="0" ss:Width="80"/>
+   <Column ss:AutoFitWidth="0" ss:Width="120"/>
+   <Column ss:AutoFitWidth="0" ss:Width="80"/>
+   <Row ss:Height="20">
+    <Cell ss:StyleID="Header"><Data ss:Type="String">测试编号</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">历史对话</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">当前对话</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">参照回答</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">场景类型</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">轮次编号</Data></Cell>
+   </Row>
+  </Table>
+ </Worksheet>
+</Workbook>

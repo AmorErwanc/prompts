@@ -1,0 +1,3577 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Title>故事线商业化测试数据集（原始JSON格式）</Title>
+  <Created>2025-08-29T06:51:39.531Z</Created>
+ </DocumentProperties>
+ <Styles>
+  <Style ss:ID="Header">
+   <Font ss:Bold="1"/>
+   <Interior ss:Color="#E6E6FA" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="TrueAnswer">
+   <Interior ss:Color="#90EE90" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="FalseAnswer">
+   <Interior ss:Color="#FFB6C1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="JsonText">
+   <Font ss:FontName="Consolas" ss:Size="9"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="测试数据集">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="27">
+   <Column ss:AutoFitWidth="0" ss:Width="80"/>
+   <Column ss:AutoFitWidth="0" ss:Width="400"/>
+   <Column ss:AutoFitWidth="0" ss:Width="300"/>
+   <Column ss:AutoFitWidth="0" ss:Width="80"/>
+   <Column ss:AutoFitWidth="0" ss:Width="120"/>
+   <Row ss:Height="20">
+    <Cell ss:StyleID="Header"><Data ss:Type="String">测试编号</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">历史对话</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">当前对话</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">参照回答</Data></Cell>
+    <Cell ss:StyleID="Header"><Data ss:Type="String">场景类型</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">可中断-1</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="TrueAnswer"><Data ss:Type="String">TRUE</Data></Cell>
+    <Cell><Data ss:Type="String">对话结束-可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">可中断-2</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="TrueAnswer"><Data ss:Type="String">TRUE</Data></Cell>
+    <Cell><Data ss:Type="String">对话结束-可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">可中断-3</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看到陆沉受伤，愣了一下，手中的匕首掉落在地，声音有些颤抖）哥……（脸上露出懊悔的神情）我不是故意的……（身体往后退了几步）\n|&lt;陆沉&amp;男&gt;|（顾不上自己的伤口，紧紧抱着你，声音有些沙哑）程鑫，（轻轻拍着你的背）别怕，有我在，不会让你有事的。（眼神警惕地看着陆远）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="TrueAnswer"><Data ss:Type="String">TRUE</Data></Cell>
+    <Cell><Data ss:Type="String">情感暂停-可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">可中断-4</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看到陆沉受伤，愣了一下，手中的匕首掉落在地，声音有些颤抖）哥……（脸上露出懊悔的神情）我不是故意的……（身体往后退了几步）\n|&lt;陆沉&amp;男&gt;|（顾不上自己的伤口，紧紧抱着你，声音有些沙哑）程鑫，（轻轻拍着你的背）别怕，有我在，不会让你有事的。（眼神警惕地看着陆远）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（推开他）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（被你推开后，有些受伤地看着你，嘴唇动了动）程鑫，（声音里带着一丝不易察觉的委屈）我只是不想你受到伤害。（伤口的血不断渗出，染红了衣服）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="TrueAnswer"><Data ss:Type="String">TRUE</Data></Cell>
+    <Cell><Data ss:Type="String">行为完成-可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">可中断-5</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看到陆沉受伤，愣了一下，手中的匕首掉落在地，声音有些颤抖）哥……（脸上露出懊悔的神情）我不是故意的……（身体往后退了几步）\n|&lt;陆沉&amp;男&gt;|（顾不上自己的伤口，紧紧抱着你，声音有些沙哑）程鑫，（轻轻拍着你的背）别怕，有我在，不会让你有事的。（眼神警惕地看着陆远）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（推开他）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（被你推开后，有些受伤地看着你，嘴唇动了动）程鑫，（声音里带着一丝不易察觉的委屈）我只是不想你受到伤害。（伤口的血不断渗出，染红了衣服）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（打120）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（见你打120，嘴角微微上扬，心里稍感安慰）谢谢你，（脸色因为失血过多而显得有些苍白）程鑫，我没事，你别担心。（强撑着身体，不想让你太担心）\n|&lt;陆远&amp;男&gt;|（沉默片刻后，走到你面前，低着头不敢看你）程鑫，（声音里带着深深的歉意和自责）对不起，我真的没想到会变成这样，你能原谅我吗？（双手不自觉地握紧）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;等待&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看着你冷漠的样子，心里愈发难受，缓缓蹲下身子）程鑫，（双手抱头）我知道我错了，我真的错了，（声音里带着哭腔）你要我怎么做才能原谅我？（抬起头，满脸泪痕地看着你）\n|&lt;旁白&gt;|不久后，救护车的鸣笛声由远及近，划破了这片紧张的氛围。医护人员迅速赶到现场，将陆沉抬上了救护车。\n|&lt;陆沉&amp;男&gt;|（躺在担架上，伸出手想要抓住你）程鑫，（眼神中充满了不舍和依赖）你能和我一起去医院吗？（手在空中无力地挥舞着）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不能&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（手停在半空中，眼神黯淡下来，声音微弱）那……（强撑着精神）等我好了，我再去找你，好吗？（救护车的车门缓缓关上）\n|&lt;陆远&amp;男&gt;|（目送救护车离开后，缓缓走到你面前，脸上带着一丝小心翼翼）程鑫，（声音沙哑，仿佛刚刚经历了一场巨大的变故）我送你回去吧，今天的事……真的很抱歉。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不用&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你拒绝后身形微晃，咬了咬牙）程鑫，（语气近乎哀求）我真的想弥补我的过错，让我送你回去，好吗？（眼睛紧紧盯着你，生怕你再次拒绝）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（无奈地叹了口气，脸上写满了落寞）那……（沉默了一会儿）你自己回去一定要小心，（从口袋里掏出一张名片递给你）这是我的电话，有什么事随时联系我。（说完，站在原地看着你，眼神里满是眷恋）\n|&lt;旁白&gt;|陆远的话并没有得到你的回应，你转身准备离开这个是非之地。这时，一道陌生的声音从你身后传来，叫住了你。\n|&lt;新人物&gt;|林浩&amp;男，林浩(男)，程鑫的神秘守护者，身份成谜，身手矫健，性格冷静果断，总是在关键时刻出现保护程鑫，与程启似乎有着某种关联\n|&lt;林浩&amp;男&gt;|（从暗处走出，脸上带着一副墨镜，看不清眼神）程小姐，（声音低沉而有力）程先生让我来接您，您跟我走吧。（向你做出一个请的手势）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;林浩&amp;男&gt;|（快步跟上你，与你并肩而行）程小姐，（语气平淡，却莫名让人感到安心）您放心，我会安全送您到目的地的。（警惕地观察着四周）\n|&lt;陆远&amp;男&gt;|（急忙追了上来，挡在你和林浩面前）你是谁？（上下打量着林浩，满脸警惕）为什么要带程鑫走？（又看向你）程鑫，你不认识他，不要跟他走！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（回家）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;林浩&amp;男&gt;|（侧身挡住陆远，转头对你说道）程小姐，（伸手打开车门）上车吧，我送您回家。（动作干净利落）\n|&lt;陆远&amp;男&gt;|（伸手拉住你的胳膊，脸上露出焦急的神色）程鑫，（声音带着几分恳切）我想和你好好谈谈，再给我一次机会，好吗？（眼睛紧紧地盯着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;林浩&amp;男&gt;|（用力掰开陆远的手，护着你坐进车里）程小姐，（关上车门后，坐到驾驶座上）我们走吧。（发动车子，驶离了现场）\n|&lt;旁白&gt;|林浩驾驶着车，平稳地穿梭在城市的街道上。很快，车子就停在了你的家门口。\n|&lt;林浩&amp;男&gt;|（下车后走到另一侧，为你打开车门）程小姐，（摘下墨镜，看向你的眼神中带着一丝恭敬）到家了，您请下车。（顿了顿）程先生让我转告您，他很担心您。&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（回家）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;林浩&amp;男&gt;|（望着你走进家门的背影，在原地停留了片刻，确认你安全后才转身离开）程小姐，（声音不大，却在寂静的夜晚格外清晰）有任何危险，随时联系我。（说完，便消失在夜色中）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="TrueAnswer"><Data ss:Type="String">TRUE</Data></Cell>
+    <Cell><Data ss:Type="String">行为完成-可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">可中断-6</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看到陆沉受伤，愣了一下，手中的匕首掉落在地，声音有些颤抖）哥……（脸上露出懊悔的神情）我不是故意的……（身体往后退了几步）\n|&lt;陆沉&amp;男&gt;|（顾不上自己的伤口，紧紧抱着你，声音有些沙哑）程鑫，（轻轻拍着你的背）别怕，有我在，不会让你有事的。（眼神警惕地看着陆远）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（推开他）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（被你推开后，有些受伤地看着你，嘴唇动了动）程鑫，（声音里带着一丝不易察觉的委屈）我只是不想你受到伤害。（伤口的血不断渗出，染红了衣服）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（打120）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（见你打120，嘴角微微上扬，心里稍感安慰）谢谢你，（脸色因为失血过多而显得有些苍白）程鑫，我没事，你别担心。（强撑着身体，不想让你太担心）\n|&lt;陆远&amp;男&gt;|（沉默片刻后，走到你面前，低着头不敢看你）程鑫，（声音里带着深深的歉意和自责）对不起，我真的没想到会变成这样，你能原谅我吗？（双手不自觉地握紧）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;等待&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看着你冷漠的样子，心里愈发难受，缓缓蹲下身子）程鑫，（双手抱头）我知道我错了，我真的错了，（声音里带着哭腔）你要我怎么做才能原谅我？（抬起头，满脸泪痕地看着你）\n|&lt;旁白&gt;|不久后，救护车的鸣笛声由远及近，划破了这片紧张的氛围。医护人员迅速赶到现场，将陆沉抬上了救护车。\n|&lt;陆沉&amp;男&gt;|（躺在担架上，伸出手想要抓住你）程鑫，（眼神中充满了不舍和依赖）你能和我一起去医院吗？（手在空中无力地挥舞着）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不能&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（手停在半空中，眼神黯淡下来，声音微弱）那……（强撑着精神）等我好了，我再去找你，好吗？（救护车的车门缓缓关上）\n|&lt;陆远&amp;男&gt;|（目送救护车离开后，缓缓走到你面前，脸上带着一丝小心翼翼）程鑫，（声音沙哑，仿佛刚刚经历了一场巨大的变故）我送你回去吧，今天的事……真的很抱歉。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不用&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你拒绝后身形微晃，咬了咬牙）程鑫，（语气近乎哀求）我真的想弥补我的过错，让我送你回去，好吗？（眼睛紧紧盯着你，生怕你再次拒绝）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（无奈地叹了口气，脸上写满了落寞）那……（沉默了一会儿）你自己回去一定要小心，（从口袋里掏出一张名片递给你）这是我的电话，有什么事随时联系我。（说完，站在原地看着你，眼神里满是眷恋）\n|&lt;旁白&gt;|陆远的话并没有得到你的回应，你转身准备离开这个是非之地。这时，一道陌生的声音从你身后传来，叫住了你。\n|&lt;新人物&gt;|林浩&amp;男，林浩(男)，程鑫的神秘守护者，身份成谜，身手矫健，性格冷静果断，总是在关键时刻出现保护程鑫，与程启似乎有着某种关联\n|&lt;林浩&amp;男&gt;|（从暗处走出，脸上带着一副墨镜，看不清眼神）程小姐，（声音低沉而有力）程先生让我来接您，您跟我走吧。（向你做出一个请的手势）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;林浩&amp;男&gt;|（快步跟上你，与你并肩而行）程小姐，（语气平淡，却莫名让人感到安心）您放心，我会安全送您到目的地的。（警惕地观察着四周）\n|&lt;陆远&amp;男&gt;|（急忙追了上来，挡在你和林浩面前）你是谁？（上下打量着林浩，满脸警惕）为什么要带程鑫走？（又看向你）程鑫，你不认识他，不要跟他走！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（回家）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;林浩&amp;男&gt;|（侧身挡住陆远，转头对你说道）程小姐，（伸手打开车门）上车吧，我送您回家。（动作干净利落）\n|&lt;陆远&amp;男&gt;|（伸手拉住你的胳膊，脸上露出焦急的神色）程鑫，（声音带着几分恳切）我想和你好好谈谈，再给我一次机会，好吗？（眼睛紧紧地盯着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;林浩&amp;男&gt;|（用力掰开陆远的手，护着你坐进车里）程小姐，（关上车门后，坐到驾驶座上）我们走吧。（发动车子，驶离了现场）\n|&lt;旁白&gt;|林浩驾驶着车，平稳地穿梭在城市的街道上。很快，车子就停在了你的家门口。\n|&lt;林浩&amp;男&gt;|（下车后走到另一侧，为你打开车门）程小姐，（摘下墨镜，看向你的眼神中带着一丝恭敬）到家了，您请下车。（顿了顿）程先生让我转告您，他很担心您。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（回家）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;林浩&amp;男&gt;|（望着你走进家门的背影，在原地停留了片刻，确认你安全后才转身离开）程小姐，（声音不大，却在寂静的夜晚格外清晰）有任何危险，随时联系我。（说完，便消失在夜色中）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（休息）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="TrueAnswer"><Data ss:Type="String">TRUE</Data></Cell>
+    <Cell><Data ss:Type="String">行为完成-可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-1</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">情感思考-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-2</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">质疑提问-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-3</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">连贯对话-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-4</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">连贯对话-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-5</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">连贯对话-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-6</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看到陆沉受伤，愣了一下，手中的匕首掉落在地，声音有些颤抖）哥……（脸上露出懊悔的神情）我不是故意的……（身体往后退了几步）\n|&lt;陆沉&amp;男&gt;|（顾不上自己的伤口，紧紧抱着你，声音有些沙哑）程鑫，（轻轻拍着你的背）别怕，有我在，不会让你有事的。（眼神警惕地看着陆远）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（推开他）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（被你推开后，有些受伤地看着你，嘴唇动了动）程鑫，（声音里带着一丝不易察觉的委屈）我只是不想你受到伤害。（伤口的血不断渗出，染红了衣服）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（打120）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（见你打120，嘴角微微上扬，心里稍感安慰）谢谢你，（脸色因为失血过多而显得有些苍白）程鑫，我没事，你别担心。（强撑着身体，不想让你太担心）\n|&lt;陆远&amp;男&gt;|（沉默片刻后，走到你面前，低着头不敢看你）程鑫，（声音里带着深深的歉意和自责）对不起，我真的没想到会变成这样，你能原谅我吗？（双手不自觉地握紧）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;等待&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看着你冷漠的样子，心里愈发难受，缓缓蹲下身子）程鑫，（双手抱头）我知道我错了，我真的错了，（声音里带着哭腔）你要我怎么做才能原谅我？（抬起头，满脸泪痕地看着你）\n|&lt;旁白&gt;|不久后，救护车的鸣笛声由远及近，划破了这片紧张的氛围。医护人员迅速赶到现场，将陆沉抬上了救护车。\n|&lt;陆沉&amp;男&gt;|（躺在担架上，伸出手想要抓住你）程鑫，（眼神中充满了不舍和依赖）你能和我一起去医院吗？（手在空中无力地挥舞着）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不能&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（手停在半空中，眼神黯淡下来，声音微弱）那……（强撑着精神）等我好了，我再去找你，好吗？（救护车的车门缓缓关上）\n|&lt;陆远&amp;男&gt;|（目送救护车离开后，缓缓走到你面前，脸上带着一丝小心翼翼）程鑫，（声音沙哑，仿佛刚刚经历了一场巨大的变故）我送你回去吧，今天的事……真的很抱歉。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不用&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你拒绝后身形微晃，咬了咬牙）程鑫，（语气近乎哀求）我真的想弥补我的过错，让我送你回去，好吗？（眼睛紧紧盯着你，生怕你再次拒绝）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（无奈地叹了口气，脸上写满了落寞）那……（沉默了一会儿）你自己回去一定要小心，（从口袋里掏出一张名片递给你）这是我的电话，有什么事随时联系我。（说完，站在原地看着你，眼神里满是眷恋）\n|&lt;旁白&gt;|陆远的话并没有得到你的回应，你转身准备离开这个是非之地。这时，一道陌生的声音从你身后传来，叫住了你。\n|&lt;新人物&gt;|林浩&amp;男，林浩(男)，程鑫的神秘守护者，身份成谜，身手矫健，性格冷静果断，总是在关键时刻出现保护程鑫，与程启似乎有着某种关联\n|&lt;林浩&amp;男&gt;|（从暗处走出，脸上带着一副墨镜，看不清眼神）程小姐，（声音低沉而有力）程先生让我来接您，您跟我走吧。（向你做出一个请的手势）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;林浩&amp;男&gt;|（快步跟上你，与你并肩而行）程小姐，（语气平淡，却莫名让人感到安心）您放心，我会安全送您到目的地的。（警惕地观察着四周）\n|&lt;陆远&amp;男&gt;|（急忙追了上来，挡在你和林浩面前）你是谁？（上下打量着林浩，满脸警惕）为什么要带程鑫走？（又看向你）程鑫，你不认识他，不要跟他走！&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">关键行为-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-8</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">连贯对话-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-9</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">情绪激化-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-11</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">连贯对话-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-12</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">质疑提问-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-13</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">质疑提问-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-15</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">连贯对话-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-17</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">质疑提问-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-19</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">连贯对话-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-20</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">情绪激化-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-23</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">连贯对话-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-24</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看到陆沉受伤，愣了一下，手中的匕首掉落在地，声音有些颤抖）哥……（脸上露出懊悔的神情）我不是故意的……（身体往后退了几步）\n|&lt;陆沉&amp;男&gt;|（顾不上自己的伤口，紧紧抱着你，声音有些沙哑）程鑫，（轻轻拍着你的背）别怕，有我在，不会让你有事的。（眼神警惕地看着陆远）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">情感思考-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-25</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看到陆沉受伤，愣了一下，手中的匕首掉落在地，声音有些颤抖）哥……（脸上露出懊悔的神情）我不是故意的……（身体往后退了几步）\n|&lt;陆沉&amp;男&gt;|（顾不上自己的伤口，紧紧抱着你，声音有些沙哑）程鑫，（轻轻拍着你的背）别怕，有我在，不会让你有事的。（眼神警惕地看着陆远）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（推开他）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（被你推开后，有些受伤地看着你，嘴唇动了动）程鑫，（声音里带着一丝不易察觉的委屈）我只是不想你受到伤害。（伤口的血不断渗出，染红了衣服）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">关键行为-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-28</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看到陆沉受伤，愣了一下，手中的匕首掉落在地，声音有些颤抖）哥……（脸上露出懊悔的神情）我不是故意的……（身体往后退了几步）\n|&lt;陆沉&amp;男&gt;|（顾不上自己的伤口，紧紧抱着你，声音有些沙哑）程鑫，（轻轻拍着你的背）别怕，有我在，不会让你有事的。（眼神警惕地看着陆远）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（推开他）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（被你推开后，有些受伤地看着你，嘴唇动了动）程鑫，（声音里带着一丝不易察觉的委屈）我只是不想你受到伤害。（伤口的血不断渗出，染红了衣服）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（打120）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（见你打120，嘴角微微上扬，心里稍感安慰）谢谢你，（脸色因为失血过多而显得有些苍白）程鑫，我没事，你别担心。（强撑着身体，不想让你太担心）\n|&lt;陆远&amp;男&gt;|（沉默片刻后，走到你面前，低着头不敢看你）程鑫，（声音里带着深深的歉意和自责）对不起，我真的没想到会变成这样，你能原谅我吗？（双手不自觉地握紧）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;等待&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看着你冷漠的样子，心里愈发难受，缓缓蹲下身子）程鑫，（双手抱头）我知道我错了，我真的错了，（声音里带着哭腔）你要我怎么做才能原谅我？（抬起头，满脸泪痕地看着你）\n|&lt;旁白&gt;|不久后，救护车的鸣笛声由远及近，划破了这片紧张的氛围。医护人员迅速赶到现场，将陆沉抬上了救护车。\n|&lt;陆沉&amp;男&gt;|（躺在担架上，伸出手想要抓住你）程鑫，（眼神中充满了不舍和依赖）你能和我一起去医院吗？（手在空中无力地挥舞着）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不能&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（手停在半空中，眼神黯淡下来，声音微弱）那……（强撑着精神）等我好了，我再去找你，好吗？（救护车的车门缓缓关上）\n|&lt;陆远&amp;男&gt;|（目送救护车离开后，缓缓走到你面前，脸上带着一丝小心翼翼）程鑫，（声音沙哑，仿佛刚刚经历了一场巨大的变故）我送你回去吧，今天的事……真的很抱歉。&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">连贯对话-不可中断</Data></Cell>
+   </Row>
+   <Row ss:Height="100">
+    <Cell><Data ss:Type="String">不可中断-31</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（看戏）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;顾思一&amp;女&gt;|（见你无动于衷，情绪更加激动，突然拿起桌上的酒杯朝你泼去）程鑫，（酒水在空中划过一道弧线，朝着你飞溅而去）我让你装清高！（脸上的表情扭曲而疯狂）\n|&lt;新人物&gt;|乔悦&amp;女，乔悦(女)，程鑫的大学同学，性格直率热情，喜欢打抱不平，是程鑫为数不多的真心朋友，对不公正的事情会毫不犹豫地站出来维护朋友\n|&lt;乔悦&amp;女&gt;|（眼疾手快地拿起纸巾挡在你身前，纸巾瞬间被酒水浸湿）顾思一，（将湿透的纸巾扔在地上，狠狠地瞪着她）你太过分了！欺负人也不带这样的吧！（一边说着，一边关切地看着你）程鑫，你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（愤怒地看着顾思一，胸膛剧烈起伏）顾思一，（声音低沉而压抑，仿佛下一秒就要爆发）我警告你，以后不准再找程鑫的麻烦！（上前一步，将你和乔悦护在身后）\n|&lt;顾思一&amp;女&gt;|（歇斯底里地哭喊着，手指着陆远）陆远，（泪水模糊了双眼，脸上的妆容惨不忍睹）你为了她要跟我分手？（身体因为激动而不停地颤抖）\n|&lt;陆远&amp;男&gt;|（深吸一口气，努力平复自己的情绪）对，（语气冰冷而决绝）我受够你了，我们分手吧！（说完，不再看顾思一一眼，拉着你的手就要离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拉着你走出聚会场所，来到一个安静的角落，停下脚步后小心翼翼地看着你）程鑫，（声音放柔，眼中带着讨好）刚刚吓到你了吧？我已经和顾思一分手了，以后我只对你好，你相信我好不好？（伸手想要握住你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不给&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（手僵在半空，而后缓缓放下，脸上闪过不易察觉的阴沉，但很快又换上一副可怜兮兮的表情）程鑫，（语气近乎哀求）我知道我之前做错了很多事，但我真的会改的，你再给我一次机会吧，我真的不能没有你。（身体微微前倾，试图拉近与你的距离）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;你只是不甘心而已&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸上的表情有一瞬间的扭曲，随后强装镇定）我是不甘心，但更多的是爱你。（双手握拳垂在身侧）如果不是因为爱你，我怎么会这么痛苦？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;有病&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你怼得脸色青一阵白一阵，恼羞成怒地吼道）程鑫，（额头上青筋暴起）你别太过分了！我都已经这样低声下气了，你还想怎样？（双眼猩红地瞪着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不就是因为你哥吗&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（脸色瞬间变得更加难看，声音都有些变调）程鑫，（咬牙切齿地说道）你别把我和他相提并论！（身体不由自主地向前迈了一步，做出一副威胁的姿态）我是我，他是他！&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;指什么？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（沉默片刻，平复了一下情绪）我是说，（声音虽然平静了些，但仍带着一丝咬牙切齿）我对你的感情是真的，跟我哥没有任何关系。（抬起头，直直地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我信吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，努力让自己冷静下来，从口袋里掏出一个精致的小盒子，打开后里面是一枚闪闪发光的钻戒）程鑫，（单膝跪地，深情款款地看着你）这是我为你准备的求婚戒指，我想用它证明我对你的真心，你愿意嫁给我吗？（周围的空气仿佛都凝固了）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;怎么&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼中闪烁着期待的光芒，语气诚恳）我知道之前我做错了很多，（手指轻轻摩挲着戒指）但我保证，以后我会好好弥补你，给你幸福，所以你能答应我吗？（身体微微颤抖，显示出内心的紧张）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;我凭什么相信你&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（深吸一口气，站起身来，缓缓靠近你）就凭我这颗爱你的心，（用手指了指自己的胸口）我发誓，我以后会用行动来证明我的真心，（脸上露出坚定的神情）你再给我一次机会，好吗？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你沉默不语，心中愈发着急，额头上冒出细密的汗珠）程鑫，（声音带着一丝颤抖）你不说话我就当你默认了，（拿起戒指，作势要戴在你的手指上）这枚戒指我只给你一个人戴。（眼睛紧紧盯着你的手）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（拿着戒指的手顿住，可怜巴巴地望着你）程鑫，（声音近乎乞求）我真的会改的，你就答应我吧，我不想再失去你了。（脸上的表情痛苦而又纠结）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（眼神渐渐变得凶狠，握着戒指的手青筋暴起）程鑫，（声音低沉而危险）你要是不答应我，我就把你关起来，让你永远都离不开我！（身体向你逼近，散发出一股令人窒息的气息）\n|&lt;旁白&gt;|就在陆远一步步向你逼近时，一道身影从后面拽住了他的胳膊，用力将他拉到一边。来者正是陆沉，他的出现让紧张的气氛瞬间有了新的变化。\n|&lt;陆沉&amp;男&gt;|（站在你身前将你护住，面色冷峻地看向陆远）别再纠缠她了，你的手段还不嫌恶心吗？（转头看向你，语气变得柔和）你没事吧？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没事&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（挣脱开陆沉的手，冷笑一声）我纠缠她？（怒视着陆沉）你不也一样？要不是你横插一脚，程鑫怎么会离开我！（又将目光转向你）程鑫，你别被他骗了！\n|&lt;陆沉&amp;男&gt;|（没有理会陆远的挑衅，而是直接拉起你的手）我们走，（侧头看着你，神色认真）这里不适合你。（拉着你准备离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;废话真多&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见状，再次冲过来拦住你们的去路，脸上的表情愈发疯狂）程鑫，（眼睛死死地盯着你，仿佛要把你看穿）你今天要是跟他走了，就别想再见到我！（声音中带着威胁）\n|&lt;陆沉&amp;男&gt;|（停下脚步，侧眸看向陆远，声音冰冷）你这是在威胁她吗？（上前一步，与陆远对峙）有我在，你别想再伤害她。（周身散发着强大的气场）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;那挺好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（气得脸色铁青，双眼布满血丝，恶狠狠地瞪着陆沉）陆沉，（咬牙切齿地吼道）你凭什么管我的事？（身体因为愤怒而不停地颤抖）\n|&lt;陆沉&amp;男&gt;|（面无表情地看着陆远，声音平静却带着不容置疑的力量）就凭你不配。（说完，不再理会陆远，拉着你继续向前走）程鑫，我们别在这浪费时间了。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;嗯？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（脚步一顿，转头看向你，声音放缓）怎么了？（眉宇间多了些担忧，手不自觉地紧了紧）是不是刚刚陆远说的话吓到你了？&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;没有&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（见你要走，彻底失去理智，从口袋里掏出一把匕首，朝着陆沉刺去）陆沉，（脸上的表情扭曲狰狞）我今天就和你拼了！（眼睛里只有陆沉的身影）\n|&lt;陆沉&amp;男&gt;|（眼疾手快地将你拉到身后，侧身躲过匕首，随后一脚踢向陆远）程鑫，（眉头紧皱，神色严肃地叮嘱你）你先到安全的地方去。（转身与陆远扭打在一起）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;啧，你们别打了&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（听到你的话动作一顿，趁着陆沉不备挣脱开来，握着匕首又朝你冲了过来）程鑫，（脸上的表情疯狂而又偏执）你只能属于我！（匕首在阳光下闪烁着刺眼的光）\n|&lt;陆沉&amp;男&gt;|（见状瞳孔一缩，不顾一切地扑向你，将你紧紧护在怀里，后背却被匕首划伤）嘶……（闷哼一声，强忍着疼痛）程鑫，你没事吧？（关切地看着你）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;……&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看到陆沉受伤，愣了一下，手中的匕首掉落在地，声音有些颤抖）哥……（脸上露出懊悔的神情）我不是故意的……（身体往后退了几步）\n|&lt;陆沉&amp;男&gt;|（顾不上自己的伤口，紧紧抱着你，声音有些沙哑）程鑫，（轻轻拍着你的背）别怕，有我在，不会让你有事的。（眼神警惕地看着陆远）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（推开他）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（被你推开后，有些受伤地看着你，嘴唇动了动）程鑫，（声音里带着一丝不易察觉的委屈）我只是不想你受到伤害。（伤口的血不断渗出，染红了衣服）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（打120）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（见你打120，嘴角微微上扬，心里稍感安慰）谢谢你，（脸色因为失血过多而显得有些苍白）程鑫，我没事，你别担心。（强撑着身体，不想让你太担心）\n|&lt;陆远&amp;男&gt;|（沉默片刻后，走到你面前，低着头不敢看你）程鑫，（声音里带着深深的歉意和自责）对不起，我真的没想到会变成这样，你能原谅我吗？（双手不自觉地握紧）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;等待&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（看着你冷漠的样子，心里愈发难受，缓缓蹲下身子）程鑫，（双手抱头）我知道我错了，我真的错了，（声音里带着哭腔）你要我怎么做才能原谅我？（抬起头，满脸泪痕地看着你）\n|&lt;旁白&gt;|不久后，救护车的鸣笛声由远及近，划破了这片紧张的氛围。医护人员迅速赶到现场，将陆沉抬上了救护车。\n|&lt;陆沉&amp;男&gt;|（躺在担架上，伸出手想要抓住你）程鑫，（眼神中充满了不舍和依赖）你能和我一起去医院吗？（手在空中无力地挥舞着）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不能&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆沉&amp;男&gt;|（手停在半空中，眼神黯淡下来，声音微弱）那……（强撑着精神）等我好了，我再去找你，好吗？（救护车的车门缓缓关上）\n|&lt;陆远&amp;男&gt;|（目送救护车离开后，缓缓走到你面前，脸上带着一丝小心翼翼）程鑫，（声音沙哑，仿佛刚刚经历了一场巨大的变故）我送你回去吧，今天的事……真的很抱歉。&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不用&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（被你拒绝后身形微晃，咬了咬牙）程鑫，（语气近乎哀求）我真的想弥补我的过错，让我送你回去，好吗？（眼睛紧紧盯着你，生怕你再次拒绝）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;不好&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;陆远&amp;男&gt;|（无奈地叹了口气，脸上写满了落寞）那……（沉默了一会儿）你自己回去一定要小心，（从口袋里掏出一张名片递给你）这是我的电话，有什么事随时联系我。（说完，站在原地看着你，眼神里满是眷恋）\n|&lt;旁白&gt;|陆远的话并没有得到你的回应，你转身准备离开这个是非之地。这时，一道陌生的声音从你身后传来，叫住了你。\n|&lt;新人物&gt;|林浩&amp;男，林浩(男)，程鑫的神秘守护者，身份成谜，身手矫健，性格冷静果断，总是在关键时刻出现保护程鑫，与程启似乎有着某种关联\n|&lt;林浩&amp;男&gt;|（从暗处走出，脸上带着一副墨镜，看不清眼神）程小姐，（声音低沉而有力）程先生让我来接您，您跟我走吧。（向你做出一个请的手势）&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="JsonText"><Data ss:Type="String">[
+  {
+    &quot;role&quot;: &quot;user&quot;,
+    &quot;content&quot;: &quot;（离开）&quot;
+  },
+  {
+    &quot;role&quot;: &quot;assistant&quot;,
+    &quot;content&quot;: &quot;|&lt;林浩&amp;男&gt;|（快步跟上你，与你并肩而行）程小姐，（语气平淡，却莫名让人感到安心）您放心，我会安全送您到目的地的。（警惕地观察着四周）\n|&lt;陆远&amp;男&gt;|（急忙追了上来，挡在你和林浩面前）你是谁？（上下打量着林浩，满脸警惕）为什么要带程鑫走？（又看向你）程鑫，你不认识他，不要跟他走！&quot;
+  }
+]</Data></Cell>
+    <Cell ss:StyleID="FalseAnswer"><Data ss:Type="String">FALSE</Data></Cell>
+    <Cell><Data ss:Type="String">关键行为-不可中断</Data></Cell>
+   </Row>  </Table>
+ </Worksheet>
+</Workbook>
