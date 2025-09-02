@@ -1,0 +1,40 @@
+{
+  "session_id": "4637790893104447491",
+  "total_rounds": 237,
+  "total_messages": 474,
+  "segment_size": 50,
+  "total_segments": 5,
+  "segments": [
+    {
+      "filename": "第1-50轮_共100条消息.json",
+      "start_round": 1,
+      "end_round": 50,
+      "messages_count": 100
+    },
+    {
+      "filename": "第51-100轮_共100条消息.json",
+      "start_round": 51,
+      "end_round": 100,
+      "messages_count": 100
+    },
+    {
+      "filename": "第101-150轮_共100条消息.json",
+      "start_round": 101,
+      "end_round": 150,
+      "messages_count": 100
+    },
+    {
+      "filename": "第151-200轮_共100条消息.json",
+      "start_round": 151,
+      "end_round": 200,
+      "messages_count": 100
+    },
+    {
+      "filename": "第201-237轮_共74条消息.json",
+      "start_round": 201,
+      "end_round": 237,
+      "messages_count": 74
+    }
+  ],
+  "original_file": "237轮对话_共474条消息_session4637790893104447491.json"
+}

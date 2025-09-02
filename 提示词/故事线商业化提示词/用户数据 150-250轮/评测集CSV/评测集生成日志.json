@@ -1,0 +1,107 @@
+{
+  "total_sessions": 20,
+  "output_directory": "/Users/edy/Desktop/project/挑战玩法/提示词/故事线商业化提示词/用户数据 150-250轮/评测集CSV",
+  "merged_csv_file": "合并总评测集_全部轮次对话.csv",
+  "sessions_summary": [
+    {
+      "session_id": "4634395111756185603",
+      "total_rounds": 234,
+      "csv_filename": "234轮对话_session4634395111756185603_评测集.csv"
+    },
+    {
+      "session_id": "4610164304233644033",
+      "total_rounds": 235,
+      "csv_filename": "235轮对话_session4610164304233644033_评测集.csv"
+    },
+    {
+      "session_id": "4618521017672302595",
+      "total_rounds": 235,
+      "csv_filename": "235轮对话_session4618521017672302595_评测集.csv"
+    },
+    {
+      "session_id": "4620907472814129152",
+      "total_rounds": 235,
+      "csv_filename": "235轮对话_session4620907472814129152_评测集.csv"
+    },
+    {
+      "session_id": "4622007453583196164",
+      "total_rounds": 235,
+      "csv_filename": "235轮对话_session4622007453583196164_评测集.csv"
+    },
+    {
+      "session_id": "4637786035244777475",
+      "total_rounds": 235,
+      "csv_filename": "235轮对话_session4637786035244777475_评测集.csv"
+    },
+    {
+      "session_id": "4638042462274224128",
+      "total_rounds": 235,
+      "csv_filename": "235轮对话_session4638042462274224128_评测集.csv"
+    },
+    {
+      "session_id": "4638165972984299525",
+      "total_rounds": 235,
+      "csv_filename": "235轮对话_session4638165972984299525_评测集.csv"
+    },
+    {
+      "session_id": "4636730339849945093",
+      "total_rounds": 237,
+      "csv_filename": "237轮对话_session4636730339849945093_评测集.csv"
+    },
+    {
+      "session_id": "4637790893104447491",
+      "total_rounds": 237,
+      "csv_filename": "237轮对话_session4637790893104447491_评测集.csv"
+    },
+    {
+      "session_id": "4631154296502140931",
+      "total_rounds": 238,
+      "csv_filename": "238轮对话_session4631154296502140931_评测集.csv"
+    },
+    {
+      "session_id": "4599635844289544196",
+      "total_rounds": 239,
+      "csv_filename": "239轮对话_session4599635844289544196_评测集.csv"
+    },
+    {
+      "session_id": "4634349660264742915",
+      "total_rounds": 239,
+      "csv_filename": "239轮对话_session4634349660264742915_评测集.csv"
+    },
+    {
+      "session_id": "4636781362182373380",
+      "total_rounds": 240,
+      "csv_filename": "240轮对话_session4636781362182373380_评测集.csv"
+    },
+    {
+      "session_id": "4636811613717430273",
+      "total_rounds": 240,
+      "csv_filename": "240轮对话_session4636811613717430273_评测集.csv"
+    },
+    {
+      "session_id": "4597515065020170241",
+      "total_rounds": 241,
+      "csv_filename": "241轮对话_session4597515065020170241_评测集.csv"
+    },
+    {
+      "session_id": "4605158441433448449",
+      "total_rounds": 242,
+      "csv_filename": "242轮对话_session4605158441433448449_评测集.csv"
+    },
+    {
+      "session_id": "4614494628254089216",
+      "total_rounds": 247,
+      "csv_filename": "247轮对话_session4614494628254089216_评测集.csv"
+    },
+    {
+      "session_id": "4630926477545193475",
+      "total_rounds": 247,
+      "csv_filename": "247轮对话_session4630926477545193475_评测集.csv"
+    },
+    {
+      "session_id": "4613083741496573953",
+      "total_rounds": 248,
+      "csv_filename": "248轮对话_session4613083741496573953_评测集.csv"
+    }
+  ]
+}
