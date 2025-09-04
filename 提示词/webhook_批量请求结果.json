@@ -1,0 +1,169 @@
+{
+  "timestamp": "2025-09-04 14:44:08",
+  "webhook_url": "https://n8n.games/webhook/782a041e-b5d5-4b47-b756-6b85a42f55e4",
+  "total_requests": 20,
+  "success_count": 19,
+  "failed_count": 1,
+  "results": [
+    {
+      "session_id": "000004597515065020170241",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 114.419,
+      "error": null
+    },
+    {
+      "session_id": "000004599635844289544196",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 111.789,
+      "error": null
+    },
+    {
+      "session_id": "000004605158441433448449",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 115.814,
+      "error": null
+    },
+    {
+      "session_id": "000004610164304233644033",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 111.67,
+      "error": null
+    },
+    {
+      "session_id": "000004613083741496573953",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 111.858,
+      "error": null
+    },
+    {
+      "session_id": "000004614494628254089216",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 110.295,
+      "error": null
+    },
+    {
+      "session_id": "000004618521017672302595",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 130.514,
+      "error": null
+    },
+    {
+      "session_id": "000004620907472814129152",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 105.014,
+      "error": null
+    },
+    {
+      "session_id": "000004622007453583196164",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 121.09,
+      "error": null
+    },
+    {
+      "session_id": "000004630926477545193475",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 121.101,
+      "error": null
+    },
+    {
+      "session_id": "000004631154296502140931",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 105.58,
+      "error": null
+    },
+    {
+      "session_id": "000004634349660264742915",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 121.162,
+      "error": null
+    },
+    {
+      "session_id": "000004634395111756185603",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 113.299,
+      "error": null
+    },
+    {
+      "session_id": "000004636730339849945093",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 106.059,
+      "error": null
+    },
+    {
+      "session_id": "000004636781362182373380",
+      "status_code": 408,
+      "success": false,
+      "response": null,
+      "elapsed_time": 181.088,
+      "error": "请求超时"
+    },
+    {
+      "session_id": "000004636811613717430273",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 114.747,
+      "error": null
+    },
+    {
+      "session_id": "000004637786035244777475",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 103.261,
+      "error": null
+    },
+    {
+      "session_id": "000004637790893104447491",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 116.177,
+      "error": null
+    },
+    {
+      "session_id": "000004638042462274224128",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 106.479,
+      "error": null
+    },
+    {
+      "session_id": "000004638165972984299525",
+      "status_code": 200,
+      "success": true,
+      "response": "",
+      "elapsed_time": 121.09,
+      "error": null
+    }
+  ]
+}
