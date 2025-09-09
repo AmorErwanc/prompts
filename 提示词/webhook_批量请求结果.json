@@ -1,24 +1,24 @@
 {
-  "timestamp": "2025-09-05 14:52:08",
+  "timestamp": "2025-09-05 15:39:27",
   "webhook_url": "https://n8n.games/webhook/782a041e-b5d5-4b47-b756-6b85a42f55e4",
   "total_requests": 20,
-  "success_count": 20,
-  "failed_count": 0,
+  "success_count": 19,
+  "failed_count": 1,
   "results": [
     {
       "session_id": "000004597515065020170241",
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 108.081,
+      "elapsed_time": 109.627,
       "error": null
     },
     {
       "session_id": "000004599635844289544196",
-      "status_code": 200,
-      "success": true,
-      "response": "",
-      "elapsed_time": 95.202,
+      "status_code": 500,
+      "success": false,
+      "response": "{\"message\":\"Error in workflow\"}",
+      "elapsed_time": 54.684,
       "error": null
     },
     {
@@ -26,7 +26,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 113.474,
+      "elapsed_time": 92.389,
       "error": null
     },
     {
@@ -34,7 +34,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 112.973,
+      "elapsed_time": 106.79,
       "error": null
     },
     {
@@ -42,7 +42,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 98.827,
+      "elapsed_time": 93.985,
       "error": null
     },
     {
@@ -50,7 +50,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 113.144,
+      "elapsed_time": 92.487,
       "error": null
     },
     {
@@ -58,7 +58,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 102.401,
+      "elapsed_time": 116.082,
       "error": null
     },
     {
@@ -66,7 +66,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 102.179,
+      "elapsed_time": 99.536,
       "error": null
     },
     {
@@ -74,7 +74,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 103.77,
+      "elapsed_time": 86.416,
       "error": null
     },
     {
@@ -82,7 +82,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 97.031,
+      "elapsed_time": 97.982,
       "error": null
     },
     {
@@ -90,7 +90,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 114.733,
+      "elapsed_time": 94.707,
       "error": null
     },
     {
@@ -98,7 +98,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 98.435,
+      "elapsed_time": 94.646,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 99.98,
+      "elapsed_time": 113.116,
       "error": null
     },
     {
@@ -114,7 +114,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 94.464,
+      "elapsed_time": 101.369,
       "error": null
     },
     {
@@ -122,7 +122,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 91.583,
+      "elapsed_time": 86.271,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 110.628,
+      "elapsed_time": 94.829,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 116.529,
+      "elapsed_time": 111.545,
       "error": null
     },
     {
@@ -146,7 +146,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 101.468,
+      "elapsed_time": 92.293,
       "error": null
     },
     {
@@ -154,7 +154,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 92.008,
+      "elapsed_time": 88.051,
       "error": null
     },
     {
@@ -162,7 +162,7 @@
       "status_code": 200,
       "success": true,
       "response": "",
-      "elapsed_time": 109.708,
+      "elapsed_time": 110.138,
       "error": null
     }
   ]
