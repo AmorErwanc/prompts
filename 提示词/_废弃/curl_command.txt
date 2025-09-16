@@ -1,0 +1,20 @@
+curl --location 'https://qianfan.baidubce.com/video/generations' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer bce-v3/ALTAK-dpQK9Kwaky8HeHbNfJuP8/35e86190235911348d793f9fb40ed9721c2642f4" \
+-d '{
+  "model": "musesteamer-2.0-turbo-i2v-audio",
+  "task_id": "unique_task_id_12345",
+  "content": [
+    {
+      "type": "text",
+      "text": "一位身穿古代盔甲的武士坐在开阔场地的木桌两侧，手持麻将牌进行牌局对战，两人嘴唇微动进行对话。麻将牌整齐排列在桌面的深色棋盘纹布上，背景可见随风飘动的军队旗帜。左边人物说话：\"将军，大棚外战火纷飞，咱们在这打麻将不太好吧？\" 右边人物说话：\"松弛一点！你是不是输钱输怕了？！\""
+    },
+    {
+      "type": "image_url",
+      "image_url": {
+        "url": "https://qianfan-document.bj.bcebos.com/images/itv-input-image.png"
+      }
+    }
+  ],
+  "duration": 10
+}'

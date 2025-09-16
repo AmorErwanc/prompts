@@ -1,0 +1,8 @@
+let fullText = {{chainId}}; // 替换为你的视觉理解链的输出
+fullText = (typeof fullText === 'object') ? JSON.stringify(fullText) : String(fullText);
+
+// 匹配 "gender": "内容" 或 'gender': '内容'
+const genderRegExp = /["']gender["']\s*:\s*["']([^"']+)["']/;
+const match = genderRegExp.exec(fullText);
+const gender = match ? match[1].trim() : '';
+gender;

@@ -1,0 +1,19 @@
+请分析图片中的人物特征，以XML格式输出，必须严格按照以下结构：
+
+<character_analysis>
+  <hairstyle>详细描述角色的发型发色和装饰，例如：一个女生，棕色双麻花辫，中分，露出额头，戴着眼镜。注意：只要不是齐刘海，都请强调露出额头</hairstyle>
+  <clothing>详细描述角色的服装搭配，例如：上身内搭灰色紧身连衣裙，上面印有BAMBA等字样，外搭浅蓝色毛绒开衫，右肩斜挎白色肩带。如果没有下装和鞋子，请主动搭配合适风格</clothing>
+  <background>简洁描述图片背景环境，不用过多修饰，例如：海滩，有椰子树在左侧，海鸥在天空中飞</background>
+  <gender>男生或女生</gender>
+</character_analysis>
+
+请确保输出的是有效的XML格式，不要包含其他文字说明。
+
+示例输出：
+
+<character_analysis>
+  <hairstyle>一个女生，黑色长直发，中分，露出额头，戴着粉色蝴蝶结发夹</hairstyle>
+  <clothing>上身穿白色衬衫，外搭深蓝色毛衣背心，下身搭配黑色百褶裙，脚穿白色小皮鞋</clothing>
+  <background>教室环境，有黑板和桌椅，窗外能看到绿色植物</background>
+  <gender>女生</gender>
+</character_analysis>

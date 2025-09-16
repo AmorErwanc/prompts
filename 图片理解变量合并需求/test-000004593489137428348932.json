@@ -1,0 +1,467 @@
+{
+  "version": 20250211,
+  "data": {
+    "pipe": {
+      "000004593489137428348932": {
+        "id": "000004593489137428348932",
+        "cover": null,
+        "name": "test",
+        "cartoon_id": null,
+        "start_chain_id": "000004593492207692431360",
+        "summary": null,
+        "func": "none",
+        "from_id": "000000000000000000000000",
+        "in_param": [
+          {
+            "ui": {
+              "name": "upload-img"
+            },
+            "val": "",
+            "desc": "",
+            "name": "k_1",
+            "type": "img",
+            "alias": "图片输入",
+            "required": 1
+          }
+        ],
+        "out_param": [
+          {
+            "id": "0",
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "normal",
+            "event": [],
+            "reader": {
+              "sub": [
+                {
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]|@[^@]*@|#[^#]*#",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "read"
+                  }
+                ],
+                "val": "000004594439927206789124",
+                "type": "str",
+                "inName": "none",
+                "chainId": "999999999999999999999999",
+                "outName": "000004594439927206789124"
+              }
+            ]
+          }
+        ],
+        "user_id": "000004550035214806040581",
+        "updated_time": 1754016612302,
+        "publish": 0,
+        "publish_time": null,
+        "submit_time": null,
+        "yn_subscribe": 0,
+        "user": {
+          "uid": "G5KE6MH0Z",
+          "nickname": "随",
+          "avatar": "https://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEIJfc4Cp7KqfPy8nxiceb5JsIRORABoojQfWvaD1CbRyVZiaQFIAZV07VY0EqZ8vhMDrswm8CkFXeA7QiajFPbsJtfQRibxhgx31EmgESzBQLlauw/132"
+        },
+        "from": {
+          "id": null,
+          "name": null,
+          "cover": null
+        }
+      }
+    },
+    "chains": {
+      "000004593492207692431360": {
+        "id": "000004593492207692431360",
+        "name": "视觉理解",
+        "unit_id": "000003911971051999346703",
+        "in_param": [
+          {
+            "type": "str",
+            "inName": "system"
+          },
+          {
+            "arr": 1,
+            "set": [
+              {
+                "val": "请分析图片中的人物特征，以JSON格式输出，必须严格按照以下结构：\n\n{\n  \"hairstyle\": \"详细描述角色的发型发色和装饰，例如：一个女生，棕色双麻花辫，中分，露出额头，戴着眼镜。注意：只要不是齐刘海，都请强调露出额头\",\n  \"clothing\": \"详细描述角色的服装搭配，例如：上身内搭灰色紧身连衣裙，上面印有BAMBA等字样，外搭浅蓝色毛绒开衫，右肩斜挎白色肩带。如果没有下装和鞋子，请主动搭配合适风格\",\n  \"background\": \"简洁描述图片背景环境，不用过多修饰，例如：海滩，有椰子树在左侧，海鸥在天空中飞\",\n  \"gender\": \"男生或女生\"\n}\n\n请确保输出的是有效的JSON格式，不要包含其他文字说明。\n\n示例输出：\n\n{\n  \"hairstyle\": \"一个女生，黑色长直发，中分，露出额头，戴着粉色蝴蝶结发夹\",\n  \"clothing\": \"上身穿白色衬衫，外搭深蓝色毛衣背心，下身搭配黑色百褶裙，脚穿白色小皮鞋\",\n  \"background\": \"教室环境，有黑板和桌椅，窗外能看到绿色植物\",\n  \"gender\": \"女生\"\n}",
+                "type": "str",
+                "inName": "text"
+              }
+            ],
+            "val": "content",
+            "type": "str",
+            "inName": "contents"
+          },
+          {
+            "arr": 1,
+            "set": [
+              {
+                "type": "img",
+                "inName": "url",
+                "chainId": "000000000000000000000000",
+                "outName": "k_1"
+              },
+              {
+                "type": "str",
+                "inName": "detail"
+              }
+            ],
+            "val": "image",
+            "type": "str",
+            "inName": "images",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "ep-20250227115710-ktqmq",
+            "type": "str",
+            "inName": "model"
+          },
+          {
+            "val": false,
+            "type": "bool",
+            "inName": "saveSession"
+          }
+        ],
+        "sort_num": 1,
+        "pid": "000000000000000000000000",
+        "next_id": "000004594433433233047556"
+      },
+      "000004594433433233047556": {
+        "id": "000004594433433233047556",
+        "name": "变量运算",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "let fullText = ",
+                "lang": "js"
+              },
+              {
+                "inName": "code",
+                "chainId": "000004593492207692431360",
+                "outName": "reply"
+              },
+              {
+                "val": "; // 替换为你的视觉理解链的输出\nfullText = (typeof fullText === 'object') ? JSON.stringify(fullText) : String(fullText);\n\nlet result = '';\ntry {\n  const jsonData = JSON.parse(fullText);\n  result = jsonData.background || '';\n} catch (e) {\n  // 如果解析失败，返回空字符串\n  result = '';\n}\nresult;\n"
+              }
+            ]
+          },
+          {
+            "val": "000004594433433233047555",
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "999999999999999999999999",
+            "outName": "000004594433433233047555"
+          }
+        ],
+        "sort_num": 2,
+        "pid": "000000000000000000000000",
+        "next_id": "000004594439927206789125"
+      },
+      "000004594439927206789125": {
+        "id": "000004594439927206789125",
+        "name": "变量运算",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "let fullText = ",
+                "lang": "js"
+              },
+              {
+                "inName": "code",
+                "chainId": "000004593492207692431360",
+                "outName": "reply"
+              },
+              {
+                "val": "; // 替换为你的视觉理解链的输出\nfullText = (typeof fullText === 'object') ? JSON.stringify(fullText) : String(fullText);\n\nlet result = '';\ntry {\n  const jsonData = JSON.parse(fullText);\n  result = jsonData.hairstyle || '';\n} catch (e) {\n  // 如果解析失败，返回空字符串\n  result = '';\n}\nresult;"
+              }
+            ]
+          },
+          {
+            "val": "000004594439927206789122",
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "999999999999999999999999",
+            "outName": "000004594439927206789122"
+          }
+        ],
+        "sort_num": 3,
+        "pid": "000000000000000000000000",
+        "next_id": "000004594439927206789126"
+      },
+      "000004594439927206789126": {
+        "id": "000004594439927206789126",
+        "name": "变量运算",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "let fullText = ",
+                "lang": "js"
+              },
+              {
+                "inName": "code",
+                "chainId": "000004593492207692431360",
+                "outName": "reply"
+              },
+              {
+                "val": "; // 替换为你的视觉理解链的输出\nfullText = (typeof fullText === 'object') ? JSON.stringify(fullText) : String(fullText);\n\nlet result = '';\ntry {\n  const jsonData = JSON.parse(fullText);\n  result = jsonData.clothing || '';\n} catch (e) {\n  // 如果解析失败，返回空字符串\n  result = '';\n}\nresult;"
+              }
+            ]
+          },
+          {
+            "val": "000004594439927206789123",
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "999999999999999999999999",
+            "outName": "000004594439927206789123"
+          }
+        ],
+        "sort_num": 4,
+        "pid": "000000000000000000000000",
+        "next_id": "000004594439927206789127"
+      },
+      "000004594439927206789127": {
+        "id": "000004594439927206789127",
+        "name": "变量运算",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "let fullText = ",
+                "lang": "js"
+              },
+              {
+                "val": "000004594439927206789124",
+                "chainId": "999999999999999999999999",
+                "outName": "000004594439927206789124"
+              },
+              {
+                "val": "; // 替换为你的视觉理解链的输出\nfullText = (typeof fullText === 'object') ? JSON.stringify(fullText) : String(fullText);\n\nlet result = '';\ntry {\n  const jsonData = JSON.parse(fullText);\n  result = jsonData.gender || '';\n} catch (e) {\n  // 如果解析失败，返回空字符串\n  result = '';\n}\nresult;"
+              }
+            ]
+          },
+          {
+            "val": "000004594439927206789124",
+            "type": "any",
+            "inName": "saveAttrId",
+            "chainId": "999999999999999999999999",
+            "outName": "000004594439927206789124"
+          }
+        ],
+        "sort_num": 5,
+        "pid": "000000000000000000000000",
+        "next_id": "000004594441331929546757"
+      },
+      "000004594441331929546757": {
+        "id": "000004594441331929546757",
+        "name": "文本编排",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "学习everskies的像素画风，模仿形体，脸部五官表情，服饰和发型的画法，保持图中角色的构图和动作，把发型改成",
+                "lang": "tpl"
+              },
+              {
+                "val": "000004594439927206789122",
+                "chainId": "999999999999999999999999",
+                "outName": "000004594439927206789122"
+              },
+              {
+                "val": "，服装改成"
+              },
+              {
+                "val": "000004594439927206789123",
+                "chainId": "999999999999999999999999",
+                "outName": "000004594439927206789123"
+              },
+              {
+                "val": "，角色性别为："
+              },
+              {
+                "val": "000004594439927206789124",
+                "chainId": "999999999999999999999999",
+                "outName": "000004594439927206789124"
+              },
+              {
+                "val": "生"
+              }
+            ]
+          }
+        ],
+        "sort_num": 6,
+        "pid": "000000000000000000000000",
+        "next_id": null
+      }
+    },
+    "tags": {},
+    "extras": {},
+    "wrappers": {
+      "000004593492207692431361": {
+        "id": "000004593492207692431361",
+        "name": "bg",
+        "content": {
+          "chat": {
+            "enter": "fadeIn",
+            "leave": "fadeOut"
+          }
+        }
+      },
+      "000004593492207692431362": {
+        "id": "000004593492207692431362",
+        "name": "bgm",
+        "content": {
+          "loop": 1,
+          "volume": 0.5,
+          "autoplay": 1
+        }
+      },
+      "000004593492207692431364": {
+        "id": "000004593492207692431364",
+        "name": "btn",
+        "content": {
+          "style": "btn-fill",
+          "layout": 0
+        }
+      },
+      "000004593492207692431365": {
+        "id": "000004593492207692431365",
+        "name": "greetings",
+        "content": []
+      },
+      "000004593492207692431367": {
+        "id": "000004593492207692431367",
+        "name": "group_out",
+        "content": {
+          "0": {
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "normal"
+          }
+        }
+      },
+      "000004593492207692431366": {
+        "id": "000004593492207692431366",
+        "name": "ROOT",
+        "content": {
+          "id": "000004593489137428348933",
+          "theme": "dark"
+        }
+      },
+      "000004593492207692431363": {
+        "id": "000004593492207692431363",
+        "name": "tts",
+        "content": {
+          "autoplay": 1
+        }
+      }
+    },
+    "attrs": {
+      "000004594433433233047555": {
+        "id": "000004594433433233047555",
+        "sn": 1,
+        "name": "背景描述",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004593489137428348932"
+      },
+      "000004594439927206789122": {
+        "id": "000004594439927206789122",
+        "sn": 2,
+        "name": "发型描述",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004593489137428348932"
+      },
+      "000004594439927206789123": {
+        "id": "000004594439927206789123",
+        "sn": 3,
+        "name": "服饰描述",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004593489137428348932"
+      },
+      "000004594439927206789124": {
+        "id": "000004594439927206789124",
+        "sn": 4,
+        "name": "性别描述",
+        "code": null,
+        "type": "str",
+        "val": "",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004593489137428348932"
+      }
+    },
+    "roles": {},
+    "consts": {},
+    "wraps": {
+      "000004593489137428348933": {
+        "id": "000004593489137428348933",
+        "sn": null,
+        "name": "特殊变量",
+        "code": "none",
+        "type": "json",
+        "val": "{}",
+        "reset": 1,
+        "schema": "wrapper",
+        "pipe_id": "000004593489137428348932"
+      }
+    }
+  }
+}

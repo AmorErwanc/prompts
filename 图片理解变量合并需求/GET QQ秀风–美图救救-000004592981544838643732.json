@@ -1,0 +1,1335 @@
+{
+  "version": 20250211,
+  "data": {
+    "pipe": {
+      "000004592981544838643732": {
+        "id": "000004592981544838643732",
+        "cover": "https://img.ideaflow.pro/image/a20ec954e155560796d164c9a65ff181.png",
+        "name": "GET QQ秀风–美图救救",
+        "cartoon_id": null,
+        "start_chain_id": "000004592981544838643723",
+        "summary": "",
+        "func": "none",
+        "from_id": "000000000000000000000000",
+        "in_param": [
+          {
+            "ui": {
+              "name": "upload-img"
+            },
+            "val": "",
+            "desc": "",
+            "name": "k_2",
+            "type": "img",
+            "alias": "图片输入",
+            "required": 1,
+            "placeholder": "上传人物图片"
+          }
+        ],
+        "out_param": [
+          {
+            "id": "0",
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "normal",
+            "event": [
+              {
+                "sub": [
+                  {
+                    "val": "fadeIn",
+                    "type": "str",
+                    "inName": "enter"
+                  },
+                  {
+                    "val": "fadeOut",
+                    "type": "str",
+                    "inName": "leave"
+                  },
+                  {
+                    "val": true,
+                    "type": "bool",
+                    "inName": "loop"
+                  }
+                ],
+                "val": "https://img.ideaflow.pro/image/5b7c240d0f01a7a5a5f4a0b18f92c29b.jpeg",
+                "type": "img",
+                "inName": "bg"
+              }
+            ],
+            "reader": {
+              "sub": [
+                {
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]|@[^@]*@|#[^#]*#",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "get": [
+                  {
+                    "val": 0
+                  }
+                ],
+                "sub": [
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "wallpaper"
+                  },
+                  {
+                    "val": "small",
+                    "type": "str",
+                    "inName": "sizeName"
+                  }
+                ],
+                "val": "",
+                "type": "img",
+                "inName": "none",
+                "chainId": "000004593004678774030340",
+                "outName": "images"
+              },
+              {
+                "get": [
+                  {
+                    "val": 0
+                  }
+                ],
+                "sub": [
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "wallpaper"
+                  },
+                  {
+                    "val": "small",
+                    "type": "str",
+                    "inName": "sizeName"
+                  }
+                ],
+                "val": "",
+                "type": "img",
+                "inName": "none",
+                "chainId": "000004593034805218131970",
+                "outName": "images"
+              }
+            ]
+          },
+          {
+            "id": "1",
+            "ui": {
+              "name": "toast",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "role": null,
+            "type": "toast",
+            "event": [],
+            "reader": {
+              "sub": [
+                {
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]|@[^@]*@|#[^#]*#",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "read"
+                  }
+                ],
+                "val": "",
+                "type": "str",
+                "inName": "none",
+                "chainId": "000004592981544838643726",
+                "outName": "val"
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "ui": {
+              "name": "toast",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "role": null,
+            "type": "toast",
+            "event": [
+              {
+                "sub": [
+                  {
+                    "val": "btn-fill",
+                    "type": "str",
+                    "inName": "style"
+                  },
+                  {
+                    "val": "sendHidden",
+                    "type": "str",
+                    "inName": "fn",
+                    "chainId": "",
+                    "outName": ""
+                  },
+                  {
+                    "val": 0,
+                    "inName": "args0"
+                  },
+                  {
+                    "val": "000004592981544838643730",
+                    "type": "str",
+                    "inName": "args1",
+                    "chainId": "999999999999999999999999",
+                    "outName": "000004592981544838643730"
+                  },
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "delGroup"
+                  },
+                  {
+                    "val": 3,
+                    "type": "num",
+                    "inName": "setCoin"
+                  },
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "adEnable"
+                  }
+                ],
+                "val": "获取次数",
+                "type": "str",
+                "inName": "btn"
+              }
+            ],
+            "reader": {
+              "sub": [
+                {
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]|@[^@]*@|#[^#]*#",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "read"
+                  }
+                ],
+                "val": "",
+                "type": "str",
+                "inName": "none",
+                "chainId": "000004592981544838643727",
+                "outName": "prompt"
+              }
+            ]
+          }
+        ],
+        "user_id": "000003568292473375195136",
+        "updated_time": 1753954086443,
+        "publish": 0,
+        "publish_time": null,
+        "submit_time": "2025-07-24 18:34:51",
+        "yn_subscribe": 0,
+        "user": {
+          "uid": "777",
+          "nickname": "离尘没问题",
+          "avatar": "https://img.ideaflow.pro/ideaflow/000003568292473375195136/5a18d69f523c4fada822cab2a4a4dfc1.jpg"
+        },
+        "from": {
+          "id": null,
+          "name": null,
+          "cover": null
+        }
+      }
+    },
+    "chains": {
+      "000004592981544838643720": {
+        "id": "000004592981544838643720",
+        "name": "视觉理解",
+        "unit_id": "000003911971051999346703",
+        "in_param": [
+          {
+            "type": "str",
+            "inName": "system"
+          },
+          {
+            "arr": 1,
+            "set": [
+              {
+                "val": "描述图中角色的发型发色和装饰，例如：一个女生。棕色双麻花辫，中分，露出额头，戴着眼镜；只要不是齐刘海，都请强调露出额头",
+                "type": "str",
+                "inName": "text"
+              }
+            ],
+            "val": "content",
+            "type": "str",
+            "inName": "contents"
+          },
+          {
+            "arr": 1,
+            "set": [
+              {
+                "type": "img",
+                "inName": "url",
+                "chainId": "000000000000000000000000",
+                "outName": "k_2"
+              },
+              {
+                "type": "str",
+                "inName": "detail"
+              }
+            ],
+            "val": "image",
+            "type": "str",
+            "inName": "images"
+          },
+          {
+            "val": "ep-20250227115710-ktqmq",
+            "type": "str",
+            "inName": "model"
+          },
+          {
+            "val": false,
+            "type": "bool",
+            "inName": "saveSession"
+          }
+        ],
+        "sort_num": 3,
+        "pid": "000000000000000000000000",
+        "next_id": "000004592985022067654657"
+      },
+      "000004592981544838643721": {
+        "id": "000004592981544838643721",
+        "name": "文本编排",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "学习everskies的像素画风，模仿形体，脸部五官表情，服饰和发型的画法，保持图中角色的构图和动作，把发型改成",
+                "lang": "tpl"
+              },
+              {
+                "inName": "prompt",
+                "chainId": "000004592981544838643720",
+                "outName": "reply"
+              },
+              {
+                "val": "，服装改成"
+              },
+              {
+                "inName": "prompt",
+                "chainId": "000004592985022067654657",
+                "outName": "reply"
+              },
+              {
+                "val": "，角色性别为："
+              },
+              {
+                "inName": "prompt",
+                "chainId": "000004593022320268296193",
+                "outName": "gender"
+              },
+              {
+                "val": "生"
+              }
+            ]
+          }
+        ],
+        "sort_num": 6,
+        "pid": "000000000000000000000000",
+        "next_id": "000004593004678774030339"
+      },
+      "000004592981544838643722": {
+        "id": "000004592981544838643722",
+        "name": "图生图_通用",
+        "unit_id": "000007000000000000000003",
+        "in_param": [
+          {
+            "val": 1,
+            "type": "num",
+            "inName": "count"
+          },
+          {
+            "set": [
+              {
+                "type": "str",
+                "inName": "prompt",
+                "chainId": "000004592981544838643721",
+                "outName": "prompt"
+              },
+              {
+                "val": "https://img.ideaflow.pro/image/813f9fec91b6d79dface9aad8f3830bd.jpeg",
+                "type": "img",
+                "inName": "image"
+              },
+              {
+                "val": 0.6,
+                "type": "num",
+                "inName": "scale"
+              }
+            ],
+            "val": "SEED_EDIT_V3",
+            "type": "str",
+            "inName": "strategy",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": false,
+            "type": "bool",
+            "inName": "errorIgnore"
+          }
+        ],
+        "sort_num": 9,
+        "pid": "000000000000000000000000",
+        "next_id": "000004593004678774030340"
+      },
+      "000004592981544838643723": {
+        "id": "000004592981544838643723",
+        "name": "条件判断",
+        "unit_id": "000003961414690126970884",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "expression",
+            "expression": [
+              {
+                "val": "000004592981544838643731",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004592981544838643731"
+              },
+              {
+                "val": ">0&&"
+              },
+              {
+                "chainId": "000000000000000000000000",
+                "outName": "k_2"
+              },
+              {
+                "val": "!="
+              },
+              {
+                "val": "000004592981544838643730",
+                "chainId": "999999999999999999999999",
+                "outName": "000004592981544838643730"
+              }
+            ]
+          },
+          {
+            "val": "000004593022320268296193",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004592981544838643724",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 1,
+        "pid": "000000000000000000000000",
+        "next_id": "000004593022320268296193"
+      },
+      "000004592981544838643724": {
+        "id": "000004592981544838643724",
+        "name": "条件分支",
+        "unit_id": "000004121900763352432640",
+        "in_param": [
+          {
+            "lang": "js",
+            "type": "json",
+            "inName": "expression",
+            "expression": [
+              {
+                "fn": "if",
+                "args": [
+                  {
+                    "lang": "js",
+                    "chainId": "000000000000000000000000",
+                    "outName": "k_2"
+                  },
+                  {
+                    "val": "=="
+                  },
+                  {
+                    "val": "000004592981544838643730",
+                    "chainId": "999999999999999999999999",
+                    "outName": "000004592981544838643730"
+                  }
+                ],
+                "lang": "js",
+                "return": [
+                  "000004592981544838643726"
+                ]
+              },
+              {
+                "fn": "if",
+                "args": [
+                  {
+                    "val": "000004592981544838643731",
+                    "lang": "js",
+                    "chainId": "999999999999999999999999",
+                    "outName": "000004592981544838643731"
+                  },
+                  {
+                    "val": "<=0"
+                  }
+                ],
+                "lang": "js",
+                "return": [
+                  "000004592981544838643727"
+                ]
+              }
+            ]
+          }
+        ],
+        "sort_num": 15,
+        "pid": "000000000000000000000000",
+        "next_id": null
+      },
+      "000004592981544838643725": {
+        "id": "000004592981544838643725",
+        "name": "变量运算",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004592981544838643731",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004592981544838643731"
+              },
+              {
+                "val": "-=1"
+              }
+            ]
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId"
+          }
+        ],
+        "sort_num": 14,
+        "pid": "000000000000000000000000",
+        "next_id": "000004592981544838643724"
+      },
+      "000004592981544838643726": {
+        "id": "000004592981544838643726",
+        "name": "变量运算",
+        "unit_id": "000003481386372085334017",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "code",
+            "expression": [
+              {
+                "val": "000004592981544838643731",
+                "lang": "js",
+                "chainId": "999999999999999999999999",
+                "outName": "000004592981544838643731"
+              },
+              {
+                "val": "+=1;\"支付成功，获得一次生成机会\""
+              }
+            ]
+          },
+          {
+            "type": "any",
+            "inName": "saveAttrId"
+          }
+        ],
+        "sort_num": 16,
+        "pid": "000004592981544838643724",
+        "next_id": null
+      },
+      "000004592981544838643727": {
+        "id": "000004592981544838643727",
+        "name": "文本编排",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "次数不足，请补充",
+                "lang": "tpl"
+              }
+            ]
+          }
+        ],
+        "sort_num": 17,
+        "pid": "000004592981544838643724",
+        "next_id": null
+      },
+      "000004592985022067654657": {
+        "id": "000004592985022067654657",
+        "name": "视觉理解",
+        "unit_id": "000003911971051999346703",
+        "in_param": [
+          {
+            "type": "str",
+            "inName": "system"
+          },
+          {
+            "arr": 1,
+            "set": [
+              {
+                "val": "描述图中角色的服饰例如：上身内搭灰色紧身连衣裙，上面印有“BAMBA”等字样，外搭浅蓝色毛绒开衫，右肩斜挎着一条白色肩带，肩带上有金属装饰，如果没有下装和鞋子，请你主动搭配合适的风格，输出",
+                "type": "str",
+                "inName": "text"
+              }
+            ],
+            "val": "content",
+            "type": "str",
+            "inName": "contents"
+          },
+          {
+            "arr": 1,
+            "set": [
+              {
+                "type": "img",
+                "inName": "url",
+                "chainId": "000000000000000000000000",
+                "outName": "k_2"
+              },
+              {
+                "type": "str",
+                "inName": "detail"
+              }
+            ],
+            "val": "image",
+            "type": "str",
+            "inName": "images"
+          },
+          {
+            "val": "ep-20250227115710-ktqmq",
+            "type": "str",
+            "inName": "model"
+          },
+          {
+            "val": false,
+            "type": "bool",
+            "inName": "saveSession"
+          }
+        ],
+        "sort_num": 4,
+        "pid": "000000000000000000000000",
+        "next_id": "000004592990146718629891"
+      },
+      "000004592990146718629891": {
+        "id": "000004592990146718629891",
+        "name": "视觉理解",
+        "unit_id": "000003911971051999346703",
+        "in_param": [
+          {
+            "type": "str",
+            "inName": "system"
+          },
+          {
+            "arr": 1,
+            "set": [
+              {
+                "val": "描述图中的背景，不用过多修饰，例如：海滩，有椰子树在左侧，海鸥在天空中飞",
+                "type": "str",
+                "inName": "text"
+              }
+            ],
+            "val": "content",
+            "type": "str",
+            "inName": "contents"
+          },
+          {
+            "arr": 1,
+            "set": [
+              {
+                "type": "img",
+                "inName": "url",
+                "chainId": "000000000000000000000000",
+                "outName": "k_2"
+              },
+              {
+                "type": "str",
+                "inName": "detail"
+              }
+            ],
+            "val": "image",
+            "type": "str",
+            "inName": "images"
+          },
+          {
+            "val": "ep-20250227115710-ktqmq",
+            "type": "str",
+            "inName": "model"
+          },
+          {
+            "val": false,
+            "type": "bool",
+            "inName": "saveSession"
+          }
+        ],
+        "sort_num": 5,
+        "pid": "000000000000000000000000",
+        "next_id": "000004592981544838643721"
+      },
+      "000004593004678774030339": {
+        "id": "000004593004678774030339",
+        "name": "文本编排",
+        "unit_id": "000003459484940696567808",
+        "in_param": [
+          {
+            "type": "any",
+            "inName": "prompt",
+            "expression": [
+              {
+                "val": "把背景改成",
+                "lang": "tpl"
+              },
+              {
+                "inName": "prompt",
+                "chainId": "000004592990146718629891",
+                "outName": "reply"
+              },
+              {
+                "val": "，像素风格"
+              }
+            ]
+          }
+        ],
+        "sort_num": 7,
+        "pid": "000000000000000000000000",
+        "next_id": "000004593022320268296194"
+      },
+      "000004593004678774030340": {
+        "id": "000004593004678774030340",
+        "name": "图生图_通用",
+        "unit_id": "000007000000000000000003",
+        "in_param": [
+          {
+            "val": 1,
+            "type": "num",
+            "inName": "count"
+          },
+          {
+            "set": [
+              {
+                "type": "str",
+                "inName": "prompt",
+                "chainId": "000004593004678774030339",
+                "outName": "prompt"
+              },
+              {
+                "get": [
+                  {
+                    "val": 0
+                  }
+                ],
+                "type": "img",
+                "inName": "image",
+                "chainId": "000004592981544838643722",
+                "outName": "images"
+              },
+              {
+                "val": 0.5,
+                "type": "num",
+                "inName": "scale"
+              }
+            ],
+            "val": "SEED_EDIT_V3",
+            "type": "str",
+            "inName": "strategy",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": false,
+            "type": "bool",
+            "inName": "errorIgnore"
+          }
+        ],
+        "sort_num": 10,
+        "pid": "000000000000000000000000",
+        "next_id": "000004593034805218131969"
+      },
+      "000004593022320268296193": {
+        "id": "000004593022320268296193",
+        "name": "人脸检测",
+        "unit_id": "000003670138640309485569",
+        "in_param": [
+          {
+            "type": "img",
+            "inName": "img",
+            "chainId": "000000000000000000000000",
+            "outName": "k_2"
+          },
+          {
+            "val": "图片未检测到人脸",
+            "type": "str",
+            "inName": "tips"
+          }
+        ],
+        "sort_num": 2,
+        "pid": "000000000000000000000000",
+        "next_id": "000004592981544838643720"
+      },
+      "000004593022320268296194": {
+        "id": "000004593022320268296194",
+        "name": "判断是否包含字符串",
+        "unit_id": "000003961414690126970880",
+        "in_param": [
+          {
+            "val": "",
+            "type": "str",
+            "inName": "content",
+            "chainId": "000004593022320268296193",
+            "outName": "bang"
+          },
+          {
+            "arr": 1,
+            "val": "有",
+            "type": "str",
+            "inName": "words"
+          },
+          {
+            "val": "000004593034805218131968",
+            "code": "jump",
+            "type": "str",
+            "inName": "yes",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": "000004592981544838643722",
+            "code": "jump",
+            "type": "str",
+            "inName": "no",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 8,
+        "pid": "000000000000000000000000",
+        "next_id": "000004592981544838643722"
+      },
+      "000004593034805218131968": {
+        "id": "000004593034805218131968",
+        "name": "图生图_通用",
+        "unit_id": "000007000000000000000003",
+        "in_param": [
+          {
+            "val": 1,
+            "type": "num",
+            "inName": "count"
+          },
+          {
+            "set": [
+              {
+                "type": "str",
+                "inName": "prompt",
+                "chainId": "000004592981544838643721",
+                "outName": "prompt"
+              },
+              {
+                "val": "https://img.ideaflow.pro/image/254a9f894a453a84eb34f986b5d472b1.jpeg",
+                "type": "img",
+                "inName": "image"
+              },
+              {
+                "val": 0.6,
+                "type": "num",
+                "inName": "scale"
+              }
+            ],
+            "val": "SEED_EDIT_V3",
+            "type": "str",
+            "inName": "strategy",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": false,
+            "type": "bool",
+            "inName": "errorIgnore"
+          }
+        ],
+        "sort_num": 12,
+        "pid": "000000000000000000000000",
+        "next_id": "000004593034805218131970"
+      },
+      "000004593034805218131969": {
+        "id": "000004593034805218131969",
+        "name": "跳转",
+        "unit_id": "000003649671145953738754",
+        "in_param": [
+          {
+            "val": "000004592981544838643725",
+            "code": "jump",
+            "type": "str",
+            "inName": "jumpChain",
+            "chainId": "",
+            "outName": ""
+          }
+        ],
+        "sort_num": 11,
+        "pid": "000000000000000000000000",
+        "next_id": "000004593034805218131968"
+      },
+      "000004593034805218131970": {
+        "id": "000004593034805218131970",
+        "name": "图生图_通用",
+        "unit_id": "000007000000000000000003",
+        "in_param": [
+          {
+            "val": 1,
+            "type": "num",
+            "inName": "count"
+          },
+          {
+            "set": [
+              {
+                "type": "str",
+                "inName": "prompt",
+                "chainId": "000004593004678774030339",
+                "outName": "prompt"
+              },
+              {
+                "get": [
+                  {
+                    "val": 0
+                  }
+                ],
+                "type": "img",
+                "inName": "image",
+                "chainId": "000004593034805218131968",
+                "outName": "images"
+              },
+              {
+                "val": 0.5,
+                "type": "num",
+                "inName": "scale"
+              }
+            ],
+            "val": "SEED_EDIT_V3",
+            "type": "str",
+            "inName": "strategy",
+            "chainId": "",
+            "outName": ""
+          },
+          {
+            "val": false,
+            "type": "bool",
+            "inName": "errorIgnore"
+          }
+        ],
+        "sort_num": 13,
+        "pid": "000000000000000000000000",
+        "next_id": "000004592981544838643725"
+      }
+    },
+    "tags": {},
+    "extras": {},
+    "wrappers": {
+      "000004592981544838643719": {
+        "id": "000004592981544838643719",
+        "name": "bg",
+        "content": {
+          "chat": {
+            "src": "https://img.ideaflow.pro/image/95b8cc99c8214aea01bf41610949ee8f.jpg",
+            "enter": "fadeIn",
+            "leave": "fadeOut"
+          }
+        }
+      },
+      "000004592981544838643718": {
+        "id": "000004592981544838643718",
+        "name": "bgm",
+        "content": {
+          "loop": 1,
+          "volume": 0.5,
+          "autoplay": 1
+        }
+      },
+      "000004592981544838643717": {
+        "id": "000004592981544838643717",
+        "name": "btn",
+        "content": {
+          "style": "btn-fill",
+          "layout": 0
+        }
+      },
+      "000004592981544838643716": {
+        "id": "000004592981544838643716",
+        "name": "greetings",
+        "content": [
+          {
+            "id": "0",
+            "ui": {
+              "name": "system",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "system",
+            "event": [],
+            "reader": {
+              "arr": 0,
+              "sub": [
+                {
+                  "arr": 0,
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "arr": 0,
+                  "val": "[（(\\[][^)）]*[)）\\]]|@[^@]*@|#[^#]*#",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "arr": 0,
+                  "val": "-1",
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "read"
+                  }
+                ],
+                "val": "玩法介绍",
+                "type": "str",
+                "props": [],
+                "inName": "title"
+              },
+              {
+                "sub": [
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "read"
+                  }
+                ],
+                "val": "上传一张人物照片，就可以生成一个同款bjd娃娃，超级可爱哦！",
+                "type": "str",
+                "props": [],
+                "inName": "none"
+              }
+            ]
+          },
+          {
+            "id": "1",
+            "ui": {
+              "name": "narration",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "narration",
+            "event": [],
+            "reader": {
+              "arr": 0,
+              "sub": [
+                {
+                  "arr": 0,
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "arr": 0,
+                  "val": "[（(\\[][^)）]*[)）\\]]|@[^@]*@|#[^#]*#",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "arr": 0,
+                  "val": "-1",
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            },
+            "content": [
+              {
+                "sub": [
+                  {
+                    "val": false,
+                    "type": "bool",
+                    "inName": "read"
+                  }
+                ],
+                "val": "欢迎多多分享评论区和抖音快手小红书，带话题#造梦次元玩图，会根据你们意见不断改进",
+                "type": "str",
+                "props": [],
+                "inName": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "000004592981544838643715": {
+        "id": "000004592981544838643715",
+        "name": "group_greeting",
+        "content": {
+          "0": {
+            "ui": {
+              "name": "system",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "system"
+          },
+          "1": {
+            "ui": {
+              "name": "narration",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "narration"
+          }
+        }
+      },
+      "000004592981544838643714": {
+        "id": "000004592981544838643714",
+        "name": "group_out",
+        "content": {
+          "0": {
+            "ui": {
+              "name": "normal",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "normal"
+          },
+          "1": {
+            "ui": {
+              "name": "toast",
+              "btnName": "sheet",
+              "noInput": false,
+              "startAt": 0
+            },
+            "type": "toast"
+          },
+          "2": {
+            "ui": {
+              "name": "toast",
+              "btnName": "sheet",
+              "noInput": true,
+              "startAt": 0
+            },
+            "type": "toast"
+          }
+        }
+      },
+      "000004592981544838643713": {
+        "id": "000004592981544838643713",
+        "name": "KEYS",
+        "content": [
+          {
+            "keyPath": "greetings[0].reader",
+            "onlyVal": 0,
+            "expression": {
+              "sub": [
+                {
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]|@[^@]*@|#[^#]*#",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            }
+          },
+          {
+            "keyPath": "greetings[1].reader",
+            "onlyVal": 0,
+            "expression": {
+              "sub": [
+                {
+                  "val": "silk_man",
+                  "type": "str",
+                  "inName": "tts_model_name"
+                },
+                {
+                  "val": "[（(\\[][^)）]*[)）\\]]|@[^@]*@|#[^#]*#",
+                  "type": "str",
+                  "inName": "_rep_text"
+                },
+                {
+                  "val": -1,
+                  "type": "num",
+                  "inName": "maxLength"
+                }
+              ],
+              "val": "000003838360748280004609",
+              "type": "str",
+              "inName": "reader"
+            }
+          }
+        ]
+      },
+      "000004592981541248335892": {
+        "id": "000004592981541248335892",
+        "name": "ROOT",
+        "content": {
+          "id": "000004592981544838643729",
+          "theme": "dark"
+        }
+      },
+      "000004592981541248335891": {
+        "id": "000004592981541248335891",
+        "name": "tts",
+        "content": {
+          "autoplay": 1
+        }
+      }
+    },
+    "attrs": {
+      "000004592981544838643731": {
+        "id": "000004592981544838643731",
+        "sn": 1,
+        "name": "轮次",
+        "code": null,
+        "type": "num",
+        "val": "2",
+        "reset": 0,
+        "schema": null,
+        "pipe_id": "000004592981544838643732"
+      }
+    },
+    "roles": {
+      "000004592981544838643728": {
+        "id": "000004592981544838643728",
+        "sn": 1,
+        "name": "美图救救",
+        "code": "cartoon",
+        "type": "json",
+        "val": "{\"summary\":\"会帮你一键出图、照片整活的潮流个性新搭子！\\n欢迎关注！我只是角色，不是APP\",\"features\":\"一个会p图的可爱水獭。\",\"gender\":\"未知\",\"user_id\":\"000003568292473375195136\",\"nickname\":\"美图救救\",\"timbre_id\":\"000004539363018345562120\",\"banner\":\"https://img.ideaflow.pro/ideaflow/000003568292473375195136/23231eb19ecb4cceb77349aba966eb85.jpg\",\"id\":\"000004571768876383633411\",\"avatar\":\"https://img.ideaflow.pro/ideaflow/000003568292473375195136/25c9f59ca4344c30aa3924d74b4b23cd.jpg\"}",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004592981544838643732"
+      }
+    },
+    "consts": {
+      "000004592981544838643730": {
+        "id": "000004592981544838643730",
+        "sn": 1,
+        "name": "造梦豆",
+        "code": "const_pipe",
+        "type": "str",
+        "val": "6521542021258",
+        "reset": 1,
+        "schema": null,
+        "pipe_id": "000004592981544838643732"
+      }
+    },
+    "wraps": {
+      "000004592981544838643729": {
+        "id": "000004592981544838643729",
+        "sn": null,
+        "name": "特殊变量",
+        "code": "none",
+        "type": "json",
+        "val": "{}",
+        "reset": 1,
+        "schema": "wrapper",
+        "pipe_id": "000004592981544838643732"
+      }
+    }
+  }
+}

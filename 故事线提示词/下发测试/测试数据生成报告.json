@@ -1,0 +1,202 @@
+{
+    "totalRounds": 31,
+    "canInterruptRounds": 6,
+    "cannotInterruptRounds": 28,
+    "generatedTestData": 28,
+    "canInterruptDetails": [
+        {
+            "roundIndex": 32,
+            "userContent": "……"
+        },
+        {
+            "roundIndex": 49,
+            "userContent": "指什么？"
+        },
+        {
+            "roundIndex": 88,
+            "userContent": "（推开他）"
+        },
+        {
+            "roundIndex": 95,
+            "userContent": "（打120）"
+        },
+        {
+            "roundIndex": 113,
+            "userContent": "（回家）"
+        },
+        {
+            "roundIndex": 137,
+            "userContent": "（休息）"
+        }
+    ],
+    "cannotInterruptSummary": [
+        {
+            "testDataNumber": 7,
+            "roundNumber": 3,
+            "userContent": "……",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 8,
+            "roundNumber": 4,
+            "userContent": "不给",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 9,
+            "roundNumber": 5,
+            "userContent": "你只是不甘心而已",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 10,
+            "roundNumber": 6,
+            "userContent": "有病",
+            "reason": "情绪激化中"
+        },
+        {
+            "testDataNumber": 11,
+            "roundNumber": 7,
+            "userContent": "不就是因为你哥吗",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 12,
+            "roundNumber": 8,
+            "userContent": "指什么？",
+            "reason": "重要质疑提问中"
+        },
+        {
+            "testDataNumber": 13,
+            "roundNumber": 9,
+            "userContent": "我信吗？",
+            "reason": "重要质疑提问中"
+        },
+        {
+            "testDataNumber": 14,
+            "roundNumber": 10,
+            "userContent": "怎么",
+            "reason": "情感表白进行中"
+        },
+        {
+            "testDataNumber": 15,
+            "roundNumber": 11,
+            "userContent": "我凭什么相信你",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 16,
+            "roundNumber": 12,
+            "userContent": "……",
+            "reason": "情感表白进行中"
+        },
+        {
+            "testDataNumber": 17,
+            "roundNumber": 13,
+            "userContent": "？",
+            "reason": "重要质疑提问中"
+        },
+        {
+            "testDataNumber": 18,
+            "roundNumber": 14,
+            "userContent": "……",
+            "reason": "情感表白进行中"
+        },
+        {
+            "testDataNumber": 19,
+            "roundNumber": 15,
+            "userContent": "没事",
+            "reason": "情绪激化中"
+        },
+        {
+            "testDataNumber": 20,
+            "roundNumber": 16,
+            "userContent": "废话真多",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 21,
+            "roundNumber": 18,
+            "userContent": "嗯？",
+            "reason": "重要质疑提问中"
+        },
+        {
+            "testDataNumber": 22,
+            "roundNumber": 19,
+            "userContent": "没有",
+            "reason": "危险冲突场景"
+        },
+        {
+            "testDataNumber": 23,
+            "roundNumber": 20,
+            "userContent": "啧，你们别打了",
+            "reason": "危险冲突场景"
+        },
+        {
+            "testDataNumber": 24,
+            "roundNumber": 21,
+            "userContent": "……",
+            "reason": "危险冲突场景"
+        },
+        {
+            "testDataNumber": 25,
+            "roundNumber": 22,
+            "userContent": "（推开他）",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 26,
+            "roundNumber": 23,
+            "userContent": "（打120）",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 27,
+            "roundNumber": 24,
+            "userContent": "等待",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 28,
+            "roundNumber": 25,
+            "userContent": "不能",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 29,
+            "roundNumber": 26,
+            "userContent": "不用",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 30,
+            "roundNumber": 27,
+            "userContent": "不好",
+            "reason": "新角色出场时"
+        },
+        {
+            "testDataNumber": 31,
+            "roundNumber": 28,
+            "userContent": "（离开）",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 32,
+            "roundNumber": 29,
+            "userContent": "（回家）",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 33,
+            "roundNumber": 30,
+            "userContent": "不好",
+            "reason": "对话连贯性要求"
+        },
+        {
+            "testDataNumber": 34,
+            "roundNumber": 31,
+            "userContent": "（回家）",
+            "reason": "对话连贯性要求"
+        }
+    ]
+}

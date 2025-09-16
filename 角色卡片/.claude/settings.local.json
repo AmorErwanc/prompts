@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python format_json_data.py:*)",
+      "Bash(python3:*)"
+    ],
+    "deny": []
+  }
+}
