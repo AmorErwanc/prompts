@@ -1,5 +1,12 @@
 <template>
   <div class="left-sidebar">
+    <!-- 批量测试入口 -->
+    <div class="batch-test-section">
+      <button class="batch-test-btn" @click="openBatchTest">
+        🧪 批量测试
+      </button>
+    </div>
+
     <!-- 用户管理部分 -->
     <div class="user-section">
       <div class="section-header">
@@ -86,6 +93,8 @@ import { useCharacterStore } from '../stores/characterStore'
 import { generateCartoonId } from '../utils/idGenerator'
 import { DEFAULT_AVATARS } from '../utils/api'
 
+const emit = defineEmits(['open-batch-test'])
+
 const userStore = useUserStore()
 const chatStore = useChatStore()
 const characterStore = useCharacterStore()
@@ -153,6 +162,11 @@ function handleDeleteSession(sessionId) {
     chatStore.deleteSession(sessionId)
   }
 }
+
+// 打开批量测试页面
+function openBatchTest() {
+  emit('open-batch-test')
+}
 </script>
 
 <style scoped>
@@ -163,6 +177,35 @@ function handleDeleteSession(sessionId) {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+/* 批量测试入口 */
+.batch-test-section {
+  padding: 12px;
+  border-bottom: 2px solid #E5E7EB;
+}
+
+.batch-test-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+.batch-test-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
+
+.batch-test-btn:active {
+  transform: translateY(0);
 }
 
 .user-section {
