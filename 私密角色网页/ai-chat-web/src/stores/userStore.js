@@ -19,12 +19,22 @@ export const useUserStore = defineStore('user', () => {
     const savedCurrent = getStorage(KEYS.CURRENT)
 
     if (savedUsers && savedUsers.length > 0) {
-      users.value = savedUsers
+      // 数据迁移：为旧用户数据补充缺失的字段
+      users.value = savedUsers.map(user => ({
+        ...user,
+        sessions: user.sessions || [], // 确保 sessions 字段存在
+        avatar: user.avatar || null,    // 确保 avatar 字段存在
+        created_at: user.created_at || Date.now() // 确保 created_at 字段存在
+      }))
+
       if (savedCurrent && savedCurrent.user_id) {
         currentUserId.value = savedCurrent.user_id
       } else {
         currentUserId.value = savedUsers[0].user_id
       }
+
+      // 保存迁移后的数据
+      saveToStorage()
     } else {
       // 如果没有数据，创建一个默认用户
       createUser('默认用户')
@@ -93,9 +103,15 @@ export const useUserStore = defineStore('user', () => {
   // 添加会话到用户
   function addSessionToUser(userId, sessionId) {
     const user = users.value.find(u => u.user_id === userId)
-    if (user && !user.sessions.includes(sessionId)) {
-      user.sessions.push(sessionId)
-      saveToStorage()
+    if (user) {
+      // 确保 sessions 数组存在
+      if (!user.sessions) {
+        user.sessions = []
+      }
+      if (!user.sessions.includes(sessionId)) {
+        user.sessions.push(sessionId)
+        saveToStorage()
+      }
       return true
     }
     return false

@@ -2,7 +2,7 @@
  * Webhook API调用
  */
 
-const WEBHOOK_URL = 'https://n8n.games/webhook/character_creat'
+const WEBHOOK_URL = 'https://n8n.games/webhook/character_creat_summary'
 
 /**
  * 调用角色创建webhook

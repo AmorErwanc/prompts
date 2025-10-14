@@ -24,30 +24,37 @@ export function validateResponse(data) {
     errors.push('response 字段缺失或类型错误（必须是非空字符串）')
   }
 
+  // 验证 summary 字段（必须有值）
+  if (!data.summary || typeof data.summary !== 'string') {
+    errors.push('summary 字段缺失或类型错误（必须是非空字符串）')
+  }
+
   // 验证 draft 字段（必须有值）
   if (typeof data.draft !== 'boolean') {
     errors.push('draft 字段缺失或类型错误（必须是 boolean）')
   }
 
-  // 验证 character_profile 字段
-  if (!data.character_profile || typeof data.character_profile !== 'object') {
-    errors.push('character_profile 字段缺失或类型错误（必须是对象）')
-  } else {
-    // 必须存在的字段列表（值可以为 null）
-    const requiredFields = [
-      'name',
-      'gender',
-      'identity',
-      'personality_traits',
-      'speaking_style',
-      'background_story',
-      'relationship_with_user',
-      'additional_info'
-    ]
+  // 只有 draft 为 true 时才验证 character_profile
+  if (data.draft === true) {
+    if (!data.character_profile || typeof data.character_profile !== 'object') {
+      errors.push('draft 为 true 时，character_profile 字段缺失或类型错误（必须是对象）')
+    } else {
+      // 必须存在的字段列表（值可以为 null）
+      const requiredFields = [
+        'name',
+        'gender',
+        'identity',
+        'personality_traits',
+        'speaking_style',
+        'background_story',
+        'relationship',
+        'additional_info'
+      ]
 
-    for (const field of requiredFields) {
-      if (!(field in data.character_profile)) {
-        errors.push(`character_profile.${field} 字段不存在`)
+      for (const field of requiredFields) {
+        if (!(field in data.character_profile)) {
+          errors.push(`character_profile.${field} 字段不存在`)
+        }
       }
     }
   }

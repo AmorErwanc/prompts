@@ -31,6 +31,30 @@
       </div>
     </div>
 
+    <!-- 处理中结果 -->
+    <div v-if="processingResults.length > 0" class="result-section">
+      <h4 class="section-title processing">⏳ 处理中 ({{ processingResults.length }})</h4>
+      <div class="result-list">
+        <div
+          v-for="result in processingResults"
+          :key="result.test_index"
+          class="result-item processing"
+        >
+          <div class="result-content">
+            <div class="result-header-line">
+              <span class="result-index">#{{ result.test_index }}</span>
+              <span class="result-status">处理中</span>
+              <span class="processing-spinner">⏳</span>
+            </div>
+            <div class="result-ids">
+              <span>User: {{ formatId(result.user_id) }}</span>
+              <span>Session: {{ formatId(result.session_id) }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- 成功结果 -->
     <div v-if="sortedSuccessResults.length > 0" class="result-section">
       <h4 class="section-title success">✅ 成功 ({{ sortedSuccessResults.length }})</h4>
@@ -131,13 +155,17 @@ const sortBy = ref('status')
 const selectAll = ref(false)
 const selectedIndexes = ref([])
 
-// 成功和失败的结果
+// 成功、失败和处理中的结果
 const successResults = computed(() => {
   return props.results.filter(r => r.status === 'success')
 })
 
 const failedResults = computed(() => {
   return props.results.filter(r => r.status === 'failed')
+})
+
+const processingResults = computed(() => {
+  return props.results.filter(r => r.status === 'processing')
 })
 
 // 排序后的结果
@@ -264,6 +292,10 @@ function getLatestResponse(result) {
   color: #DC2626;
 }
 
+.section-title.processing {
+  color: #F59E0B;
+}
+
 .result-list {
   display: flex;
   flex-direction: column;
@@ -291,6 +323,11 @@ function getLatestResponse(result) {
 .result-item.failed {
   background-color: #FEF2F2;
   border-color: #FECACA;
+}
+
+.result-item.processing {
+  background-color: #FFFBEB;
+  border-color: #FDE68A;
 }
 
 .result-checkbox {
@@ -329,6 +366,25 @@ function getLatestResponse(result) {
 .result-item.failed .result-status {
   background-color: #FEE2E2;
   color: #DC2626;
+}
+
+.result-item.processing .result-status {
+  background-color: #FEF3C7;
+  color: #D97706;
+}
+
+.processing-spinner {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .result-duration,

@@ -134,18 +134,26 @@ export const useChatStore = defineStore('chat', () => {
           dialogue_id: generateDialogueId(),
           role: 'assistant',
           content: result.data.response,
-          character_profile: result.data.character_profile,
+          character_profile: result.data.character_profile || null,
           draft: result.data.draft,
           timestamp: Date.now()
         }
         session.messages.push(assistantMessage)
 
-        // 更新角色信息
-        characterStore.updateCharacter(session.cartoon_id, {
-          character_profile: result.data.character_profile,
-          draft: result.data.draft,
-          updated_at: Date.now()
-        })
+        // 只有在 draft 为 true 且有 character_profile 时才更新角色信息
+        if (result.data.draft === true && result.data.character_profile) {
+          characterStore.updateCharacter(session.cartoon_id, {
+            character_profile: result.data.character_profile,
+            draft: result.data.draft,
+            updated_at: Date.now()
+          })
+        } else {
+          // draft 为 false 时，只更新 draft 状态
+          characterStore.updateCharacter(session.cartoon_id, {
+            draft: result.data.draft,
+            updated_at: Date.now()
+          })
+        }
 
         saveToStorage()
         return { success: true, data: result.data }

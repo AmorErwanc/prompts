@@ -53,6 +53,75 @@ onMounted(() => {
 
 // 从批量测试进入聊天
 function handleEnterChatFromTest(result) {
+  console.log('进入聊天 - result:', result)
+  console.log('当前用户列表:', userStore.users)
+  console.log('当前会话列表:', chatStore.sessions)
+
+  // 检查用户是否存在，不存在则创建
+  if (!userStore.users.find(u => u.user_id === result.user_id)) {
+    const userName = `测试用户-${result.user_id.slice(0, 8)}`
+    userStore.users.push({
+      user_id: result.user_id,
+      username: userName,  // 注意是 username 不是 user_name
+      avatar: null,
+      sessions: [result.session_id],  // 注意是 sessions 不是 session_ids
+      created_at: Date.now()
+    })
+    userStore.saveToStorage()
+  } else {
+    // 用户存在，添加会话ID
+    userStore.addSessionToUser(result.user_id, result.session_id)
+  }
+
+  // 检查会话是否存在，不存在则创建
+  if (!chatStore.sessions[result.session_id]) {
+    const sessionName = `测试会话-${result.session_id.slice(0, 8)}`
+
+    // 从测试结果中恢复所有消息
+    const messages = []
+    result.rounds.forEach(round => {
+      // 用户消息
+      messages.push({
+        dialogue_id: round.dialogue_id,
+        role: 'user',
+        content: round.request.user_prompt,
+        timestamp: round.request.timestamp
+      })
+
+      // AI回复消息
+      messages.push({
+        dialogue_id: round.dialogue_id,
+        role: 'assistant',
+        content: round.response.response,
+        character_profile: round.response.character_profile,
+        draft: round.response.draft,
+        timestamp: round.timestamp
+      })
+    })
+
+    chatStore.sessions[result.session_id] = {
+      session_id: result.session_id,
+      user_id: result.user_id,
+      cartoon_id: result.cartoon_id,
+      session_name: sessionName,
+      created_at: result.rounds[0]?.request.timestamp || Date.now(),
+      messages: messages
+    }
+    chatStore.saveToStorage()
+  }
+
+  // 检查角色是否存在，不存在则创建
+  if (!characterStore.getCharacter(result.cartoon_id)) {
+    const latestRound = result.rounds[result.rounds.length - 1]
+    characterStore.createCharacter(result.cartoon_id, latestRound.request.character_image)
+    if (latestRound.response.character_profile) {
+      characterStore.updateCharacter(result.cartoon_id, {
+        character_profile: latestRound.response.character_profile,
+        draft: latestRound.response.draft
+      })
+    }
+  }
+
   // 切换到对应的用户和会话
   userStore.switchUser(result.user_id)
   chatStore.switchSession(result.session_id)

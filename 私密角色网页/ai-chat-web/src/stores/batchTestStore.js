@@ -72,11 +72,14 @@ export const useBatchTestStore = defineStore('batchTest', () => {
 
     await Promise.allSettled(promises)
 
-    // 计算统计信息
+    // 最后再计算一次统计信息
     updateStatistics(batch)
 
+    // 最后更新一次 currentBatch，确保所有数据同步
+    currentBatch.value = { ...batch, results: [...batch.results], statistics: { ...batch.statistics } }
+
     // 保存到 localStorage
-    saveBatchTest(batch)
+    saveBatchTest(currentBatch.value)
 
     isRunning.value = false
     return batch
@@ -116,7 +119,7 @@ export const useBatchTestStore = defineStore('batchTest', () => {
 
     const result = {
       test_index: index + 1,
-      status: 'pending',
+      status: 'processing',
       user_id: task.user_id,
       session_id: task.session_id,
       cartoon_id: task.cartoon_id,
@@ -126,7 +129,10 @@ export const useBatchTestStore = defineStore('batchTest', () => {
       validation: null
     }
 
+    // 先添加到结果数组，状态为 processing
     batch.results.push(result)
+    // 立即触发响应式更新 - 创建新的 batch 对象引用
+    currentBatch.value = { ...batch, results: [...batch.results] }
 
     try {
       // 调用 webhook
@@ -141,6 +147,9 @@ export const useBatchTestStore = defineStore('batchTest', () => {
           code: 'REQUEST_FAILED'
         }
         result.duration = duration
+        // 触发响应式更新 - 更新统计信息并创建新引用
+        updateStatistics(batch)
+        currentBatch.value = { ...batch, results: [...batch.results], statistics: { ...batch.statistics } }
         return
       }
 
@@ -156,6 +165,9 @@ export const useBatchTestStore = defineStore('batchTest', () => {
           details: validation.errors
         }
         result.duration = duration
+        // 触发响应式更新 - 更新统计信息并创建新引用
+        updateStatistics(batch)
+        currentBatch.value = { ...batch, results: [...batch.results], statistics: { ...batch.statistics } }
         return
       }
 
@@ -176,13 +188,26 @@ export const useBatchTestStore = defineStore('batchTest', () => {
       })
       result.duration = duration
 
+      // 触发响应式更新 - 更新统计信息并创建新引用
+      updateStatistics(batch)
+      currentBatch.value = { ...batch, results: [...batch.results], statistics: { ...batch.statistics } }
+
       // 创建角色记录
       const characterStore = useCharacterStore()
       characterStore.createCharacter(task.cartoon_id, task.character_image)
-      characterStore.updateCharacter(task.cartoon_id, {
-        character_profile: response.data.character_profile,
-        draft: response.data.draft
-      })
+
+      // 只有在 draft 为 true 且有 character_profile 时才更新角色信息
+      if (response.data.draft === true && response.data.character_profile) {
+        characterStore.updateCharacter(task.cartoon_id, {
+          character_profile: response.data.character_profile,
+          draft: response.data.draft
+        })
+      } else {
+        // draft 为 false 时，只更新 draft 状态
+        characterStore.updateCharacter(task.cartoon_id, {
+          draft: response.data.draft
+        })
+      }
 
     } catch (error) {
       result.status = 'failed'
@@ -191,6 +216,9 @@ export const useBatchTestStore = defineStore('batchTest', () => {
         code: 'EXCEPTION'
       }
       result.duration = Date.now() - startTime
+      // 触发响应式更新 - 更新统计信息并创建新引用
+      updateStatistics(batch)
+      currentBatch.value = { ...batch, results: [...batch.results], statistics: { ...batch.statistics } }
     }
   }
 
@@ -201,20 +229,26 @@ export const useBatchTestStore = defineStore('batchTest', () => {
     const failedCount = results.filter(r => r.status === 'failed').length
     const durations = results.filter(r => r.duration).map(r => r.duration)
 
-    batch.statistics.success = successCount
-    batch.statistics.failed = failedCount
-    batch.statistics.pending = 0
-    batch.statistics.success_rate = successCount / results.length
-    batch.statistics.end_time = Date.now()
-    batch.statistics.total_duration = batch.statistics.end_time - batch.statistics.start_time
+    const newStatistics = {
+      ...batch.statistics,
+      success: successCount,
+      failed: failedCount,
+      pending: 0,
+      success_rate: results.length > 0 ? successCount / results.length : 0,
+      end_time: Date.now(),
+      total_duration: Date.now() - batch.statistics.start_time
+    }
 
     if (durations.length > 0) {
-      batch.statistics.avg_duration = Math.round(
+      newStatistics.avg_duration = Math.round(
         durations.reduce((a, b) => a + b, 0) / durations.length
       )
-      batch.statistics.min_duration = Math.min(...durations)
-      batch.statistics.max_duration = Math.max(...durations)
+      newStatistics.min_duration = Math.min(...durations)
+      newStatistics.max_duration = Math.max(...durations)
     }
+
+    // 创建新的 statistics 对象引用
+    batch.statistics = newStatistics
   }
 
   // 保存批量测试
@@ -269,6 +303,9 @@ export const useBatchTestStore = defineStore('batchTest', () => {
     // 保存
     saveBatchTest(currentBatch.value)
 
+    // 强制触发响应式更新：创建新的 results 数组引用
+    currentBatch.value.results = [...currentBatch.value.results]
+
     isRunning.value = false
   }
 
@@ -312,10 +349,19 @@ export const useBatchTestStore = defineStore('batchTest', () => {
 
           // 更新角色信息
           const characterStore = useCharacterStore()
-          characterStore.updateCharacter(result.cartoon_id, {
-            character_profile: response.data.character_profile,
-            draft: response.data.draft
-          })
+
+          // 只有在 draft 为 true 且有 character_profile 时才更新角色信息
+          if (response.data.draft === true && response.data.character_profile) {
+            characterStore.updateCharacter(result.cartoon_id, {
+              character_profile: response.data.character_profile,
+              draft: response.data.draft
+            })
+          } else {
+            // draft 为 false 时，只更新 draft 状态
+            characterStore.updateCharacter(result.cartoon_id, {
+              draft: response.data.draft
+            })
+          }
         } else {
           // 验证失败，记录但不更新轮次
           console.error('追加轮次验证失败:', validation.errors)

@@ -22,7 +22,7 @@
           @click="handleSwitchUser(user.user_id)"
         >
           <span class="user-name">{{ user.username }}</span>
-          <span class="user-sessions-count">({{ user.sessions.length }})</span>
+          <span class="user-sessions-count">({{ user.sessions?.length || 0 }})</span>
         </div>
       </div>
     </div>

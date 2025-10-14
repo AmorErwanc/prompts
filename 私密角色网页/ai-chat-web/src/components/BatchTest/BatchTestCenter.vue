@@ -3,17 +3,54 @@
     <div class="page-header">
       <h2>批量测试中心</h2>
       <div class="header-actions">
-        <button class="btn-secondary" @click="showNewTest = !currentBatch">
-          {{ currentBatch ? '查看结果' : '新建测试' }}
+        <button v-if="currentView !== 'list'" class="btn-secondary" @click="backToList">
+          ← 返回测试列表
         </button>
-        <button v-if="!showNewTest" class="btn-secondary" @click="handleClose">
+        <button class="btn-primary" @click="createNewTest">
+          + 新建测试
+        </button>
+        <button class="btn-secondary" @click="handleClose">
           关闭
         </button>
       </div>
     </div>
 
+    <!-- 测试列表 -->
+    <div v-if="currentView === 'list'" class="test-list-section">
+      <div v-if="batchHistory.length === 0" class="empty-state">
+        <div class="empty-icon">📋</div>
+        <div class="empty-text">还没有批量测试记录</div>
+        <button class="btn-primary" @click="createNewTest">创建第一个测试</button>
+      </div>
+      <div v-else class="history-list">
+        <div
+          v-for="item in batchHistory"
+          :key="item.batch_id"
+          class="history-item"
+          @click="loadTest(item.batch_id)"
+        >
+          <div class="history-header">
+            <h3 class="history-title">{{ item.test_name }}</h3>
+            <span class="history-date">{{ formatDate(item.created_at) }}</span>
+          </div>
+          <div class="history-stats">
+            <span class="stat-item success">✅ 成功: {{ item.statistics.success }}</span>
+            <span class="stat-item failed">❌ 失败: {{ item.statistics.failed }}</span>
+            <span class="stat-item total">📊 总计: {{ item.statistics.total }}</span>
+            <span class="stat-item rate">
+              成功率: {{ (item.statistics.success_rate * 100).toFixed(1) }}%
+            </span>
+          </div>
+          <div class="history-actions">
+            <button class="btn-view" @click.stop="loadTest(item.batch_id)">查看详情</button>
+            <button class="btn-delete" @click.stop="confirmDelete(item.batch_id)">删除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- 新建测试配置 -->
-    <div v-if="showNewTest" class="test-config-section">
+    <div v-if="currentView === 'config'" class="test-config-section">
       <TestConfig
         :is-running="isRunning"
         @start="handleStartTest"
@@ -22,7 +59,7 @@
     </div>
 
     <!-- 测试结果展示 -->
-    <div v-else-if="currentBatch" class="test-results-section">
+    <div v-if="currentView === 'results' && currentBatch" class="test-results-section">
       <!-- 测试信息 -->
       <div class="test-info">
         <div class="info-row">
@@ -103,7 +140,7 @@ const emit = defineEmits(['close', 'enter-chat'])
 const batchTestStore = useBatchTestStore()
 
 // 状态
-const showNewTest = ref(true)
+const currentView = ref('list') // 'list' | 'config' | 'results'
 const showDetailModal = ref(false)
 const showAppendModal = ref(false)
 const selectedResult = ref({})
@@ -113,6 +150,7 @@ const isSendingAppend = ref(false)
 // 计算属性
 const currentBatch = computed(() => batchTestStore.currentBatch)
 const isRunning = computed(() => batchTestStore.isRunning)
+const batchHistory = computed(() => batchTestStore.batchHistory)
 
 const progressPercent = computed(() => {
   if (!currentBatch.value) return 0
@@ -123,15 +161,42 @@ const progressPercent = computed(() => {
 // 初始化
 onMounted(() => {
   batchTestStore.initialize()
-  // 如果有当前批次，显示结果
+  // 根据是否有当前批次决定初始视图
   if (currentBatch.value) {
-    showNewTest.value = false
+    currentView.value = 'results'
+  } else if (batchHistory.value.length > 0) {
+    currentView.value = 'list'
+  } else {
+    currentView.value = 'config'
   }
 })
 
+// 创建新测试
+function createNewTest() {
+  currentView.value = 'config'
+}
+
+// 返回测试列表
+function backToList() {
+  currentView.value = 'list'
+}
+
+// 加载测试
+function loadTest(batchId) {
+  batchTestStore.loadBatchTest(batchId)
+  currentView.value = 'results'
+}
+
+// 确认删除
+function confirmDelete(batchId) {
+  if (confirm('确定要删除这个测试吗？此操作无法撤销。')) {
+    batchTestStore.deleteBatchTest(batchId)
+  }
+}
+
 // 开始测试
 async function handleStartTest(config) {
-  showNewTest.value = false
+  currentView.value = 'results'
   await batchTestStore.createAndRunBatchTest(config)
 }
 
@@ -298,6 +363,149 @@ function truncateText(text, maxLength) {
   text-align: center;
   font-size: 14px;
   color: #6B7280;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #3B82F6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #2563EB;
+}
+
+/* 测试列表样式 */
+.test-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: #9CA3AF;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.empty-text {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: #6B7280;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.history-item {
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.history-item:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-color: #3B82F6;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.history-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.history-date {
+  font-size: 13px;
+  color: #9CA3AF;
+}
+
+.history-stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #F3F4F6;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.stat-item {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.stat-item.success {
+  color: #059669;
+}
+
+.stat-item.failed {
+  color: #DC2626;
+}
+
+.stat-item.total {
+  color: #6B7280;
+}
+
+.stat-item.rate {
+  color: #3B82F6;
+}
+
+.history-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-view,
+.btn-delete {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-view {
+  background-color: #DBEAFE;
+  color: #1E40AF;
+}
+
+.btn-view:hover {
+  background-color: #BFDBFE;
+}
+
+.btn-delete {
+  background-color: #FEE2E2;
+  color: #991B1B;
+}
+
+.btn-delete:hover {
+  background-color: #FECACA;
 }
 
 /* 滚动条样式 */

@@ -68,7 +68,7 @@
         <!-- 与用户关系 -->
         <div class="info-item">
           <label>与你的关系</label>
-          <div class="info-value multiline">{{ profile.relationship_with_user || '暂无' }}</div>
+          <div class="info-value multiline">{{ profile.relationship || '暂无' }}</div>
         </div>
 
         <!-- 额外信息 -->

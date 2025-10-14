@@ -27,7 +27,7 @@ export const useCharacterStore = defineStore('character', () => {
         personality_traits: null,
         speaking_style: null,
         background_story: null,
-        relationship_with_user: null,
+        relationship: null,
         additional_info: null
       },
       draft: false,
