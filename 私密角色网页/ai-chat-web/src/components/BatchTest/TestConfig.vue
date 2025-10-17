@@ -50,7 +50,6 @@
           v-model.number="config.test_count"
           type="number"
           min="1"
-          max="20"
           placeholder="10"
         >
       </div>
@@ -126,8 +125,7 @@ const defaultAvatars = DEFAULT_AVATARS
 const isValid = computed(() => {
   return config.value.user_prompt.trim() !== '' &&
          config.value.character_image !== '' &&
-         config.value.test_count > 0 &&
-         config.value.test_count <= 20
+         config.value.test_count > 0
 })
 
 // 开始测试

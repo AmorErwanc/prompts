@@ -24,9 +24,9 @@ export function validateResponse(data) {
     errors.push('response 字段缺失或类型错误（必须是非空字符串）')
   }
 
-  // 验证 summary 字段（必须有值）
-  if (!data.summary || typeof data.summary !== 'string') {
-    errors.push('summary 字段缺失或类型错误（必须是非空字符串）')
+  // 验证 summary 字段（可选，但如果存在必须是字符串）
+  if ('summary' in data && data.summary !== null && typeof data.summary !== 'string') {
+    errors.push('summary 字段类型错误（必须是字符串或 null）')
   }
 
   // 验证 draft 字段（必须有值）
