@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大模型参数科普：Temperature 与 Top_p 的秘密</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #764ba2;
+            margin: 25px 0 15px 0;
+        }
+
+        .concept-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .example-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffd700 0%, #ffed4e 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .param-value {
+            font-family: 'Courier New', monospace;
+            background: #667eea;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .demo-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid #667eea;
+        }
+
+        .slider-container {
+            margin: 20px 0;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .result-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            min-height: 100px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .card-content {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 5px solid #ffc107;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .tip-box::before {
+            content: "💡 小贴士";
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border-left: 5px solid #dc3545;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .warning-box::before {
+            content: "⚠️ 注意";
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .content-section { padding: 20px; }
+            .nav-buttons { flex-direction: column; align-items: center; }
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+
+        .probability-chart {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .bar-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 200px;
+            margin: 20px 0;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .probability-bar {
+            width: 60px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: all 0.5s ease;
+            min-height: 5px;
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        #intro { display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 大模型参数科普</h1>
+            <p class="subtitle">深入了解 Temperature 与 Top_p 如何影响 AI 的输出</p>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="showSection('intro')">🏠 首页</button>
+                <button class="nav-btn" onclick="showSection('temperature')">🌡️ Temperature</button>
+                <button class="nav-btn" onclick="showSection('topp')">🎯 Top_p</button>
+                <button class="nav-btn" onclick="showSection('demo')">🎮 互动演示</button>
+                <button class="nav-btn" onclick="showSection('best-practices')">💡 最佳实践</button>
+            </div>
+        </header>
+
+        <!-- 引言部分 -->
+        <section id="intro" class="content-section active">
+            <h2><span class="emoji">🚀</span>欢迎来到大模型参数世界！</h2>
+
+            <div class="concept-box">
+                <h3>为什么要了解这些参数？</h3>
+                <p>当你使用 ChatGPT、Claude 或其他大语言模型时，有没有想过为什么有时候回答很保守，有时候又很有创意？这背后就是 <span class="highlight">Temperature</span> 和 <span class="highlight">Top_p</span> 这两个参数在起作用！</p>
+            </div>
+
+            <h3>🎯 本指南将帮助你：</h3>
+            <ul style="margin: 20px 0; padding-left: 20px;">
+                <li>理解 Temperature 如何控制 AI 的"创意程度"</li>
+                <li>掌握 Top_p 如何筛选"最合适的词语"</li>
+                <li>学会根据不同场景选择最佳参数组合</li>
+                <li>通过互动演示直观感受参数效果</li>
+            </ul>
+
+            <div class="tip-box">
+                别担心这些概念听起来很技术化！我会用最简单的比喻和例子，让你轻松掌握这些参数的使用技巧。
+            </div>
+
+            <h3>📖 快速预览</h3>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="card-title">🌡️ Temperature (温度)</div>
+                    <div class="card-content">
+                        控制输出的随机性和创意程度。数值越高，AI 越有创意但也越不稳定；数值越低，输出越保守但也越确定。
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">🎯 Top_p (核心采样)</div>
+                    <div class="card-content">
+                        控制候选词的筛选范围。只考虑概率累计达到某个阈值的词语，有助于平衡多样性和质量。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Temperature 参数详解 -->
+        <section id="temperature" class="content-section">
+            <h2><span class="emoji">🌡️</span>Temperature 参数详解</h2>
+
+            <div class="concept-box">
+                <h3>什么是 Temperature？</h3>
+                <p>Temperature（温度）是控制大模型输出随机性的关键参数。你可以把它想象成 AI 的"创意调节器"或者"性格控制器"。</p>
+            </div>
+
+            <h3>🎨 创意的比喻</h3>
+            <p>想象一下你在餐厅点餐：</p>
+            <ul style="margin: 15px 0; padding-left: 20px;">
+                <li><strong>Temperature = 0.1</strong>：像机器人服务员，严格按照菜单回答，从不出错但也从不给惊喜</li>
+                <li><strong>Temperature = 0.7</strong>：像经验丰富的服务员，推荐菜品既稳妥又有一些建议</li>
+                <li><strong>Temperature = 1.5</strong>：像创意大厨，可能会推荐意想不到的搭配，有时惊艳有时奇怪</li>
+            </ul>
+
+            <h3>📊 不同数值的具体效果</h3>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="card-title">🥶 低温度 (0.1-0.3)</div>
+                    <div class="card-content">
+                        <strong>特点：</strong>保守、确定、重复性强<br>
+                        <strong>适用场景：</strong>代码生成、数学计算、事实性问答<br>
+                        <strong>示例：</strong>每次提问都得到几乎相同的答案
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">😊 适中温度 (0.5-0.8)</div>
+                    <div class="card-content">
+                        <strong>特点：</strong>平衡多样性、创意性适中<br>
+                        <strong>适用场景：</strong>日常对话、写作辅助、通用任务<br>
+                        <strong>示例：</strong>回答既准确又有一些变化
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">🔥 高温度 (1.0-2.0)</div>
+                    <div class="card-content">
+                        <strong>特点：</strong>创意强、随机性高、可能不稳定<br>
+                        <strong>适用场景：</strong>创意写作、头脑风暴、艺术创作<br>
+                        <strong>示例：</strong>每次都有不同的、意想不到的回答
+                    </div>
+                </div>
+            </div>
+
+            <h3>🔬 工作原理</h3>
+            <div class="example-box">
+                <p>Temperature 实际上是通过调整词汇概率分布来工作的：</p>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>原始概率：["很棒": 40%, "不错": 30%, "还行": 20%, "一般": 10%]</li>
+                    <li><strong>Temperature = 0.5</strong>：["很棒": 55%, "不错": 30%, "还行": 12%, "一般": 3%]</li>
+                    <li><strong>Temperature = 1.5</strong>：["很棒": 32%, "不错": 28%, "还行": 24%, "一般": 16%]</li>
+                </ul>
+                <p><em>低温度会让高概率词更加突出，高温度会让概率分布更均匀</em></p>
+            </div>
+
+            <div class="warning-box">
+                ⚠️ <strong>避免极端值：</strong>Temperature 设置过高（如 2.0+）可能导致输出变得不连贯或胡言乱语；设置过低（如 0.0）会让输出过于死板。
+            </div>
+        </section>
+
+        <!-- Top_p 参数详解 -->
+        <section id="topp" class="content-section">
+            <h2><span class="emoji">🎯</span>Top_p 参数详解</h2>
+
+            <div class="concept-box">
+                <h3>什么是 Top_p？</h3>
+                <p>Top_p（也叫 Nucleus Sampling，核心采样）是另一个重要的采样参数。它决定了在生成下一个词时，从概率最高的候选词中选择的范围。</p>
+            </div>
+
+            <h3>🎯 精准的比喻</h3>
+            <p>想象你在一个巨大的自助餐厅选餐：</p>
+            <ul style="margin: 15px 0; padding-left: 20px;">
+                <li><strong>Top_p = 0.1</strong>：只从最受欢迎的 10% 菜品中选择，保证好吃但缺乏新意</li>
+                <li><strong>Top_p = 0.5</strong>：从排名前 50% 的菜品中选择，平衡质量和多样性</li>
+                <li><strong>Top_p = 0.9</strong>：从排名前 90% 的菜品中选择，有更多尝试但可能踩雷</li>
+            </ul>
+
+            <h3>📊 不同数值的具体效果</h3>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="card-title">🎯 低 Top_p (0.1-0.3)</div>
+                    <div class="card-content">
+                        <strong>特点：</strong>精准、保守、质量稳定<br>
+                        <strong>适用场景：</strong>技术文档、正式写作、医疗建议<br>
+                        <strong>效果：</strong>只选择最有可能的词语，避免生僻表达
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">⚖️ 中等 Top_p (0.5-0.8)</div>
+                    <div class="card-content">
+                        <strong>特点：</strong>平衡质量与多样性<br>
+                        <strong>适用场景：</strong>日常交流、商务邮件、教学辅导<br>
+                        <strong>效果：</strong>既能保证质量，又有一定的表达变化
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">🎲 高 Top_p (0.9-1.0)</div>
+                    <div class="card-content">
+                        <strong>特点：</strong>多样化、创意性强、风险较高<br>
+                        <strong>适用场景：</strong>创意写作、诗歌、故事创作<br>
+                        <strong>效果：</strong>几乎考虑所有可能的词语，最大多样性
+                    </div>
+                </div>
+            </div>
+
+            <h3>🔬 工作原理示例</h3>
+            <div class="example-box">
+                <p>假设模型预测下一个词的概率分布：</p>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>["好的": 30%, "是的": 25%, "当然": 20%, "没问题": 15%, "可以": 7%, "嗯": 3%]</li>
+                </ul>
+
+                <p><strong>不同 Top_p 值的候选范围：</strong></p>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li><strong>Top_p = 0.5</strong>：只考虑 "好的"、"是的" (30% + 25% = 55% ≥ 50%)</li>
+                    <li><strong>Top_p = 0.8</strong>：考虑 "好的"、"是的"、"当然" (55% + 20% = 75% < 80%，继续累加)</li>
+                    <li><strong>Top_p = 0.95</strong>：考虑前五个词，因为累计概率达到 97%</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                💡 <strong>最佳实践：</strong>大多数情况下，建议将 Top_p 设置在 0.7-0.9 之间。这个范围能在保证输出质量的同时，提供足够的多样性。
+            </div>
+
+            <div class="warning-box">
+                ⚠️ <strong>避免 Top_p = 1.0：</strong>虽然技术上可行，但 Top_p = 1.0 相当于不考虑任何概率限制，可能会选择非常低概率的词语，导致输出质量下降。
+            </div>
+        </section>
+
+        <!-- 互动演示 -->
+        <section id="demo" class="content-section">
+            <h2><span class="emoji">🎮</span>互动演示</h2>
+
+            <p style="margin: 20px 0;">通过下面的滑块，你可以直观地看到不同参数设置如何影响词汇选择概率。试试调整这些参数，观察概率分布的变化！</p>
+
+            <div class="demo-container">
+                <h3>🎛️ 参数调节面板</h3>
+
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Temperature</span>
+                        <span id="temp-value">0.7</span>
+                    </div>
+                    <input type="range" id="temp-slider" class="slider" min="0.1" max="2.0" step="0.1" value="0.7">
+                </div>
+
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Top_p</span>
+                        <span id="topp-value">0.9</span>
+                    </div>
+                    <input type="range" id="topp-slider" class="slider" min="0.1" max="1.0" step="0.05" value="0.9">
+                </div>
+
+                <h3>📊 概率分布可视化</h3>
+                <div class="probability-chart">
+                    <p style="margin-bottom: 10px;">下一个词的概率分布（示例：完成句子"今天天气很好..."）</p>
+                    <div class="bar-container" id="probability-bars">
+                        <!-- 动态生成 -->
+                    </div>
+                </div>
+
+                <h3>📝 生成结果预览</h3>
+                <div class="result-box" id="result-box">
+                    <p><em>调整参数后，这里会显示不同设置下可能的生成结果...</em></p>
+                </div>
+            </div>
+
+            <h3>🎬 参数效果对比</h3>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="card-title">保守模式 (Temp=0.2, Top_p=0.3)</div>
+                    <div class="card-content" id="conservative-result">
+                        "今天天气很好，适合出门活动。"
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">平衡模式 (Temp=0.7, Top_p=0.8)</div>
+                    <div class="card-content" id="balanced-result">
+                        "今天天气很好，不如我们去公园散步吧！"
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">创意模式 (Temp=1.2, Top_p=0.95)</div>
+                    <div class="card-content" id="creative-result">
+                        "今天天气很好，就像梦境般完美，让人忍不住想要跳起舞来！"
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最佳实践 -->
+        <section id="best-practices" class="content-section">
+            <h2><span class="emoji">💡</span>最佳实践指南</h2>
+
+            <div class="concept-box">
+                <h3>🎯 参数组合策略</h3>
+                <p>Temperature 和 Top_p 往往需要配合使用，不同的组合会产生不同的效果。以下是一些经过验证的最佳实践：</p>
+            </div>
+
+            <h3>📋 应用场景推荐</h3>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="card-title">💻 代码生成</div>
+                    <div class="card-content">
+                        <strong>推荐设置：</strong><span class="param-value">Temp=0.1</span>, <span class="param-value">Top_p=0.3</span><br>
+                        <strong>原因：</strong>代码需要精确和一致性，低参数确保语法正确性
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">📧 商务邮件</div>
+                    <div class="card-content">
+                        <strong>推荐设置：</strong><span class="param-value">Temp=0.3</span>, <span class="param-value">Top_p=0.5</span><br>
+                        <strong>原因：</strong>正式写作需要稳定性，但允许适度变化
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">💬 日常对话</div>
+                    <div class="card-content">
+                        <strong>推荐设置：</strong><span class="param-value">Temp=0.7</span>, <span class="param-value">Top_p=0.8</span><br>
+                        <strong>原因：</strong>平衡自然性和多样性，避免过于机械
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">✍️ 创意写作</div>
+                    <div class="card-content">
+                        <strong>推荐设置：</strong><span class="param-value">Temp=1.0</span>, <span class="param-value">Top_p=0.9</span><br>
+                        <strong>原因：</strong>鼓励创新表达，增加想象空间
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">🎮 游戏角色</div>
+                    <div class="card-content">
+                        <strong>推荐设置：</strong><span class="param-value">Temp=0.8</span>, <span class="param-value">Top_p=0.85</span><br>
+                        <strong>原因：</strong>保持角色一致性的同时增加个性表达
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="card-title">📚 学术写作</div>
+                    <div class="card-content">
+                        <strong>推荐设置：</strong><span class="param-value">Temp=0.4</span>, <span class="param-value">Top_p=0.6</span><br>
+                        <strong>原因：</strong>确保准确性的同时避免过于重复
+                    </div>
+                </div>
+            </div>
+
+            <h3>⚡ 快速参数调整技巧</h3>
+            <div class="tip-box">
+                💡 <strong>迭代优化法：</strong>
+                <ol style="margin: 10px 0; padding-left: 20px;">
+                    <li>从默认值开始 (Temp=0.7, Top_p=0.9)</li>
+                    <li>根据输出效果微调：如果太保守，增加 Temperature；如果太乱，减少 Top_p</li>
+                    <li>多次测试，找到最适合你需求的组合</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                ⚠️ <strong>常见误区：</strong>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li><strong>误区1：</strong> Temperature 越高越好（实际上过高会导致胡言乱语）</li>
+                    <li><strong>误区2：</strong> Top_p 越低越精确（过低会让表达过于死板）</li>
+                    <li><strong>误区3：</strong> 所有任务都用相同参数（不同任务需要不同策略）</li>
+                </ul>
+            </div>
+
+            <h3>🔧 高级技巧</h3>
+            <div class="example-box">
+                <h4>1. 动态参数调整</h4>
+                <p>对于复杂任务，可以在对话过程中动态调整参数。例如：</p>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>头脑风暴阶段：使用高 Temperature (1.0+)</li>
+                    <li>整理归纳阶段：使用低 Temperature (0.3-0.5)</li>
+                </ul>
+
+                <h4>2. 参数组合实验</h4>
+                <p>试试这些有趣的组合：</p>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li><span class="param-value">Temp=0.2, Top_p=0.9</span>：保守但多样化</li>
+                    <li><span class="param-value">Temp=1.0, Top_p=0.3</span>：创意但精确</li>
+                    <li><span class="param-value">Temp=0.5, Top_p=0.5</span>：平衡中的平衡</li>
+                </ul>
+            </div>
+
+            <h3>📖 总结</h3>
+            <p>掌握 Temperature 和 Top_p 参数就像是学会了调音师调整音响一样。虽然没有"完美"的设置，但通过理解它们的工作原理和效果，你就能根据不同需求调整出最适合的 AI 助手！</p>
+
+            <div class="tip-box">
+                💡 <strong>最后建议：</strong>记住这些只是工具参数，最重要的还是你自己的判断。相信你的直觉，多实验，找到最适合你使用场景的设置！
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 页面切换功能
+        function showSection(sectionId) {
+            // 隐藏所有部分
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // 显示选中部分
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        }
+
+        // 示例词汇数据
+        const sampleWords = [
+            { word: '，', baseProb: 0.35 },
+            { word: '。', baseProb: 0.25 },
+            { word: '，我们', baseProb: 0.15 },
+            { word: '，不如', baseProb: 0.12 },
+            { word: '，真想', baseProb: 0.08 },
+            { word: '，就像', baseProb: 0.05 }
+        ];
+
+        // 获取滑块元素
+        const tempSlider = document.getElementById('temp-slider');
+        const toppSlider = document.getElementById('topp-slider');
+        const tempValue = document.getElementById('temp-value');
+        const toppValue = document.getElementById('topp-value');
+        const probabilityBars = document.getElementById('probability-bars');
+        const resultBox = document.getElementById('result-box');
+
+        // 温度调节函数
+        function applyTemperature(probability, temperature) {
+            if (temperature === 1.0) return probability;
+            return Math.pow(probability, 1.0 / temperature);
+        }
+
+        // 生成示例结果
+        function generateExampleResult(temp, topp) {
+            const conservative = "今天天气很好，适合出门活动。";
+            const balanced = "今天天气很好，不如我们去公园散步吧！";
+            const creative = "今天天气很好，就像梦境般完美，让人忍不住想要跳起舞来！";
+
+            if (temp <= 0.3 && topp <= 0.5) return conservative;
+            if (temp >= 1.0 && topp >= 0.8) return creative;
+            return balanced;
+        }
+
+        // 更新概率分布可视化
+        function updateVisualization() {
+            const temp = parseFloat(tempSlider.value);
+            const topp = parseFloat(toppSlider.value);
+
+            // 更新显示值
+            tempValue.textContent = temp.toFixed(1);
+            toppValue.textContent = topp.toFixed(2);
+
+            // 计算调整后的概率
+            let adjustedProbs = sampleWords.map(item => {
+                let prob = applyTemperature(item.baseProb, temp);
+                return { ...item, adjustedProb: prob };
+            });
+
+            // 标准化概率
+            const totalProb = adjustedProbs.reduce((sum, item) => sum + item.adjustedProb, 0);
+            adjustedProbs = adjustedProbs.map(item => ({
+                ...item,
+                adjustedProb: item.adjustedProb / totalProb
+            }));
+
+            // 应用 Top_p 筛选
+            let cumulativeProb = 0;
+            let filteredProbs = [];
+            for (let item of adjustedProbs) {
+                if (cumulativeProb >= topp) break;
+                filteredProbs.push(item);
+                cumulativeProb += item.adjustedProb;
+            }
+
+            // 重新标准化筛选后的概率
+            const filteredTotal = filteredProbs.reduce((sum, item) => sum + item.adjustedProb, 0);
+            filteredProbs = filteredProbs.map(item => ({
+                ...item,
+                finalProb: item.adjustedProb / filteredTotal
+            }));
+
+            // 清空并重新生成条形图
+            probabilityBars.innerHTML = '';
+
+            // 创建条形图
+            filteredProbs.forEach(item => {
+                const barContainer = document.createElement('div');
+                barContainer.style.position = 'relative';
+                barContainer.style.display = 'flex';
+                barContainer.style.flexDirection = 'column';
+                barContainer.style.alignItems = 'center';
+                barContainer.style.justifyContent = 'flex-end';
+                barContainer.style.height = '100%';
+
+                const bar = document.createElement('div');
+                bar.className = 'probability-bar';
+                const height = Math.max(item.finalProb * 150, 5); // 最小高度5px
+                bar.style.height = height + 'px';
+
+                const label = document.createElement('div');
+                label.className = 'bar-label';
+                label.textContent = item.word;
+
+                const value = document.createElement('div');
+                value.className = 'bar-value';
+                value.textContent = (item.finalProb * 100).toFixed(1) + '%';
+
+                bar.appendChild(value);
+                barContainer.appendChild(bar);
+                barContainer.appendChild(label);
+                probabilityBars.appendChild(barContainer);
+            });
+
+            // 更新结果预览
+            const exampleResult = generateExampleResult(temp, topp);
+            resultBox.innerHTML = `
+                <h4>当前参数设置下的生成效果：</h4>
+                <p style="font-size: 1.1rem; margin: 15px 0; color: #667eea; font-weight: 500;">
+                    "今天天气很好${exampleResult.substring(6)}"
+                </p>
+                <p style="color: #666; font-size: 0.9rem;">
+                    <strong>参数设置：</strong>Temperature = ${temp.toFixed(1)}, Top_p = ${topp.toFixed(2)}
+                </p>
+            `;
+        }
+
+        // 添加事件监听器
+        if (tempSlider && toppSlider) {
+            tempSlider.addEventListener('input', updateVisualization);
+            toppSlider.addEventListener('input', updateVisualization);
+
+            // 初始化可视化
+            updateVisualization();
+        }
+
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('大模型参数科普页面加载完成！');
+        });
+    </script>
+</body>
+</html>

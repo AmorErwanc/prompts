@@ -1,3 +1,9 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(git add:*)"
+    ]
+  },
   "outputStyle": "Explanatory"
 }
