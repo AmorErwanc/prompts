@@ -50,15 +50,32 @@ export function usePolling() {
                 const parsed = JSON.parse(content)
                 console.log('[轮询] 解析后的 content:', parsed)
 
-                // 尝试提取图片 URL
-                if (parsed && parsed[0] && parsed[0].content && parsed[0].content[0]) {
-                  const firstItem = parsed[0].content[0]
-                  console.log('[轮询] 第一个内容项:', firstItem)
+                // 提取所有输出项
+                const allContents = []
 
-                  if (firstItem.type === 'img' && firstItem.val) {
-                    content = firstItem.val
-                    console.log('[轮询] 提取的图片URL:', content)
+                if (Array.isArray(parsed)) {
+                  // 遍历所有输出项，提取所有内容
+                  for (const item of parsed) {
+                    if (item.content && Array.isArray(item.content)) {
+                      for (const contentItem of item.content) {
+                        if (contentItem.type && contentItem.val) {
+                          allContents.push({
+                            type: contentItem.type,  // video, img, str 等
+                            val: contentItem.val
+                          })
+                          console.log(`[轮询] ✅ 找到${contentItem.type}:`, contentItem.val)
+                        }
+                      }
+                    }
                   }
+                }
+
+                if (allContents.length > 0) {
+                  // 返回所有内容的数组
+                  content = allContents
+                  console.log(`[轮询] ✅ 共提取到 ${allContents.length} 个内容项`)
+                } else {
+                  console.warn('[轮询] ⚠️ 未找到有效内容，使用原始数据')
                 }
               } catch (e) {
                 console.warn('[轮询] 解析 content 失败，使用原始数据', e)

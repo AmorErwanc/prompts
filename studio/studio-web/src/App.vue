@@ -100,15 +100,25 @@ const getTokenList = () => {
 }
 
 // 获取下一个 token（轮询）
+// 返回 { token, accountIndex, accountName }
 const getNextToken = () => {
   const tokens = getTokenList()
   if (tokens.length === 0) {
-    return apiConfig.value.authorization
+    return {
+      token: apiConfig.value.authorization,
+      accountIndex: 0,
+      accountName: '默认账号'
+    }
   }
 
-  const token = tokens[currentTokenIndex.value % tokens.length]
+  const accountIndex = currentTokenIndex.value % tokens.length
+  const token = tokens[accountIndex]
   currentTokenIndex.value++
-  return token
+  return {
+    token,
+    accountIndex,
+    accountName: `账号${accountIndex + 1}`
+  }
 }
 
 // 测试进度
@@ -177,9 +187,9 @@ const handleStartTest = async (testData) => {
   // 逐批次发送
   for (const batch of batches) {
     await Promise.all(
-      batch.map((params, batchIndex) => {
+      batch.map((testItem, batchIndex) => {
         const globalIndex = testResults.value.length
-        return sendTestRequest(params, globalIndex)
+        return sendTestRequest(testItem, globalIndex)
       })
     )
   }
@@ -192,9 +202,15 @@ const handleStartTest = async (testData) => {
 }
 
 // 发送单个测试请求（支持重试）
-const sendTestRequest = async (params, index, retryCount = 0) => {
+const sendTestRequest = async (testItem, index, retryCount = 0) => {
   const startTime = Date.now()
   const maxRetries = 3 // 最大重试次数
+
+  // 兼容旧格式和新格式
+  const params = testItem.params || testItem
+  const groupIndex = testItem.groupIndex !== undefined ? testItem.groupIndex : null
+  const testIndex = testItem.testIndex !== undefined ? testItem.testIndex : null
+  const groupTestCount = testItem.groupTestCount || null
 
   // 创建结果对象（仅在第一次时）
   let result
@@ -203,6 +219,9 @@ const sendTestRequest = async (params, index, retryCount = 0) => {
       id: Date.now() + '_' + index,
       index,
       params,
+      groupIndex, // 所属组索引
+      testIndex, // 组内测试索引
+      groupTestCount, // 该组总测试次数
       status: 'pending',
       data: null,
       error: null,
@@ -217,8 +236,21 @@ const sendTestRequest = async (params, index, retryCount = 0) => {
 
   try {
     // 获取要使用的 token（轮询）
-    const token = apiConfig.value.authMode === 'multiple' ? getNextToken() : apiConfig.value.authorization
+    let token, accountIndex, accountName
+    if (apiConfig.value.authMode === 'multiple') {
+      const tokenInfo = getNextToken()
+      token = tokenInfo.token
+      accountIndex = tokenInfo.accountIndex
+      accountName = tokenInfo.accountName
+    } else {
+      token = apiConfig.value.authorization
+      accountIndex = 0
+      accountName = '默认账号'
+    }
+
     result.usedToken = token.substring(0, 20) + '...' // 只保存前20个字符用于调试
+    result.accountIndex = accountIndex // 保存账号索引
+    result.accountName = accountName // 保存账号名称
 
     // 创建临时配置对象，使用轮询的 token
     const requestConfig = {
@@ -241,7 +273,7 @@ const sendTestRequest = async (params, index, retryCount = 0) => {
 
         // 等待2秒后重试
         await new Promise(resolve => setTimeout(resolve, 2000))
-        return sendTestRequest(params, index, retryCount + 1)
+        return sendTestRequest(testItem, index, retryCount + 1)
       } else {
         throw new Error('超过最大重试次数，服务器排队中，请稍后再试')
       }
@@ -269,7 +301,7 @@ const sendTestRequest = async (params, index, retryCount = 0) => {
         result.error = `排队中，${2}秒后重试... (第${retryCount + 1}次)`
 
         await new Promise(resolve => setTimeout(resolve, 2000))
-        return sendTestRequest(params, index, retryCount + 1)
+        return sendTestRequest(testItem, index, retryCount + 1)
       }
     }
 
@@ -342,6 +374,7 @@ const saveTestResults = () => {
         pipeId: apiConfig.value.pipeId,
         authorization: apiConfig.value.authorization,
         authMode: apiConfig.value.authMode,
+        authTokens: apiConfig.value.authTokens, // 保存多账号token列表
         draft: apiConfig.value.draft
       }
     }
@@ -406,9 +439,13 @@ const loadTestResults = () => {
               console.log(`[恢复轮询] 恢复任务: ${result.taskId}`)
 
               // 使用保存的 API 配置中的 token
-              const token = apiConfig.value.authMode === 'multiple' ?
-                getNextToken() :
-                apiConfig.value.authorization
+              let token
+              if (apiConfig.value.authMode === 'multiple') {
+                const tokenInfo = getNextToken()
+                token = tokenInfo.token
+              } else {
+                token = apiConfig.value.authorization
+              }
 
               const startTime = Date.now() - (result.duration || 0)
 

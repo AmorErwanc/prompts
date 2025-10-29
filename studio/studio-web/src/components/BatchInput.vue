@@ -92,6 +92,19 @@
             </template>
           </el-table-column>
 
+          <!-- 测试次数列 -->
+          <el-table-column label="测试次数" width="120" align="center">
+            <template #default="{ row }">
+              <el-input-number
+                v-model="row.testCount"
+                :min="1"
+                :max="50"
+                size="small"
+                @change="handleDataChange"
+              />
+            </template>
+          </el-table-column>
+
           <el-table-column label="操作" width="100" fixed="right">
             <template #default="{ $index }">
               <el-button
@@ -108,7 +121,8 @@
 
         <div class="action-bar">
           <div class="action-info">
-            <el-tag type="success" size="large">共 {{ testGroups.length }} 组测试数据</el-tag>
+            <el-tag type="success" size="large">共 {{ testGroups.length }} 组数据</el-tag>
+            <el-tag type="primary" size="large" style="margin-left: 10px">总计 {{ totalTestCount }} 次测试</el-tag>
           </div>
           <el-space>
             <el-button type="warning" @click="clearAll">
@@ -176,6 +190,11 @@ const canQuickBatch = computed(() => {
   return true
 })
 
+// 计算总测试次数
+const totalTestCount = computed(() => {
+  return testGroups.value.reduce((sum, group) => sum + (group.testCount || 1), 0)
+})
+
 // 添加测试组
 const addTestGroup = () => {
   if (props.paramConfig.length === 0) {
@@ -183,7 +202,9 @@ const addTestGroup = () => {
     return
   }
 
-  const newGroup = {}
+  const newGroup = {
+    testCount: 1 // 默认测试1次
+  }
   props.paramConfig.forEach(param => {
     newGroup[param.name] = param.val || ''
   })
@@ -269,7 +290,9 @@ const addQuickBatch = () => {
 
   // 生成指定次数的测试数据（追加，不清空现有数据）
   for (let i = 0; i < quickBatchCount.value; i++) {
-    const group = {}
+    const group = {
+      testCount: 1 // 默认测试1次
+    }
     props.paramConfig.forEach(param => {
       group[param.name] = param.val || ''
     })
@@ -287,17 +310,30 @@ const executeTests = () => {
     return
   }
 
-  // 转换测试数据为 API 需要的格式
-  const testData = testGroups.value.map(group => {
-    const params = []
-    props.paramConfig.forEach(param => {
-      params.push({
-        type: param.type,
-        name: param.name,
-        val: group[param.name] || ''
+  // 转换测试数据为 API 需要的格式，并根据 testCount 重复
+  const testData = []
+  testGroups.value.forEach((group, groupIndex) => {
+    const testCount = group.testCount || 1
+
+    // 根据 testCount 重复发送
+    for (let i = 0; i < testCount; i++) {
+      const params = []
+      props.paramConfig.forEach(param => {
+        params.push({
+          type: param.type,
+          name: param.name,
+          val: group[param.name] || ''
+        })
       })
-    })
-    return params
+
+      // 添加元数据，用于结果展示时分组
+      testData.push({
+        params,
+        groupIndex, // 所属组的索引
+        testIndex: i, // 在组内的测试索引（从0开始）
+        groupTestCount: testCount // 该组的总测试次数
+      })
+    }
   })
 
   emit('start-test', testData)

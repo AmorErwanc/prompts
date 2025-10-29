@@ -39,8 +39,85 @@
 
       <!-- 结果列表 -->
       <div v-if="filteredResults.length > 0" class="result-list">
+        <!-- 分组结果 -->
+        <div v-for="group in groupedResults.groups" :key="`group-${group.groupIndex}`" class="result-group">
+          <div class="group-header">
+            <span class="group-title">第 {{ group.groupIndex + 1 }} 组</span>
+            <el-tag type="info" size="small">共 {{ group.testCount }} 次测试</el-tag>
+          </div>
+          <div class="group-results">
+            <el-card
+              v-for="result in group.results"
+              :key="result.id"
+              class="result-item"
+              :class="getResultClass(result.status)"
+            >
+              <div class="result-item-content">
+                <div class="result-header">
+                  <span class="result-title">第 {{ result.testIndex + 1 }} 次测试</span>
+                  <div class="result-header-tags">
+                    <el-tag v-if="result.accountName" type="info" size="small">
+                      {{ result.accountName }}
+                    </el-tag>
+                    <el-tag :type="getStatusType(result.status)" size="small">
+                      {{ getStatusText(result.status) }}
+                    </el-tag>
+                  </div>
+                </div>
+
+                <!-- 返回结果 -->
+                <template v-if="result.status === 'success' && result.data">
+                  <div class="result-content">
+                    <!-- 根据返回数据类型展示 -->
+                    <div v-if="isImageUrl(result.data)" class="result-image-container">
+                      <el-image
+                        :src="result.data"
+                        style="width: 300px; height: 300px; cursor: pointer;"
+                        fit="cover"
+                        :preview-src-list="[result.data]"
+                        :initial-index="0"
+                      >
+                        <template #error>
+                          <div class="image-error">
+                            <el-icon><Picture /></el-icon>
+                            <span>加载失败</span>
+                          </div>
+                        </template>
+                      </el-image>
+                      <div class="image-hint">点击放大查看原图</div>
+                    </div>
+                    <div v-else-if="isVideoUrl(result.data)">
+                      <video :src="result.data" controls style="max-width: 100%"></video>
+                    </div>
+                    <div v-else class="text-result">
+                      <el-input
+                        :model-value="JSON.stringify(result.data, null, 2)"
+                        type="textarea"
+                        :rows="6"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                </template>
+
+                <!-- 错误信息 -->
+                <template v-if="result.status === 'error' && result.error">
+                  <el-divider content-position="left">错误信息</el-divider>
+                  <el-alert :title="result.error" type="error" :closable="false" />
+                </template>
+
+                <!-- 耗时信息 -->
+                <div v-if="result.duration" class="duration-info">
+                  <el-tag size="small">耗时: {{ result.duration }}ms</el-tag>
+                </div>
+              </div>
+            </el-card>
+          </div>
+        </div>
+
+        <!-- 未分组结果（兼容旧数据） -->
         <el-card
-          v-for="(result, index) in filteredResults"
+          v-for="result in groupedResults.ungrouped"
           :key="result.id"
           class="result-item"
           :class="getResultClass(result.status)"
@@ -48,42 +125,127 @@
           <div class="result-item-content">
             <div class="result-header">
               <span class="result-title">测试 #{{ result.index + 1 }}</span>
-              <el-tag :type="getStatusType(result.status)" size="small">
-                {{ getStatusText(result.status) }}
-              </el-tag>
+              <div class="result-header-tags">
+                <el-tag v-if="result.accountName" type="info" size="small">
+                  {{ result.accountName }}
+                </el-tag>
+                <el-tag :type="getStatusType(result.status)" size="small">
+                  {{ getStatusText(result.status) }}
+                </el-tag>
+              </div>
             </div>
 
             <!-- 返回结果 -->
             <template v-if="result.status === 'success' && result.data">
               <div class="result-content">
-                <!-- 根据返回数据类型展示 -->
-                <div v-if="isImageUrl(result.data)" class="result-image-container">
-                  <el-image
-                    :src="result.data"
-                    style="width: 300px; height: 300px; cursor: pointer;"
-                    fit="cover"
-                    :preview-src-list="[result.data]"
-                    :initial-index="0"
+                <!-- 多输出内容展示 -->
+                <div v-if="isMultiOutput(result.data)" class="multi-content">
+                  <div
+                    v-for="(item, idx) in result.data"
+                    :key="idx"
+                    class="content-item"
                   >
-                    <template #error>
-                      <div class="image-error">
-                        <el-icon><Picture /></el-icon>
-                        <span>加载失败</span>
+                    <!-- 图片类型 -->
+                    <div v-if="item.type === 'img'" class="result-image-container">
+                      <div class="content-type-label">
+                        <el-tag type="success" size="small">图片 #{{ idx + 1 }}</el-tag>
                       </div>
-                    </template>
-                  </el-image>
-                  <div class="image-hint">点击放大查看原图</div>
+                      <el-image
+                        :src="item.val"
+                        style="width: 300px; height: 300px; cursor: pointer;"
+                        fit="cover"
+                        :preview-src-list="[item.val]"
+                        :initial-index="0"
+                      >
+                        <template #error>
+                          <div class="image-error">
+                            <el-icon><Picture /></el-icon>
+                            <span>加载失败</span>
+                          </div>
+                        </template>
+                      </el-image>
+                      <div class="image-hint">点击放大查看原图</div>
+                    </div>
+
+                    <!-- 视频类型 -->
+                    <div v-else-if="item.type === 'video'" class="result-video-container">
+                      <div class="content-type-label">
+                        <el-tag type="warning" size="small">视频 #{{ idx + 1 }}</el-tag>
+                      </div>
+                      <video
+                        :src="item.val"
+                        controls
+                        preload="metadata"
+                        crossorigin="anonymous"
+                        style="max-width: 100%; max-height: 400px; border-radius: 8px;"
+                      >
+                        您的浏览器不支持视频播放
+                      </video>
+                      <div class="video-url">
+                        <el-link :href="item.val" target="_blank" type="primary">
+                          打开原始视频链接
+                        </el-link>
+                      </div>
+                    </div>
+
+                    <!-- 文本类型 -->
+                    <div v-else-if="item.type === 'str'" class="result-text-container">
+                      <div class="content-type-label">
+                        <el-tag type="info" size="small">文本 #{{ idx + 1 }}</el-tag>
+                      </div>
+                      <el-input
+                        :model-value="item.val"
+                        type="textarea"
+                        :rows="4"
+                        readonly
+                      />
+                    </div>
+
+                    <!-- 其他类型 -->
+                    <div v-else class="result-text-container">
+                      <div class="content-type-label">
+                        <el-tag type="info" size="small">{{ item.type }} #{{ idx + 1 }}</el-tag>
+                      </div>
+                      <el-input
+                        :model-value="JSON.stringify(item.val, null, 2)"
+                        type="textarea"
+                        :rows="4"
+                        readonly
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div v-else-if="isVideoUrl(result.data)">
-                  <video :src="result.data" controls style="max-width: 100%"></video>
-                </div>
-                <div v-else class="text-result">
-                  <el-input
-                    :model-value="JSON.stringify(result.data, null, 2)"
-                    type="textarea"
-                    :rows="6"
-                    readonly
-                  />
+
+                <!-- 单个内容展示（兼容旧数据） -->
+                <div v-else>
+                  <div v-if="isImageUrl(result.data)" class="result-image-container">
+                    <el-image
+                      :src="result.data"
+                      style="width: 300px; height: 300px; cursor: pointer;"
+                      fit="cover"
+                      :preview-src-list="[result.data]"
+                      :initial-index="0"
+                    >
+                      <template #error>
+                        <div class="image-error">
+                          <el-icon><Picture /></el-icon>
+                          <span>加载失败</span>
+                        </div>
+                      </template>
+                    </el-image>
+                    <div class="image-hint">点击放大查看原图</div>
+                  </div>
+                  <div v-else-if="isVideoUrl(result.data)">
+                    <video :src="result.data" controls style="max-width: 100%"></video>
+                  </div>
+                  <div v-else class="text-result">
+                    <el-input
+                      :model-value="JSON.stringify(result.data, null, 2)"
+                      type="textarea"
+                      :rows="6"
+                      readonly
+                    />
+                  </div>
                 </div>
               </div>
             </template>
@@ -134,6 +296,18 @@ watch(() => props.results, (newResults) => {
       error: result.error,
       taskId: result.taskId
     })
+
+    // 详细调试 data 结构
+    if (result.status === 'success' && result.data) {
+      console.log(`[ResultDisplay] 结果 #${index + 1} - data 类型检查:`, {
+        'typeof data': typeof result.data,
+        'isArray': Array.isArray(result.data),
+        'data.length': result.data.length,
+        'data[0]': result.data[0],
+        'data[0].type': result.data[0]?.type,
+        'data[0].val': result.data[0]?.val
+      })
+    }
   })
 }, { deep: true })
 
@@ -169,6 +343,37 @@ const filteredResults = computed(() => {
   return props.results.filter(r => r.status === filterStatus.value)
 })
 
+// 按组分类的结果
+const groupedResults = computed(() => {
+  const groups = []
+  const ungrouped = []
+
+  filteredResults.value.forEach(result => {
+    if (result.groupIndex !== null && result.groupIndex !== undefined) {
+      // 有分组信息
+      if (!groups[result.groupIndex]) {
+        groups[result.groupIndex] = {
+          groupIndex: result.groupIndex,
+          testCount: result.groupTestCount || 1,
+          results: []
+        }
+      }
+      groups[result.groupIndex].results.push(result)
+    } else {
+      // 没有分组信息（旧数据）
+      ungrouped.push(result)
+    }
+  })
+
+  // 过滤掉空组，并按 groupIndex 排序
+  const sortedGroups = groups.filter(g => g && g.results.length > 0)
+
+  return {
+    groups: sortedGroups,
+    ungrouped
+  }
+})
+
 // 获取状态样式
 const getResultClass = (status) => {
   return `status-${status}`
@@ -190,6 +395,25 @@ const getStatusText = (status) => {
     error: '失败'
   }
   return textMap[status] || '未知'
+}
+
+// 判断是否为多输出格式
+const isMultiOutput = (data) => {
+  const result = Array.isArray(data) &&
+                 data.length > 0 &&
+                 data[0] &&
+                 typeof data[0] === 'object' &&
+                 ('type' in data[0])
+  console.log('[ResultDisplay] 判断是否为多输出格式:', {
+    data,
+    isArray: Array.isArray(data),
+    length: data?.length,
+    hasFirstElement: !!data?.[0],
+    firstElementType: typeof data?.[0],
+    hasTypeProperty: data?.[0] && 'type' in data[0],
+    result
+  })
+  return result
 }
 
 // 判断是否为图片 URL
@@ -249,6 +473,7 @@ const exportResults = () => {
 <style scoped>
 .result-display {
   margin-top: 20px;
+  /* 批量测试结果展示 */
 }
 
 .card-header {
@@ -273,7 +498,36 @@ const exportResults = () => {
 .result-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
+}
+
+/* 分组样式 */
+.result-group {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 15px;
+  border: 2px solid #e4e7ed;
+}
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e4e7ed;
+}
+
+.group-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #409eff;
+}
+
+.group-results {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .result-item {
@@ -324,6 +578,12 @@ const exportResults = () => {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.result-header-tags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .result-title {
@@ -440,6 +700,42 @@ const exportResults = () => {
 .duration-info {
   margin-top: 10px;
   text-align: right;
+}
+
+/* 多内容显示样式 */
+.multi-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.content-item {
+  padding: 15px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+}
+
+.content-type-label {
+  margin-bottom: 10px;
+}
+
+.result-video-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.video-url {
+  text-align: center;
+  padding-top: 8px;
+}
+
+.result-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .empty-state {

@@ -12,6 +12,177 @@
 
 ## 📝 更新日志
 
+### 2025-10-29 - 批量测试核心功能增强
+
+#### 🎯 分组测试功能
+**问题**：用户需要对同一组数据进行多次测试，之前只能手动添加多个重复的测试组，导致数据列表过长且难以管理。
+
+**解决方案**：
+- 在批量测试数据表格中添加"测试次数"列（`BatchInput.vue`）
+- 支持为每个测试组设置 1-50 次重复测试
+- 使用 `el-input-number` 组件提供友好的数量调节
+- 测试数据转换时自动根据 testCount 重复发送请求
+- 添加"总计 X 次测试"统计显示
+
+**实现细节**：
+```javascript
+// BatchInput.vue - executeTests()
+testGroups.value.forEach((group, groupIndex) => {
+  const testCount = group.testCount || 1
+
+  for (let i = 0; i < testCount; i++) {
+    testData.push({
+      params,
+      groupIndex,      // 所属组的索引
+      testIndex: i,    // 在组内的测试索引
+      groupTestCount: testCount  // 该组的总测试次数
+    })
+  }
+})
+```
+
+#### 👤 账号标识功能
+**问题**：使用多账号轮询时，无法知道每个测试使用的是哪个token账号。
+
+**解决方案**：
+- 修改 `getNextToken()` 返回账号信息对象（token, accountIndex, accountName）
+- 在测试结果中保存账号索引和名称
+- 在结果展示界面使用 `el-tag` 显示账号名称（如"账号1"、"账号2"）
+- 默认账号显示为"默认账号"
+
+**实现细节**：
+```javascript
+// App.vue - getNextToken()
+const getNextToken = () => {
+  const tokens = getTokenList()
+  const accountIndex = currentTokenIndex.value % tokens.length
+  const token = tokens[accountIndex]
+  currentTokenIndex.value++
+
+  return {
+    token,
+    accountIndex,
+    accountName: `账号${accountIndex + 1}`
+  }
+}
+
+// ResultDisplay.vue - 显示
+<el-tag v-if="result.accountName" type="info" size="small">
+  {{ result.accountName }}
+</el-tag>
+```
+
+#### 🔍 多输出解析功能
+**问题**：API 返回的 content 字段可能包含多个输出项（提示词、图片、视频等），之前的解析逻辑只提取第一项，导致错过实际的图片或视频内容。
+
+**API 返回格式示例**：
+```json
+{
+  "code": 0,
+  "data": {
+    "progress": "completed",
+    "content": "[
+      {\"content\":[{\"type\":\"str\",\"val\":\"首帧提示词...\"}]},
+      {\"content\":[{\"type\":\"str\",\"val\":\"分镜提示词...\"}]},
+      {\"content\":[{\"type\":\"img\",\"val\":\"https://...\"}]},
+      {\"content\":[{\"type\":\"video\",\"val\":\"https://...\"}]}
+    ]"
+  }
+}
+```
+
+**解决方案**：
+- 实现基于优先级的内容提取算法：**video > img > str**
+- 遍历所有输出项的所有 content 数组
+- 三遍查找：先找视频，没找到再找图片，最后才找文本
+- 提取到第一个匹配的内容后立即停止
+
+**实现细节**（`usePolling.js`）：
+```javascript
+// 第一遍：查找视频
+for (const item of parsed) {
+  if (item.content && Array.isArray(item.content)) {
+    for (const contentItem of item.content) {
+      if (contentItem.type === 'video' && contentItem.val) {
+        foundContent = contentItem.val
+        break
+      }
+    }
+    if (foundContent) break
+  }
+}
+
+// 第二遍：如果没找到视频，查找图片
+if (!foundContent) {
+  for (const item of parsed) {
+    if (item.content && Array.isArray(item.content)) {
+      for (const contentItem of item.content) {
+        if (contentItem.type === 'img' && contentItem.val) {
+          foundContent = contentItem.val
+          break
+        }
+      }
+      if (foundContent) break
+    }
+  }
+}
+
+// 第三遍：如果都没找到，查找文本
+if (!foundContent) {
+  for (const item of parsed) {
+    if (item.content && Array.isArray(item.content)) {
+      for (const contentItem of item.content) {
+        if (contentItem.type === 'str' && contentItem.val) {
+          foundContent = contentItem.val
+          break
+        }
+      }
+      if (foundContent) break
+    }
+  }
+}
+```
+
+**优点**：
+- 自动提取最有价值的内容类型
+- 支持视频、图片、文本混合输出
+- 兼容单输出和多输出格式
+- 提取失败时使用原始数据作为后备
+
+#### 📋 分组结果展示
+**改进**：
+- 测试结果按组分类显示（`ResultDisplay.vue`）
+- 每个组显示"第 X 组"标题和"共 N 次测试"标签
+- 组内测试显示"第 X 次测试"序号
+- 使用卡片式布局，清晰的视觉层次
+- 分组和未分组结果分别展示
+
+**样式优化**：
+```css
+.result-group {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 15px;
+  border: 2px solid #e4e7ed;
+}
+
+.result-header-tags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+```
+
+#### 💾 多账号恢复功能修复
+**问题**：页面刷新后，多账号轮询模式的 `authTokens` 列表没有被保存和恢复。
+
+**解决**：
+- 在 `saveTestResults()` 中添加 `authTokens` 字段保存
+- 页面加载时自动恢复 token 列表
+- 确保刷新后继续使用多账号轮询
+
+---
+
 ### 2025-10-29 - API 规范修正
 
 #### 🔧 关键修复
@@ -659,5 +830,5 @@ MIT License
 
 ---
 
-**最后更新：** 2025-10-28
+**最后更新：** 2025-10-29
 **维护者：** Studio Team
