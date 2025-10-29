@@ -65,16 +65,16 @@
                   </div>
                 </div>
 
-                <!-- 返回结果 -->
-                <template v-if="result.status === 'success' && result.data">
+                <!-- 返回结果：非多输出时走单内容逻辑 -->
+                <template v-if="result.status === 'success' && result.data && !isMultiOutput(result.data)">
                   <div class="result-content">
                     <!-- 根据返回数据类型展示 -->
                     <div v-if="isImageUrl(result.data)" class="result-image-container">
                       <el-image
-                        :src="result.data"
+                        :src="normalizeVal(result.data)"
                         style="width: 300px; height: 300px; cursor: pointer;"
                         fit="cover"
-                        :preview-src-list="[result.data]"
+                        :preview-src-list="[normalizeVal(result.data)]"
                         :initial-index="0"
                       >
                         <template #error>
@@ -87,7 +87,7 @@
                       <div class="image-hint">点击放大查看原图</div>
                     </div>
                     <div v-else-if="isVideoUrl(result.data)">
-                      <video :src="result.data" controls style="max-width: 100%"></video>
+                      <video :src="normalizeVal(result.data)" controls style="max-width: 100%"></video>
                     </div>
                     <div v-else class="text-result">
                       <el-input
@@ -96,6 +96,93 @@
                         :rows="6"
                         readonly
                       />
+                    </div>
+                  </div>
+                </template>
+
+                <!-- 返回结果：多输出内容展示（分组结果） -->
+                <template v-else-if="result.status === 'success' && isMultiOutput(result.data)">
+                  <div class="result-content">
+                    <div class="multi-content">
+                      <div
+                        v-for="(item, idx) in result.data"
+                        :key="idx"
+                        class="content-item"
+                      >
+                        <!-- 图片类型 -->
+                        <div v-if="isImageType(item.type)" class="result-image-container">
+                          <div class="content-type-label">
+                            <el-tag type="success" size="small">图片 #{{ idx + 1 }}</el-tag>
+                          </div>
+                          <el-image
+                            :src="normalizeVal(item.val)"
+                            style="width: 300px; height: 300px; cursor: pointer;"
+                            fit="cover"
+                            :preview-src-list="[normalizeVal(item.val)]"
+                            :initial-index="0"
+                          >
+                            <template #error>
+                              <div class="image-error">
+                                <el-icon><Picture /></el-icon>
+                                <span>加载失败</span>
+                              </div>
+                            </template>
+                          </el-image>
+                          <div class="image-hint">点击放大查看原图</div>
+                        </div>
+
+                        <!-- 视频类型 -->
+                        <div v-else-if="isVideoType(item.type)" class="result-video-container">
+                          <div class="content-type-label">
+                            <el-tag type="warning" size="small">视频 #{{ idx + 1 }}</el-tag>
+                          </div>
+                          <video
+                            :src="normalizeVal(item.val)"
+                            controls
+                            preload="metadata"
+                            crossorigin="anonymous"
+                            style="max-width: 100%; max-height: 400px; border-radius: 8px;"
+                          >
+                            您的浏览器不支持视频播放
+                          </video>
+                          <div class="video-url">
+                            <el-link :href="normalizeVal(item.val)" target="_blank" type="primary">
+                              打开原始视频链接
+                            </el-link>
+                          </div>
+                        </div>
+
+                        <!-- 文本类型 -->
+                        <div v-else-if="isTextType(item.type)" class="result-text-container">
+                          <div class="content-type-label">
+                            <el-tag type="info" size="small">文本 #{{ idx + 1 }}</el-tag>
+                          </div>
+                          <el-input
+                            :model-value="item.val"
+                            type="textarea"
+                            :rows="4"
+                            readonly
+                          />
+                        </div>
+
+                        <!-- 其他类型 -->
+                        <div v-else class="result-text-container">
+                          <div class="content-type-label">
+                            <el-tag type="info" size="small">{{ item.type }} #{{ idx + 1 }}</el-tag>
+                          </div>
+                          <template v-if="isUrl(normalizeVal(item.val))">
+                            <el-link :href="normalizeVal(item.val)" target="_blank" type="primary">{{ normalizeVal(item.val) }}</el-link>
+                          </template>
+                          <template v-else>
+                            <el-input
+                              :model-value="JSON.stringify(item.val, null, 2)"
+                              type="textarea"
+                              :rows="4"
+                              readonly
+                            />
+                          </template>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </template>
@@ -146,15 +233,15 @@
                     class="content-item"
                   >
                     <!-- 图片类型 -->
-                    <div v-if="item.type === 'img'" class="result-image-container">
+                    <div v-if="isImageType(item.type)" class="result-image-container">
                       <div class="content-type-label">
                         <el-tag type="success" size="small">图片 #{{ idx + 1 }}</el-tag>
                       </div>
                       <el-image
-                        :src="item.val"
+                        :src="normalizeVal(item.val)"
                         style="width: 300px; height: 300px; cursor: pointer;"
                         fit="cover"
-                        :preview-src-list="[item.val]"
+                        :preview-src-list="[normalizeVal(item.val)]"
                         :initial-index="0"
                       >
                         <template #error>
@@ -168,12 +255,12 @@
                     </div>
 
                     <!-- 视频类型 -->
-                    <div v-else-if="item.type === 'video'" class="result-video-container">
+                    <div v-else-if="isVideoType(item.type)" class="result-video-container">
                       <div class="content-type-label">
                         <el-tag type="warning" size="small">视频 #{{ idx + 1 }}</el-tag>
                       </div>
                       <video
-                        :src="item.val"
+                        :src="normalizeVal(item.val)"
                         controls
                         preload="metadata"
                         crossorigin="anonymous"
@@ -182,14 +269,14 @@
                         您的浏览器不支持视频播放
                       </video>
                       <div class="video-url">
-                        <el-link :href="item.val" target="_blank" type="primary">
+                        <el-link :href="normalizeVal(item.val)" target="_blank" type="primary">
                           打开原始视频链接
                         </el-link>
                       </div>
                     </div>
 
                     <!-- 文本类型 -->
-                    <div v-else-if="item.type === 'str'" class="result-text-container">
+                    <div v-else-if="isTextType(item.type)" class="result-text-container">
                       <div class="content-type-label">
                         <el-tag type="info" size="small">文本 #{{ idx + 1 }}</el-tag>
                       </div>
@@ -206,12 +293,17 @@
                       <div class="content-type-label">
                         <el-tag type="info" size="small">{{ item.type }} #{{ idx + 1 }}</el-tag>
                       </div>
-                      <el-input
-                        :model-value="JSON.stringify(item.val, null, 2)"
-                        type="textarea"
-                        :rows="4"
-                        readonly
-                      />
+                      <template v-if="isUrl(normalizeVal(item.val))">
+                        <el-link :href="normalizeVal(item.val)" target="_blank" type="primary">{{ normalizeVal(item.val) }}</el-link>
+                      </template>
+                      <template v-else>
+                        <el-input
+                          :model-value="JSON.stringify(item.val, null, 2)"
+                          type="textarea"
+                          :rows="4"
+                          readonly
+                        />
+                      </template>
                     </div>
                   </div>
                 </div>
@@ -416,22 +508,58 @@ const isMultiOutput = (data) => {
   return result
 }
 
-// 判断是否为图片 URL
+// 判断是否为图片 URL（扩展支持无后缀与查询参数标识）
 const isImageUrl = (url) => {
   console.log('[ResultDisplay] 判断是否为图片URL:', url, typeof url)
   if (typeof url !== 'string') {
     console.log('[ResultDisplay] 不是字符串类型')
     return false
   }
-  const isImage = /\.(jpg|jpeg|png|gif|webp|bmp)(\?.*)?$/i.test(url)
-  console.log('[ResultDisplay] 是否为图片:', isImage)
-  return isImage
+  // 1) 常规后缀判断
+  if (/\.(jpg|jpeg|png|gif|webp|bmp)(\?.*)?$/i.test(url)) return true
+  // 2) 查询参数或路径提示
+  try {
+    const u = new URL(url)
+    const typeParam = u.searchParams.get('type') || u.searchParams.get('contentType') || u.searchParams.get('mime')
+    if (typeParam && /image/i.test(typeParam)) return true
+    if (/\/image\//i.test(u.pathname) || /\/images?\//i.test(u.pathname)) return true
+  } catch (e) {
+    // 非绝对URL或解析失败则忽略
+  }
+  return false
 }
 
-// 判断是否为视频 URL
+// 判断是否为视频 URL（扩展支持 m3u8 与查询参数标识）
 const isVideoUrl = (url) => {
   if (typeof url !== 'string') return false
-  return /\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(url)
+  // 1) 常规后缀判断（含 m3u8）
+  if (/\.(mp4|webm|ogg|mov|m3u8)(\?.*)?$/i.test(url)) return true
+  // 2) 查询参数或路径提示
+  try {
+    const u = new URL(url)
+    const typeParam = u.searchParams.get('type') || u.searchParams.get('contentType') || u.searchParams.get('mime')
+    if (typeParam && /video/i.test(typeParam)) return true
+    if (/\/video\//i.test(u.pathname) || /\/videos?\//i.test(u.pathname)) return true
+  } catch (e) {}
+  return false
+}
+
+// 判断类型（多输出）
+const isImageType = (t) => typeof t === 'string' && /^(img|image)$/i.test(t)
+const isVideoType = (t) => typeof t === 'string' && /^(video|mp4|webm|ogg|mov|m3u8)$/i.test(t)
+const isTextType  = (t) => typeof t === 'string' && /^(str|string|text)$/i.test(t)
+
+// 判断是否为URL
+const isUrl = (val) => typeof val === 'string' && /^(https?:\/\/|data:)/i.test(val)
+
+// 归一化内容值（移除首尾空格与反引号/引号）
+const normalizeVal = (val) => {
+  if (typeof val !== 'string') return val
+  let s = val.trim()
+  s = s.replace(/^`+|`+$/g, '')
+  s = s.replace(/^"+|"+$/g, '')
+  s = s.replace(/^'+|'+$/g, '')
+  return s
 }
 
 // 导出结果
