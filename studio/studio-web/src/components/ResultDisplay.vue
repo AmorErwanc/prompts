@@ -72,8 +72,8 @@
                     <div v-if="isImageUrl(result.data)" class="result-image-container">
                       <el-image
                         :src="normalizeVal(result.data)"
-                        style="width: 300px; height: 300px; cursor: pointer;"
-                        fit="cover"
+                        style="width: 150px; height: auto; cursor: pointer;"
+                        fit="contain"
                         :preview-src-list="[normalizeVal(result.data)]"
                         :initial-index="0"
                       >
@@ -87,7 +87,7 @@
                       <div class="image-hint">点击放大查看原图</div>
                     </div>
                     <div v-else-if="isVideoUrl(result.data)">
-                      <video :src="normalizeVal(result.data)" controls style="max-width: 100%"></video>
+                      <video :src="normalizeVal(result.data)" controls style="max-width: 100%; max-height: 200px; cursor: pointer;" @click="onVideoClick"></video>
                     </div>
                     <div v-else class="text-result">
                       <el-input
@@ -116,8 +116,8 @@
                           </div>
                           <el-image
                             :src="normalizeVal(item.val)"
-                            style="width: 300px; height: 300px; cursor: pointer;"
-                            fit="cover"
+                            style="width: 150px; height: auto; cursor: pointer;"
+                            fit="contain"
                             :preview-src-list="[normalizeVal(item.val)]"
                             :initial-index="0"
                           >
@@ -141,7 +141,8 @@
                             controls
                             preload="metadata"
                             crossorigin="anonymous"
-                            style="max-width: 100%; max-height: 400px; border-radius: 8px;"
+                            style="max-width: 100%; max-height: 200px; border-radius: 8px; cursor: pointer;"
+                            @click="onVideoClick"
                           >
                             您的浏览器不支持视频播放
                           </video>
@@ -239,8 +240,8 @@
                       </div>
                       <el-image
                         :src="normalizeVal(item.val)"
-                        style="width: 300px; height: 300px; cursor: pointer;"
-                        fit="cover"
+                        style="width: 150px; height: auto; cursor: pointer;"
+                        fit="contain"
                         :preview-src-list="[normalizeVal(item.val)]"
                         :initial-index="0"
                       >
@@ -264,7 +265,8 @@
                         controls
                         preload="metadata"
                         crossorigin="anonymous"
-                        style="max-width: 100%; max-height: 400px; border-radius: 8px;"
+                        style="width: 100%; height: auto; max-height: 200px; border-radius: 8px; cursor: pointer;"
+                        @click="openVideoPreview(normalizeVal(item.val))"
                       >
                         您的浏览器不支持视频播放
                       </video>
@@ -272,6 +274,9 @@
                         <el-link :href="normalizeVal(item.val)" target="_blank" type="primary">
                           打开原始视频链接
                         </el-link>
+                      </div>
+                      <div class="video-actions" style="text-align: center; margin-top: 6px;">
+                        <el-button size="small" type="primary" @click="openVideoPreview(normalizeVal(item.val))">放大预览</el-button>
                       </div>
                     </div>
 
@@ -313,8 +318,8 @@
                   <div v-if="isImageUrl(result.data)" class="result-image-container">
                     <el-image
                       :src="result.data"
-                      style="width: 300px; height: 300px; cursor: pointer;"
-                      fit="cover"
+                      style="width: 150px; height: auto; cursor: pointer;"
+                      fit="contain"
                       :preview-src-list="[result.data]"
                       :initial-index="0"
                     >
@@ -328,7 +333,10 @@
                     <div class="image-hint">点击放大查看原图</div>
                   </div>
                   <div v-else-if="isVideoUrl(result.data)">
-                    <video :src="result.data" controls style="max-width: 100%"></video>
+                    <video :src="normalizeVal(result.data)" controls style="width: 100%; height: auto; max-height: 200px; cursor: pointer;" @click="openVideoPreview(normalizeVal(result.data))"></video>
+                    <div class="video-actions" style="text-align: center; margin-top: 6px;">
+                      <el-button size="small" type="primary" @click="openVideoPreview(normalizeVal(result.data))">放大预览</el-button>
+                    </div>
                   </div>
                   <div v-else class="text-result">
                     <el-input
@@ -361,6 +369,27 @@
         <el-empty description="暂无测试结果" />
       </div>
     </el-card>
+    <!-- 视频预览遮罩层 -->
+    <el-dialog
+      v-model="videoPreviewVisible"
+      title="视频预览"
+      width="80%"
+      append-to-body
+      :destroy-on-close="true"
+    >
+      <div class="video-preview-content">
+        <video
+          :src="videoPreviewUrl"
+          controls
+          :style="previewVideoStyle"
+          @loadedmetadata="onPreviewVideoMetadata"
+          crossorigin="anonymous"
+          playsinline
+        >
+          您的浏览器不支持视频播放
+        </video>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -560,6 +589,48 @@ const normalizeVal = (val) => {
   s = s.replace(/^"+|"+$/g, '')
   s = s.replace(/^'+|'+$/g, '')
   return s
+}
+
+// 视频遮罩层预览
+const videoPreviewVisible = ref(false)
+const videoPreviewUrl = ref('')
+// 预览视频样式，默认按容器最大尺寸约束
+const previewVideoStyle = ref({
+  maxWidth: '80vw',
+  maxHeight: '70vh',
+  width: 'auto',
+  height: 'auto',
+  borderRadius: '8px'
+})
+
+const openVideoPreview = (url) => {
+  videoPreviewUrl.value = normalizeVal(url)
+  // 打开前重置为容器自适应，待 metadata 加载后再根据视频实际尺寸调整
+  previewVideoStyle.value = {
+    maxWidth: '80vw',
+    maxHeight: '70vh',
+    width: 'auto',
+    height: 'auto',
+    borderRadius: '8px'
+  }
+  videoPreviewVisible.value = true
+}
+
+// 根据视频元数据自适应尺寸（按 80vw x 70vh 约束，保持比例）
+const onPreviewVideoMetadata = (e) => {
+  const el = e?.target
+  if (!el) return
+  const vw = el.videoWidth || 0
+  const vh = el.videoHeight || 0
+  if (vw <= 0 || vh <= 0) return
+  const viewportW = Math.floor(window.innerWidth * 0.8)
+  const viewportH = Math.floor(window.innerHeight * 0.7)
+  const scale = Math.min(viewportW / vw, viewportH / vh, 1)
+  previewVideoStyle.value = {
+    width: Math.round(vw * scale) + 'px',
+    height: Math.round(vh * scale) + 'px',
+    borderRadius: '8px'
+  }
 }
 
 // 导出结果
@@ -868,5 +939,12 @@ const exportResults = () => {
 
 .empty-state {
   padding: 40px 0;
+}
+
+/* 视频遮罩预览弹窗内容居中 */
+.video-preview-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
