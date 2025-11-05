@@ -56,8 +56,26 @@
             </el-alert>
           </el-card>
 
-          <!-- 结果展示 -->
-          <ResultDisplay :results="testResults" />
+          <!-- 结果页签与新增页面 -->
+          <el-card class="page-controls" shadow="never" style="margin-bottom: 10px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+              <el-tabs v-model="activePageName" type="card" @tab-click="onTabClick">
+                <el-tab-pane
+                  v-for="(p, idx) in pages"
+                  :key="p.id"
+                  :label="`第${idx+1}页 (共${p.results.length}条)`"
+                  :name="String(p.id)"
+                />
+              </el-tabs>
+              <div style="display:flex; gap:8px;">
+                <el-button type="primary" size="small" @click="addNewPage">添加新一页</el-button>
+                <el-button type="danger" size="small" @click="deleteActivePage" :disabled="pages.length <= 1">删除当前页</el-button>
+              </div>
+            </div>
+          </el-card>
+
+          <!-- 结果展示（当前页） -->
+          <ResultDisplay :results="currentResults" />
         </el-scrollbar>
       </el-main>
     </el-container>
@@ -66,7 +84,7 @@
 
 <script setup>
 import { ref, computed, watch, onMounted } from 'vue'
-import { ElMessage, ElNotification } from 'element-plus'
+import { ElMessage, ElNotification, ElMessageBox } from 'element-plus'
 import ApiConfig from './components/ApiConfig.vue'
 import ParamConfig from './components/ParamConfig.vue'
 import BatchInput from './components/BatchInput.vue'
@@ -81,11 +99,24 @@ const paramConfigRef = ref(null) // ParamConfig 组件的引用
 
 // 测试相关
 const testing = ref(false)
-const testResults = ref([])
+// 分页结果
+const pages = ref([{ id: 1, results: [] }])
+const activePageIndex = ref(0)
+const activePageName = ref('1')
+
+const currentResults = computed(() => pages.value[activePageIndex.value]?.results || [])
 const sentCount = ref(0)
 const completedCount = ref(0)
 const totalCount = ref(0)
 const currentTokenIndex = ref(0) // 当前使用的 token 索引（用于轮询）
+// 连续递增的结果索引（按页维护）
+const nextIndexRef = ref(0)
+
+const allocNextIndex = () => {
+  const idx = nextIndexRef.value
+  nextIndexRef.value++
+  return idx
+}
 
 // API 请求和轮询
 const { sendRequest, queryResult } = useApiRequest()
@@ -161,13 +192,19 @@ const handleStartTest = async (testData) => {
     return
   }
 
-  // 重置状态
+  // 重置状态（追加到当前页，不清空旧数据）
   testing.value = true
-  testResults.value = []
   sentCount.value = 0
-  completedCount.value = 0
-  totalCount.value = testData.length
+  // 当前页的已完成数量（历史）
+  completedCount.value = currentResults.value.filter(r => r.status === 'success' || r.status === 'error').length
+  totalCount.value = currentResults.value.length + testData.length
   currentTokenIndex.value = 0 // 重置token索引
+
+  // 计算当前页的下一个连续索引
+  const currentMaxIndex = currentResults.value.reduce((max, r) => {
+    return Math.max(max, typeof r.index === 'number' ? r.index : -1)
+  }, -1)
+  nextIndexRef.value = currentMaxIndex + 1
 
   ElNotification({
     title: '开始测试',
@@ -188,8 +225,8 @@ const handleStartTest = async (testData) => {
   for (const batch of batches) {
     await Promise.all(
       batch.map((testItem, batchIndex) => {
-        const globalIndex = testResults.value.length
-        return sendTestRequest(testItem, globalIndex)
+        const assignedIndex = allocNextIndex()
+        return sendTestRequest(testItem, assignedIndex, 0, activePageIndex.value)
       })
     )
   }
@@ -202,7 +239,7 @@ const handleStartTest = async (testData) => {
 }
 
 // 发送单个测试请求（支持重试）
-const sendTestRequest = async (testItem, index, retryCount = 0) => {
+const sendTestRequest = async (testItem, index, retryCount = 0, pageIndexAtStart = activePageIndex.value) => {
   const startTime = Date.now()
   const maxRetries = 3 // 最大重试次数
 
@@ -218,6 +255,7 @@ const sendTestRequest = async (testItem, index, retryCount = 0) => {
     result = {
       id: Date.now() + '_' + index,
       index,
+      pageIndex: pageIndexAtStart,
       params,
       groupIndex, // 所属组索引
       testIndex, // 组内测试索引
@@ -229,9 +267,11 @@ const sendTestRequest = async (testItem, index, retryCount = 0) => {
       taskId: null,
       usedToken: null // 记录使用的token（用于调试）
     }
-    testResults.value.push(result)
+    // 追加到指定页（顶部追加）
+    pages.value[pageIndexAtStart].results.unshift(result)
   } else {
-    result = testResults.value[index]
+    // 按自定义索引定位结果（避免因顶部插入导致数组位置变化）
+    result = pages.value[pageIndexAtStart].results.find(r => r.index === index)
   }
 
   try {
@@ -301,7 +341,7 @@ const sendTestRequest = async (testItem, index, retryCount = 0) => {
         result.error = `排队中，${2}秒后重试... (第${retryCount + 1}次)`
 
         await new Promise(resolve => setTimeout(resolve, 2000))
-        return sendTestRequest(testItem, index, retryCount + 1)
+        return sendTestRequest(testItem, index, retryCount + 1, pageIndexAtStart)
       }
     }
 
@@ -333,13 +373,15 @@ const handleTestComplete = (result, pollingResult, startTime) => {
 
   console.log('[测试完成] 更新后的result:', JSON.stringify(result))
 
-  // 强制触发响应式更新
-  testResults.value = [...testResults.value]
+  // 强制触发响应式更新（当前页）
+  const p = pages.value[result.pageIndex]
+  p.results = [...p.results]
+  pages.value = [...pages.value]
 
   completedCount.value++
   checkAllCompleted()
 
-  console.log('[测试完成] 当前所有结果:', testResults.value.map(r => ({
+  console.log('[测试完成] 当前页结果概览:', currentResults.value.map(r => ({
     index: r.index,
     status: r.status,
     hasData: !!r.data,
@@ -352,8 +394,8 @@ const checkAllCompleted = () => {
   if (completedCount.value === totalCount.value) {
     testing.value = false
 
-    const successCount = testResults.value.filter(r => r.status === 'success').length
-    const errorCount = testResults.value.filter(r => r.status === 'error').length
+    const successCount = currentResults.value.filter(r => r.status === 'success').length
+    const errorCount = currentResults.value.filter(r => r.status === 'error').length
 
     ElNotification({
       title: '测试完成',
@@ -368,7 +410,7 @@ const checkAllCompleted = () => {
 const saveTestResults = () => {
   try {
     const data = {
-      results: testResults.value,
+      pages: pages.value,
       timestamp: Date.now(),
       apiConfig: {
         pipeId: apiConfig.value.pipeId,
@@ -393,7 +435,15 @@ const loadTestResults = () => {
       // 只加载24小时内的结果
       const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000
       if (data.timestamp > oneDayAgo) {
-        testResults.value = data.results || []
+        if (data.pages && Array.isArray(data.pages)) {
+          pages.value = data.pages
+        } else {
+          // 兼容旧数据结构
+          pages.value = [{ id: 1, results: data.results || [] }]
+        }
+        // 修复活动页索引
+        activePageIndex.value = 0
+        activePageName.value = String(pages.value[0]?.id || 1)
 
         // 恢复 API 配置（如果当前没有配置）
         if (data.apiConfig && (!apiConfig.value || !apiConfig.value.pipeId)) {
@@ -401,38 +451,42 @@ const loadTestResults = () => {
           console.log('[恢复轮询] 恢复 API 配置:', apiConfig.value)
         }
 
-        if (testResults.value.length > 0) {
+        const totalRecords = pages.value.reduce((n, p) => n + p.results.length, 0)
+        if (totalRecords > 0) {
           // 更新完成数量
-          completedCount.value = testResults.value.filter(
+          completedCount.value = currentResults.value.filter(
             r => r.status === 'success' || r.status === 'error'
           ).length
-          totalCount.value = testResults.value.length
+          totalCount.value = currentResults.value.length
 
           // 检查是否有进行中的任务需要恢复轮询
           // 只恢复1小时内的任务，超过1小时的任务可能已经失效
           const oneHourAgo = Date.now() - 60 * 60 * 1000
           const pendingTests = []
 
-          testResults.value.forEach(r => {
-            if (r.status === 'pending' && r.taskId) {
-              // 如果有记录创建时间，检查是否超过1小时
-              const taskTime = parseInt(r.id.split('_')[0]) || Date.now()
-              if (taskTime > oneHourAgo) {
-                pendingTests.push(r)
-              } else {
-                // 超过1小时的任务标记为超时失败
-                r.status = 'error'
-                r.error = '任务已超时（超过1小时未完成）'
-                completedCount.value++
-                console.log(`[恢复轮询] 任务 ${r.taskId} 已超时，标记为失败`)
+          // 遍历所有页寻找进行中任务
+          pages.value.forEach(page => {
+            page.results.forEach(r => {
+              if (r.status === 'pending' && r.taskId) {
+                // 如果有记录创建时间，检查是否超过1小时
+                const taskTime = parseInt(r.id.split('_')[0]) || Date.now()
+                if (taskTime > oneHourAgo) {
+                  pendingTests.push(r)
+                } else {
+                  // 超过1小时的任务标记为超时失败
+                  r.status = 'error'
+                  r.error = '任务已超时（超过1小时未完成）'
+                  completedCount.value++
+                  console.log(`[恢复轮询] 任务 ${r.taskId} 已超时，标记为失败`)
+                }
               }
-            }
+            })
           })
 
           if (pendingTests.length > 0 && apiConfig.value && apiConfig.value.pipeId) {
             console.log(`[恢复轮询] 发现 ${pendingTests.length} 个进行中的任务`)
             testing.value = true
-            sentCount.value = testResults.value.filter(r => r.taskId).length
+            sentCount.value = currentResults.value.filter(r => r.taskId).length
 
             // 恢复每个进行中任务的轮询
             pendingTests.forEach(result => {
@@ -459,14 +513,14 @@ const loadTestResults = () => {
 
             ElNotification({
               title: '已恢复历史测试',
-              message: `加载了 ${testResults.value.length} 条记录，其中 ${pendingTests.length} 个任务正在继续执行`,
+              message: `加载了 ${pages.value.reduce((n,p)=>n+p.results.length,0)} 条记录，其中 ${pendingTests.length} 个任务正在继续执行`,
               type: 'info',
               duration: 5000
             })
           } else {
             ElNotification({
               title: '已恢复历史测试结果',
-              message: `加载了 ${testResults.value.length} 条历史测试记录`,
+              message: `加载了 ${pages.value.reduce((n,p)=>n+p.results.length,0)} 条历史测试记录`,
               type: 'success',
               duration: 3000
             })
@@ -480,11 +534,76 @@ const loadTestResults = () => {
 }
 
 // 监听测试结果变化，自动保存
-watch(testResults, () => {
-  if (testResults.value.length > 0) {
+watch(pages, () => {
+  if (pages.value.reduce((n,p)=>n+p.results.length,0) > 0) {
     saveTestResults()
   }
 }, { deep: true })
+
+// 页签交互
+const addNewPage = () => {
+  const newId = (pages.value.at(-1)?.id || pages.value.length) + 1
+  pages.value.push({ id: newId, results: [] })
+  activePageIndex.value = pages.value.length - 1
+  activePageName.value = String(newId)
+}
+
+const onTabClick = (pane) => {
+  const name = pane.paneName
+  const idx = pages.value.findIndex(p => String(p.id) === String(name))
+  if (idx >= 0) {
+    activePageIndex.value = idx
+    activePageName.value = String(pages.value[idx].id)
+    // 切换页时刷新统计
+    completedCount.value = currentResults.value.filter(r => r.status === 'success' || r.status === 'error').length
+    totalCount.value = currentResults.value.length
+  }
+}
+
+// 删除当前页
+const deleteActivePage = async () => {
+  const page = pages.value[activePageIndex.value]
+  if (!page) return
+  const pendingCount = page.results.filter(r => r.status === 'pending').length
+  const label = `第${activePageIndex.value + 1}页`
+  try {
+    await ElMessageBox.confirm(
+      pendingCount > 0
+        ? `该页存在 ${pendingCount} 个进行中的任务，删除将无法继续跟踪其结果。请稍后再试。`
+        : `确认删除${label}？此操作不可恢复。`,
+      '删除当前页',
+      { type: 'warning', confirmButtonText: '删除', cancelButtonText: '取消' }
+    )
+  } catch {
+    return
+  }
+
+  if (pendingCount > 0) {
+    ElMessage.warning('当前页存在进行中的任务，暂不支持删除。')
+    return
+  }
+
+  // 执行删除
+  pages.value.splice(activePageIndex.value, 1)
+
+  // 保证至少有一页
+  if (pages.value.length === 0) {
+    const newId = 1
+    pages.value.push({ id: newId, results: [] })
+    activePageIndex.value = 0
+    activePageName.value = String(newId)
+  } else {
+    const newIndex = Math.min(activePageIndex.value, pages.value.length - 1)
+    activePageIndex.value = newIndex
+    activePageName.value = String(pages.value[newIndex].id)
+  }
+
+  // 刷新统计
+  completedCount.value = currentResults.value.filter(r => r.status === 'success' || r.status === 'error').length
+  totalCount.value = currentResults.value.length
+
+  ElMessage.success('已删除当前页')
+}
 
 // 组件挂载时加载测试结果
 onMounted(() => {

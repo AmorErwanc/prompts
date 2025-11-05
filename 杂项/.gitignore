@@ -1,9 +1,0 @@
-
-# 输出目录（文件较大，不提交到版本库）
-markdown_outputs/
-markdown_outputs_非脱敏/
-markdown_outputs_脱敏/
-
-# 原始数据目录（不提交到版本库）
-对话数据导出/
-对话数据导出_脱敏版/
