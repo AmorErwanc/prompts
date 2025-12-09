@@ -2,8 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(python3:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(cat:*)",
+      "WebFetch(domain:github.com)"
     ]
   },
-  "outputStyle": "Explanatory"
+  "enabledMcpjsonServers": [
+    "memmachine"
+  ],
+  "outputStyle": "Explanatory",
+  "enableAllProjectMcpServers": true
 }
