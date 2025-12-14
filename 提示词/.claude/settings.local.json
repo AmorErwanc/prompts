@@ -4,12 +4,14 @@
       "Bash(python3:*)",
       "Bash(git add:*)",
       "Bash(cat:*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "memmachine"
   ],
-  "outputStyle": "Explanatory",
-  "enableAllProjectMcpServers": true
+  "outputStyle": "Explanatory"
 }
