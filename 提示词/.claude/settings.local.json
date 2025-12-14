@@ -6,7 +6,13 @@
       "Bash(cat:*)",
       "WebFetch(domain:github.com)",
       "Bash(git rm:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(if [ -f .gitignore ])",
+      "Bash(then cat .gitignore)",
+      "Bash(else echo \".gitignore文件不存在，将创建新文件\")",
+      "Bash(fi:*)",
+      "Bash(git push)"
     ]
   },
   "enableAllProjectMcpServers": true,
