@@ -1,17 +1,24 @@
 {
   "permissions": {
     "allow": [
-      "mcp__n8n-mcp__n8n_get_workflow",
+      "Bash(python3:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "mcp__n8n-mcp__tools_documentation",
-      "mcp__n8n-mcp__search_nodes",
-      "mcp__n8n-mcp__get_node_essentials",
       "Bash(cat:*)",
-      "Bash(git push:*)",
-      "Bash(python:*)",
-      "mcp__zen__chat"
-    ],
-    "deny": []
-  }
+      "WebFetch(domain:github.com)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(if [ -f .gitignore ])",
+      "Bash(then cat .gitignore)",
+      "Bash(else echo \".gitignore文件不存在，将创建新文件\")",
+      "Bash(fi:*)",
+      "Bash(git push)",
+      "Bash(git rev-parse:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "memmachine"
+  ],
+  "outputStyle": "Explanatory"
 }
