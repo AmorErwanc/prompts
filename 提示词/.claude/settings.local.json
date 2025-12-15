@@ -12,7 +12,8 @@
       "Bash(then cat .gitignore)",
       "Bash(else echo \".gitignore文件不存在，将创建新文件\")",
       "Bash(fi:*)",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(git rev-parse:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
