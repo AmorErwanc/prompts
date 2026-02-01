@@ -1,0 +1,125 @@
+// N8N Code 节点 - v9 JSON (English keys) -> Image prompt Markdown (one object per comic)
+// 目标：每张漫画 = 一张图（整页多格），你们后续把 markdown 当作 prompt 丢给生图模型
+//
+// 输入：JSON 数据（结构化输出）
+// 输出：多个对象，每个 comic 一个：{ comic_index, markdown }
+
+// ===== 在这里填写你的值 =====
+const raw = $('结构化输出1').first().json.output; // 你的 JSON 来源（可能是对象，也可能是 JSON 字符串）
+
+// 这里放“写死的通用规则”，每张图片都一样就写在这里
+const presetContent = `
+# Comic Requirements
+## Text Requirements
+- Speech bubble text must be Simplified Chinese only
+## Strictly follow [Comic Requirements]; do not add any extra content
+
+# Image Rules
+- Generate one single full-page multi-panel comic image; do not use any images I did not provide
+- Panel borders clear, gutters consistent, readable layout
+- Keep character design consistent across all panels (face/outfit/hair/body proportions)
+- Speech bubble text must be Simplified Chinese
+- Do NOT add any extra text (no watermark, no title, no subtitles, no English UI text)
+- Do NOT include "角色名：对白" as bubble text prefix
+- Place bubbles so they do not cover faces or key actions
+`.trim();
+// ===========================
+
+// raw 可能是对象，也可能是字符串
+const jsonData = typeof raw === 'string' ? JSON.parse(raw) : raw;
+
+const asArray = (v) => (Array.isArray(v) ? v : []);
+const safeStr = (v) => (typeof v === 'string' ? v : (v == null ? '' : String(v)));
+
+// 公共部分（对每一页都相同）
+let commonPart = '';
+if (presetContent) commonPart += `${presetContent}\n\n`;
+
+// Entities (helps consistency: make the model remember who/what "img X" is)
+if (asArray(jsonData.entities).length > 0) {
+  commonPart += `# Entities (reference, do not render as bubble text)\n`;
+  asArray(jsonData.entities).forEach((item, index) => {
+    const type = safeStr(item.type);
+    const name = safeStr(item.name);
+    const imageRef = safeStr(item.image_ref);
+    // image_ref is optional; omit it when missing to avoid misleading mappings
+    commonPart += imageRef
+      ? `- (${index + 1}) ${type}: ${name} => ${imageRef}\n`
+      : `- (${index + 1}) ${type}: ${name}\n`;
+  });
+  commonPart += `\n`;
+}
+
+// One output object per comic
+const results = [];
+
+for (const comic of asArray(jsonData.comics)) {
+  const panels = asArray(comic.panels);
+
+  const comicIndex = comic?.comic_index ?? '';
+  const layoutName = safeStr(comic.layout_name);
+  const pageLayout = safeStr(comic.page_layout);
+  const comicStyleHint = safeStr(comic.style_hint);
+
+  let markdown = commonPart;
+
+  markdown += `# Page\n`;
+  if (layoutName) markdown += `- Layout Name: ${layoutName}\n`;
+  if (pageLayout) markdown += `- Page Layout: ${pageLayout}\n`;
+  if (comicStyleHint) markdown += `- Style Hint (per-comic): ${comicStyleHint}\n`;
+  markdown += `\n`;
+
+  markdown += `# Panels (fill in reading order)\n`;
+
+  // Sort by panel_index to avoid disorder
+  const sortedPanels = [...panels].sort((a, b) => {
+    const ai = Number(a?.panel_index ?? 0);
+    const bi = Number(b?.panel_index ?? 0);
+    return ai - bi;
+  });
+
+  for (const panel of sortedPanels) {
+    const panelIndex = safeStr(panel.panel_index);
+    const anchor = safeStr(panel.panel_anchor);
+    const location = safeStr(panel.location);
+    const panelDesc = safeStr(panel.panel_desc);
+
+    markdown += `## Panel ${panelIndex}\n`;
+    if (anchor) markdown += `- Anchor: ${anchor}\n`;
+    if (location) markdown += `- Location: ${location}\n`;
+    if (panelDesc) markdown += `- Visual Instruction: ${panelDesc}\n`;
+
+    // Optional: negative prompt
+    const negativePrompt = safeStr(panel.negative_prompt);
+    if (negativePrompt) markdown += `- Negative Prompt: ${negativePrompt}\n`;
+
+    // Bubble text: only output the text, never "speaker: text"
+    const bubbles = asArray(panel.bubble_text);
+    if (bubbles.length > 0) {
+      markdown += `- Bubble Text (verbatim, no speaker prefix):\n`;
+      for (const b of bubbles) {
+        const text = safeStr(b?.text);
+        if (text) markdown += `  - ${text}\n`;
+      }
+    } else {
+      markdown += `- Bubble Text: none\n`;
+    }
+
+    // Speakers are for validation only; do not render into bubbles
+    const speakers = bubbles.map((b) => safeStr(b?.speaker)).filter(Boolean);
+    if (speakers.length > 0) {
+      markdown += `- Speakers (validation only): ${speakers.join(', ')}\n`;
+    }
+
+    markdown += `\n`;
+  }
+
+  results.push({
+    json: {
+      comic_index: comicIndex,
+      markdown: markdown.trim()
+    }
+  });
+}
+
+return results;
